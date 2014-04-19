@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Параметры доставки</title>
+    <script src="//api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+    <script src="./helper.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+<table style="width:300px">
+    <tr>
+        <td>Откуда</td>
+        <td>Куда</td>
+    </tr>
+    <tr>
+        <td><input type="text" id="fromText" value=""/></td>
+        <td><input type="text" id="toText" value=""/></td>
+    </tr>
+</table>
+
+<div>
+    <u>Сумма</u>
+</div>
+
+<div>
+    <input type="button" id="orderButton" value="Заказать"/>
+    <div id="map" style="width:800px; height:600px"></div>
+</div>
+
+</body>
+
+</html>
