@@ -17,10 +17,5 @@ function init () {
         // используем для заказа доставки
         window.location = 'payment.html'
     };
-
-    document.getElementById('payButton').onclick = function () {
-        // используем для перехода к оплате платежной системой
-
-    };
 }
 

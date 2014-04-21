@@ -1,9 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>123</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Доставка</title>
+    <script src="js/payment.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-123123
+<table style="width:300px">
+    <tr>
+        <td>Количество пассажиров</td>
+        <td><input type="text" id="passCountText" value=""/></td>
+    </tr>
+    <tr>
+        <td>Номер рейса</td>
+        <td><input type="text" id="flightNumberText" value=""/></td>
+    </tr>
+    <tr>
+        <td>Дата и время прилета</td>
+        <td><input type="text" id="arrivalDateText" value=""/></td>
+    </tr>
+    <tr>
+        <td>Имя</td>
+        <td><input type="text" id="NameText" value=""/></td>
+    </tr>
+    <tr>
+        <td>Мобильный телефон</td>
+        <td><input type="text" id="soNameText" value=""/></td>
+    </tr>
+    <tr>
+        <td>Примечание</td>
+        <td><input type="text" id="commentText" value=""/></td>
+    </tr>
+    <tr>
+        <td>Надпись на табличке</td>
+        <td><input type="text" id="tablePrintText" value=""/></td>
+    </tr>
+</table>
+
+<input type="button" id="payButton" value="Перейти к оплате" onclick="payment()"/>
+
 </body>
 </html>
