@@ -6,8 +6,8 @@ label{
 }
 u{
     font-size:120%;
-    text-align: right;
     text-decoration: double;
+    text-align: right;
 }
 p{
     font-size:120%;
@@ -24,7 +24,7 @@ input[type=text] {
     color:#08233e;
     font:2.4em Futura, AppleGothic, sans-serif;
     font-size:120%;
-    min-width: 500px;
+    min-width: 350px;
 }
 
 /* ... стиль для кнопок ... */
