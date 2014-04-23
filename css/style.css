@@ -1,4 +1,41 @@
-.underline {
-    text-decoration: underline;
+/* ... стиль для надписей ... */
+label{
+    font-size:110%;
+    background-color:rgba(0,0,155,0.05);
+    text-wrap: none;
+}
+u{
+    font-size:120%;
+    text-align: right;
+    text-decoration: double;
+}
+p{
+    font-size:120%;
+    font-style: oblique;
 }
 
+/* ... стиль для таблиц ... */
+td{
+    min-width: 200px;
+}
+
+/* ... стиль для текстовых полей ... */
+input[type=text] {
+    color:#08233e;
+    font:2.4em Futura, AppleGothic, sans-serif;
+    font-size:120%;
+    min-width: 500px;
+}
+
+/* ... стиль для кнопок ... */
+input[type=button] {
+    color:#08233e;
+    font:2.4em Futura, AppleGothic, sans-serif;
+    font-size:120%;
+    cursor:pointer;
+    background-color:rgba(0,0,155,0.05);
+}
+
+input[type=button]:hover {
+    background-color:rgba(255,204,0,0.8);
+}
