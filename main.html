@@ -6,7 +6,9 @@
     <script src="//api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
     <script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
     <script src="js/map.js" type="text/javascript"></script>
+    <script src="js/search.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/titleicon.ico">
 </head>
 
 <body>
@@ -16,13 +18,17 @@
         <td><label>Куда</label></td>
     </tr>
     <tr>
-        <td><input type="text" id="fromText" value="Москва"/></td>
-        <td><input type="text" id="toText" value="Тула"/></td>
-        <td><input type="button" id="routeButton" value="Построить маршрут" onclick="route()"/><td>
+        <td><input type="text" id="fromText" value="Москва, аэропорт Внуково"/></td>
+        <td><input type="text" id="toText" value=""/></td>
+        <td><input type="button" id="routeButton" value="Построить маршрут" onclick="makeRoute()"></td>
     </tr>
     <tr>
+    <tr>
+        <td></td>
+        <td><ul id="search_suggestion"></ul></td>
+    </tr>
         <td><u>Сумма</u> </td>
-        <td><p style="text-align: right">100.00р</p></td>
+        <td><p style="text-align: right">0.00р</p></td>
     </tr>
 </table>
 <div>

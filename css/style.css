@@ -1,7 +1,7 @@
 /* ... стиль для надписей ... */
 label{
-    font-size:110%;
-    background-color:rgba(0,0,155,0.05);
+    font-size:120%;
+    background-color:rgba(0,0,155,0.03);
     text-wrap: none;
 }
 u{
@@ -38,4 +38,43 @@ input[type=button] {
 
 input[type=button]:hover {
     background-color:rgba(255,204,0,0.8);
+}
+
+/* ... стиль для элементов происка ... */
+#search_suggestion {
+    z-index: 10;
+    border: 0px solid gray;
+    margin:0;
+    list-style:none;
+    padding:0;
+    border-radius:3px;
+    background:#fffffa;
+    background:-moz-linear-gradient(top, #fffffa 0%,#f8f8f0 100%);
+}
+#search_suggestion li {
+/*position:relative; */
+    margin:0;
+    padding:3px 90px 3px 7px;
+    font:12px Tahoma,sans-serif;
+}
+#search_suggestion i {
+    position:absolute;
+    right:0px;
+    padding:1px 7px;
+}
+#search_suggestion li.active {
+    background:#fff0e8;
+    text-decoration:underline;
+}
+#search_suggestion li a {
+    color: black;
+    text-decoration:none;
+}
+#search_suggestion li a:hover {
+    color: #ff4000;
+    text-decoration:underline;
+}
+.item_price {
+    background:transparent;
+    border:none;
 }

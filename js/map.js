@@ -1,12 +1,14 @@
 // Дождёмся загрузки API и готовности DOM.
 ymaps.ready(init);
+
+// инициализация переменных
 var myMap;
+var myCollection;
 
 function init () {
     var myPlacemark;
     myMap = new ymaps.Map('map', {
-        // При инициализации карты обязательно нужно указать
-        // её центр и коэффициент масштабирования.
+        // указываем центр и масштаб карты
         center:[55.76, 37.64], // Москва
         zoom:11,
         behaviors: ['default', 'scrollZoom']
@@ -56,25 +58,39 @@ function init () {
         });
     }
 
+    // нажимаем на кнопку "Заказать"
     document.getElementById('orderButton').onclick = function () {
         // используем для заказа доставки
         window.location = 'payment.html'
     };
+
+    // обрабатываем нажатие на кнопку "Enter" (строим маршрут)
+    document.getElementById('fromText').onkeyup = function (event) {
+        if (event.keyCode == 13) {
+            $("#routeButton").click();
+        }
+    };
+    document.getElementById('toText').onkeyup = function (event) {
+        if (event.keyCode == 13) {
+            $("#routeButton").click();
+        }
+    };
 }
 
-var route1;
+// функция построения марштура от точки А к точке В
+function makeRoute() {
 
-function route() {
-
+    //myMap.geoObjects.empty();
     // очистим сперва предущие маршруты
-    //if (route1 != null) myMap.geoObjects.remove(route1);
+    //if (route1 != null)
+    //    myMap.geoObjects.removeAllRanges();
     //route = null;
 
     // откуда и куда
     var fromAddress = document.getElementById('fromText').value;
     var toAddress = document.getElementById('toText').value;
 
-    route1 = [
+    var route1 = [
         fromAddress,
         toAddress
     ];
@@ -85,11 +101,17 @@ function route() {
             mapStateAutoApply: true
         }
         ).then(function (route) {
-            myMap.geoObjects.add(route);
+
+            // удалим предыдущий маршрут, если етсь
+            if (myCollection != null)
+                myMap.geoObjects.remove(myCollection);
+
+            // добавим марштрут
+            myCollection = new ymaps.GeoObjectCollection();
+            myCollection.add(route);
+            myMap.geoObjects.add(myCollection);
 
             // Зададим содержание иконок начальной и конечной точкам маршрута.
-            // С помощью метода getWayPoints() получаем массив точек маршрута.
-            // Массив транзитных точек маршрута можно получить с помощью метода getViaPoints.
             var points = route.getWayPoints(),
                 lastPoint = points.getLength() - 1;
             // Задаем стиль метки - иконки будут красного цвета, и
@@ -99,32 +121,6 @@ function route() {
             points.get(0).properties.set('iconContent', fromAddress);
             points.get(lastPoint).properties.set('iconContent', toAddress);
 
-            // Проанализируем маршрут по сегментам.
-            // Сегмент - участок маршрута, который нужно проехать до следующего
-            // изменения направления движения.
-            // Для того, чтобы получить сегменты маршрута, сначала необходимо получить
-            // отдельно каждый путь маршрута.
-            // Весь маршрут делится на два пути:
-            // 1) от улицы Крылатские холмы до станции "Кунцевская";
-            // 2) от станции "Кунцевская" до "Пионерская".
-
-            var moveList = 'Трогаемся,</br>',
-                way,
-                segments;
-            // Получаем массив путей.
-            for (var i = 0; i < route.getPaths().getLength(); i++) {
-                way = route.getPaths().get(i);
-                segments = way.getSegments();
-                for (var j = 0; j < segments.length; j++) {
-                    var street = segments[j].getStreet();
-                    moveList += ('Едем ' + segments[j].getHumanAction() + (street ? ' на ' + street : '') + ', проезжаем ' + segments[j].getLength() + ' м.,');
-                    moveList += '</br>'
-                }
-            }
-            moveList += 'Останавливаемся.';
-            // Выводим маршрутный лист.
-            $('#list').empty();
-            $('#list').append(moveList);
         }, function (error) {
             alert('Возникла ошибка: ' + error.message);
         });
