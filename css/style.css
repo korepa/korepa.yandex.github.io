@@ -1,7 +1,6 @@
 /* ... стиль для надписей ... */
 label{
     font-size:120%;
-    background-color:rgba(0,0,155,0.03);
     text-wrap: none;
 }
 u{
@@ -12,6 +11,7 @@ u{
 p{
     font-size:120%;
     font-style: oblique;
+    vertical-align: middle;
 }
 
 /* ... стиль для таблиц ... */
@@ -23,7 +23,7 @@ td{
 input[type=text] {
     color:#08233e;
     font:2.4em Futura, AppleGothic, sans-serif;
-    font-size:120%;
+    font-size:100%;
     min-width: 350px;
 }
 
@@ -37,7 +37,12 @@ input[type=button] {
 }
 
 input[type=button]:hover {
-    background-color:rgba(255,204,0,0.8);
+    background-color:rgba(0,0,200,0.15);
+}
+
+input[type=button]:disabled {
+    background-color:rgba(200,200,200,0.05);
+    color: rgba(200,200,200,0.5);
 }
 
 /* ... стиль для элементов происка ... */

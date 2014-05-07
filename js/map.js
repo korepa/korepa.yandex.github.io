@@ -11,7 +11,7 @@ function init () {
         // указываем центр и масштаб карты
         center:[55.76, 37.64], // Москва
         zoom:11,
-        behaviors: ['default', 'scrollZoom']
+        controls: ['smallMapDefaultSet']
     });
 
     // Слушаем клик на карте
@@ -39,7 +39,7 @@ function init () {
         return new ymaps.Placemark(coords, {
             iconContent: 'поиск...'
         }, {
-            preset: 'twirl#violetStretchyIcon',
+            preset: 'islands#violetStretchyIcon',
             draggable: true
         });
     }
@@ -60,19 +60,27 @@ function init () {
 
     // нажимаем на кнопку "Заказать"
     document.getElementById('orderButton').onclick = function () {
+        // находим параметры для передачи
+        var fromAddress = document.getElementById('fromText').value;
+        var toAddress = document.getElementById('toText').value;
         // используем для заказа доставки
-        window.location = 'payment.html'
+        var newLocation = 'payment.html?';
+        newLocation += 'from=' + encodeURIComponent(fromAddress) + '&';
+        newLocation += 'to=' + encodeURIComponent(toAddress);
+        window.location = newLocation;
     };
 
     // обрабатываем нажатие на кнопку "Enter" (строим маршрут)
     document.getElementById('fromText').onkeyup = function (event) {
         if (event.keyCode == 13) {
-            $("#routeButton").click();
+            if ($("#routeButton").disabled === false)
+                $("#routeButton").click();
         }
     };
     document.getElementById('toText').onkeyup = function (event) {
         if (event.keyCode == 13) {
-            $("#routeButton").click();
+            if ($("#routeButton").disabled === false)
+                $("#routeButton").click();
         }
     };
 }
@@ -116,7 +124,7 @@ function makeRoute() {
                 lastPoint = points.getLength() - 1;
             // Задаем стиль метки - иконки будут красного цвета, и
             // их изображения будут растягиваться под контент.
-            points.options.set('preset', 'twirl#redStretchyIcon');
+            points.options.set('preset', 'islands#blueStretchyIcon');
             // Задаем контент меток в начальной и конечной точках.
             points.get(0).properties.set('iconContent', fromAddress);
             points.get(lastPoint).properties.set('iconContent', toAddress);
