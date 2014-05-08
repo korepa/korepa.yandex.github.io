@@ -12,6 +12,6 @@ function payment() {
 
 function paymentBack() {
     // оплатили! успех
-    window.location = 'main.html'
+    window.location = 'index.html'
 }
 
