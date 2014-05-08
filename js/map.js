@@ -85,6 +85,7 @@ function init () {
     };
 }
 
+
 // функция построения марштура от точки А к точке В
 function makeRoute() {
 
