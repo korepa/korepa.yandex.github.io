@@ -1,3 +1,5 @@
+// набор функции для поддержки подсказок поиска адреса
+
 var suggest_count=0;
 var suggest_selected=0;
 var input_initial_value='';

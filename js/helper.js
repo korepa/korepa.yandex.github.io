@@ -1,3 +1,4 @@
+// функия для обработки параметров строки в HTML
 function parseUrlQuery() {
     var data = {};
     if(location.search) {

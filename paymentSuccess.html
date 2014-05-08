@@ -8,18 +8,39 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="shortcut icon" type="image/x-icon" href="images/paymentsuccess.ico">
 </head>
-<body>
+<body onload="loadPaymentSuccess()">
 <label style="margin-left: 3px;font-weight: bold;">Оплата проведена успешно!</label>
 <p></p>
 <label style="font-weight: bold; background-color:rgba(0,0,0,0.00);">Информация о заказе:</label>
-<table>
+<p></p>
+<table style="width:300px">
     <tr>
-        <td><label>11111</label></td>
-        <td><label>11111</label></td>
+        <td><label style="font-weight: bold; font-size: 100%;">Количество пассажиров:</label></td>
+        <td><label type="text" id="passCountLabel" value=""/></td>
     </tr>
     <tr>
-        <td><label>22222</label></td>
-        <td><label>22222</label></td>
+        <td><label style="font-weight: bold; font-size: 100%;">Номер рейса:</label></td>
+        <td><label type="text" id="flightNumberLabel" value=""/></td>
+    </tr>
+    <tr>
+        <td><label style="font-weight: bold; font-size: 100%;">Дата и время прилета:</label></td>
+        <td><label type="text" id="arrivalDateLabel" value=""/></td>
+    </tr>
+    <tr>
+        <td><label style="font-weight: bold; font-size: 100%;">Имя:</label></td>
+        <td><label type="text" id="nameLabel" value=""/></td>
+    </tr>
+    <tr>
+        <td><label style="font-weight: bold; font-size: 100%;">Мобильный телефон:</label></td>
+        <td><label type="text" id="soNameLabel" value=""/></td>
+    </tr>
+    <tr>
+        <td><label style="font-weight: bold; font-size: 100%;">Примечание:</label></td>
+        <td><label type="text" id="commentLabel" value=""/></td>
+    </tr>
+    <tr>
+        <td><label style="font-weight: bold; font-size: 100%;">Надпись на табличке:</label></td>
+        <td><label type="text" id="tablePrintLabel" value=""/></td>
     </tr>
 </table>
 <p></p>

@@ -58,18 +58,6 @@ function init () {
         });
     }
 
-    // нажимаем на кнопку "Заказать"
-    document.getElementById('orderButton').onclick = function () {
-        // находим параметры для передачи
-        var fromAddress = document.getElementById('fromText').value;
-        var toAddress = document.getElementById('toText').value;
-        // используем для заказа доставки
-        var newLocation = 'payment.html?';
-        newLocation += 'from=' + encodeURIComponent(fromAddress) + '&';
-        newLocation += 'to=' + encodeURIComponent(toAddress);
-        window.location = newLocation;
-    };
-
     // обрабатываем нажатие на кнопку "Enter" (строим маршрут)
     document.getElementById('fromText').onkeyup = function (event) {
         if (event.keyCode == 13) {
@@ -85,16 +73,8 @@ function init () {
     };
 }
 
-
 // функция построения марштура от точки А к точке В
 function makeRoute() {
-
-    //myMap.geoObjects.empty();
-    // очистим сперва предущие маршруты
-    //if (route1 != null)
-    //    myMap.geoObjects.removeAllRanges();
-    //route = null;
-
     // откуда и куда
     var fromAddress = document.getElementById('fromText').value;
     var toAddress = document.getElementById('toText').value;
