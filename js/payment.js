@@ -3,6 +3,14 @@ function loadPayment() {
     var from = decodeURIComponent(parseUrlQuery()['from']);
     var to = decodeURIComponent(parseUrlQuery()['to']);
     document.getElementById("routeLabel").innerHTML += '(' + from + ' - ' + to + ')';
+
+    // обрабатываем ввод текста (активируем кнопку оплаты)
+    document.getElementById('nameText').onkeyup = function (event) {
+        if (document.getElementById('nameText').value != "")
+            document.getElementById('payButton').disabled = false;
+        else
+            document.getElementById('payButton').disabled = true;
+    };
 }
 
 function loadPaymentSuccess() {
