@@ -14,49 +14,53 @@ function init () {
         controls: ['smallMapDefaultSet']
     });
 
+    // загрузим модули для метро
+    ymaps.load(["metro"], loadModules);
+
+// закомментировали поиск места на карте по клику
     // Слушаем клик на карте
-    myMap.events.add('click', function (e) {
-        var coords = e.get('coords');
-
-        // Если метка уже создана – просто передвигаем ее
-        if(myPlacemark) {
-            myPlacemark.geometry.setCoordinates(coords);
-        }
-        // Если нет – создаем.
-        else {
-            myPlacemark = createPlacemark(coords);
-            myMap.geoObjects.add(myPlacemark);
-            // Слушаем событие окончания перетаскивания на метке.
-            myPlacemark.events.add('dragend', function () {
-                getAddress(myPlacemark.geometry.getCoordinates());
-            });
-        }
-        getAddress(coords);
-    });
-
-    // Создание метки
-    function createPlacemark(coords) {
-        return new ymaps.Placemark(coords, {
-            iconContent: 'поиск...'
-        }, {
-            preset: 'islands#violetStretchyIcon',
-            draggable: true
-        });
-    }
-
-    // Определяем адрес по координатам (обратное геокодирование)
-    function getAddress(coords) {
-        myPlacemark.properties.set('iconContent', 'поиск...');
-        ymaps.geocode(coords).then(function (res) {
-            var firstGeoObject = res.geoObjects.get(0);
-
-            myPlacemark.properties
-                .set({
-                    iconContent: firstGeoObject.properties.get('name'),
-                    balloonContent: firstGeoObject.properties.get('text')
-                })
-        });
-    }
+//    myMap.events.add('click', function (e) {
+//        var coords = e.get('coords');
+//
+//        // Если метка уже создана – просто передвигаем ее
+//        if(myPlacemark) {
+//            myPlacemark.geometry.setCoordinates(coords);
+//        }
+//        // Если нет – создаем.
+//        else {
+//            myPlacemark = createPlacemark(coords);
+//            myMap.geoObjects.add(myPlacemark);
+//            // Слушаем событие окончания перетаскивания на метке.
+//            myPlacemark.events.add('dragend', function () {
+//                getAddress(myPlacemark.geometry.getCoordinates());
+//            });
+//        }
+//        getAddress(coords);
+//    });
+//
+//    // Создание метки
+//    function createPlacemark(coords) {
+//        return new ymaps.Placemark(coords, {
+//            iconContent: 'поиск...'
+//        }, {
+//            preset: 'islands#violetStretchyIcon',
+//            draggable: true
+//        });
+//    }
+//
+//    // Определяем адрес по координатам (обратное геокодирование)
+//    function getAddress(coords) {
+//        myPlacemark.properties.set('iconContent', 'поиск...');
+//        ymaps.geocode(coords).then(function (res) {
+//            var firstGeoObject = res.geoObjects.get(0);
+//
+//            myPlacemark.properties
+//                .set({
+//                    iconContent: firstGeoObject.properties.get('name'),
+//                    balloonContent: firstGeoObject.properties.get('text')
+//                })
+//        });
+//    }
 
     // обрабатываем нажатие на кнопку "Enter" (строим маршрут)
     document.getElementById('fromText').onkeyup = function (event) {
@@ -88,17 +92,16 @@ function makeRoute() {
         {
             // Автоматически позиционировать карту.
             mapStateAutoApply: true
-        }
-        ).then(function (route) {
-
-            // удалим предыдущий маршрут, если етсь
+        })
+        .then(function (route) {
+            // удалим предыдущий маршрут и метки метро, если есть
             if (myCollection != null)
+            {
                 myMap.geoObjects.remove(myCollection);
-
-            // добавим марштрут
+            }
+            // добавим маршрут
             myCollection = new ymaps.GeoObjectCollection();
             myCollection.add(route);
-            myMap.geoObjects.add(myCollection);
 
             // Зададим содержание иконок начальной и конечной точкам маршрута.
             var points = route.getWayPoints(),
@@ -110,8 +113,48 @@ function makeRoute() {
             points.get(0).properties.set('iconContent', fromAddress);
             points.get(lastPoint).properties.set('iconContent', toAddress);
 
+            // ищем ближайшее растояние до метро
+            ymaps.geocode(toAddress).then(function (res) {
+                var coords = res.geoObjects.get(0).geometry.getCoordinates();
+                // поиск станций метро
+                ymaps.geocode(coords, {
+                    kind: 'metro',
+                    results: 3
+                }).then(function(res) {
+                        if (res.geoObjects.getLength()) {
+                            for (var i = 0; i < res.geoObjects.getLength(); i ++)
+                            {
+                                // получим информацию о текущем метро
+                                var m = res.geoObjects.get(i);
+                                var mAllData = m.properties.getAll();
+                                var m_coords = m.geometry.getCoordinates();
+                                var dist0 = ymaps.coordSystem.geo.getDistance(coords, m_coords);
+                                var dist = ymaps.formatter.distance(dist0);
+
+                                // выведем иконку с расстоянием до метро
+                                var metroPlacemark = new ymaps.Placemark(m_coords, {
+                                    balloonContentHeader: mAllData.name,
+                                    balloonContentFooter: "Расстояние: " + dist,
+                                    hintContent: mAllData.name
+                                }, {
+                                    preset: 'islands#dotIcon',
+                                    iconColor: '#4d7198'
+                                });
+                                myCollection.add(metroPlacemark);
+                            }
+                            // добавим коллекцию на карту
+                            myMap.geoObjects.add(myCollection);
+                        }
+                    });
+            });
+
         }, function (error) {
             alert('Возникла ошибка: ' + error.message);
         });
+}
+
+// при загрузке модулей (колбэк)
+function loadModules() {
+    // ничего не делаем после загрузки модулей
 }
 

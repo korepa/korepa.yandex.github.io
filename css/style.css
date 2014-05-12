@@ -29,16 +29,13 @@ input[type=text] {
 
 /* ... стиль для кнопок ... */
 input[type=button] {
-    color:#08233e;
-    font:2.4em Futura, AppleGothic, sans-serif;
     font-size:120%;
     cursor:pointer;
-    background-color:rgba(0,0,155,0.05);
 }
 
 input[type=button]:hover {
-    background-color:rgba(0,0,200,0.15);
-}
+     background-color:rgba(0,0,200,0.15);
+ }
 
 input[type=button]:disabled {
     background-color:rgba(200,200,200,0.05);

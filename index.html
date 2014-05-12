@@ -3,15 +3,17 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Транфер</title>
-    <script src="//api-maps.yandex.ru/2.1/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+    <script src="//api-maps.yandex.ru/2.1/?load=package.full&modules=regions~metro&lang=ru-RU" type="text/javascript"></script>
     <script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
     <script src="js/map.js" type="text/javascript"></script>
     <script src="js/payment.js" type="text/javascript"></script>
     <script src="js/search.js" type="text/javascript"></script>
+    <script src="//yandex.st/bootstrap/2.3.2/js/bootstrap.min.js" type="text/javascript"></script>
+    <link href="//yandex.st/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="shortcut icon" type="image/x-icon" href="images/titleicon.ico">
 </head>
-<body>
+<body style="margin: 20px;">
 <label style="margin-left: 3px;font-weight: bold;">Введите параметры трансфера:</label>
 <p></p>
 <table style="width:300px">
@@ -20,9 +22,9 @@
         <td><label style="background-color:rgba(0,0,155,0.03);">Куда</label></td>
     </tr>
     <tr>
-        <td><input type="text" id="fromText" value="Москва, аэропорт Внуково" placeholder="Место отправления" style="font-size:120%;"/></td>
-        <td><input type="text" id="toText" value="" autocomplete="off" placeholder="Место назначения" style="font-size:120%;"/></td>
-        <td><input type="button" id="routeButton" value="Построить маршрут" onclick="makeRoute()" disabled="true"></td>
+        <td><input type="text" id="fromText" value="Россия, Москва, аэропорт Внуково" placeholder="Место отправления" style="font-size:120%;"/></td>
+        <td><input type="text" id="toText" value="" autocomplete="off" placeholder="Место назначения" style="font-size:120%; vertical-align: bottom;"/></td>
+        <td style="text-align:center; vertical-align:top;"><input type="button" id="routeButton" value="Построить маршрут" onclick="makeRoute()" disabled="true" style="margin-top: 2px;"></td>
     </tr>
     <tr>
         <td></td>
@@ -31,8 +33,9 @@
     <tr>
         <td></td>
         <td>
-            <label><u style="text-align: right; margin: 5px 0px;">Сумма</u></label>
-            <label style="float: right; font-size: 130%; font-weight: bold; margin: 5px 0px;">0.00р</label>
+            <p style="float: right; vertical-align: middle; font-size: 130%; font-weight: bold; margin: 5px 0px;">
+                <u style="text-align: right; font-size: 100%; color: darkgrey;">Сумма</u>   0.00р</p>
+
         </td>
     </tr>
     <tr>
@@ -42,7 +45,7 @@
 </table>
 <table>
     <tr>
-        <td><div id="map" style="width:915px; height:450px"></div></td>
+        <td><div id="map" style="width:917px; height:450px"></div></td>
         <td></td>
     </tr>
 </table>
