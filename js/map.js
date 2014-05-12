@@ -110,8 +110,10 @@ function makeRoute() {
             // их изображения будут растягиваться под контент.
             points.options.set('preset', 'islands#blueStretchyIcon');
             // Задаем контент меток в начальной и конечной точках.
-            points.get(0).properties.set('iconContent', fromAddress);
-            points.get(lastPoint).properties.set('iconContent', toAddress);
+            var fromShort = points.get(0).properties.get("GeocoderMetaData").AddressDetails.Country.AddressLine;
+            var toShort = points.get(lastPoint).properties.get("GeocoderMetaData").AddressDetails.Country.AddressLine;
+            points.get(0).properties.set('iconContent', '<b>От:</b> ' + fromShort);
+            points.get(lastPoint).properties.set('iconContent', '<b>До:</b> ' + toShort);
 
             // ищем ближайшее растояние до метро
             ymaps.geocode(toAddress).then(function (res) {
@@ -119,7 +121,7 @@ function makeRoute() {
                 // поиск станций метро
                 ymaps.geocode(coords, {
                     kind: 'metro',
-                    results: 3
+                    results: 1
                 }).then(function(res) {
                         if (res.geoObjects.getLength()) {
                             for (var i = 0; i < res.geoObjects.getLength(); i ++)
