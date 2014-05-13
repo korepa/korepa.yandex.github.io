@@ -108,7 +108,8 @@ function confirm_search(value){
     suggest_selected=0;
     suggest_count=0;
     $('#routeButton')[0].disabled = false;
-    $('#orderButton')[0].disabled = false;
+    $('#orderSection')[0].style.visibility = "collapse";
+    $('#orderButton')[0].style.visibility = "collapse";
 }
 
 function getDim(el){
@@ -145,7 +146,8 @@ function show_suggestion(res){
         suggest_count=0;
         $('#search_suggestion').hide();
         $('#routeButton')[0].disabled = true;
-        $('#orderButton')[0].disabled = true;
+        $('#orderSection')[0].style.visibility = "collapse";
+        $('#orderButton')[0].style.visibility = "collapse";
     }
 }
 
