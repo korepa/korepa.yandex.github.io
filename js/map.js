@@ -37,7 +37,7 @@ function init () {
 function makeRoute() {
     // откуда и куда
     var fromAddress = document.getElementById('fromText').value;
-    var toAddress = document.getElementById('toText').value;
+    var toAddress = document.getElementById('toText').value + ' ' + document.getElementById('toNumberText').value;
 
     var route1 = [
         fromAddress,
@@ -56,21 +56,26 @@ function makeRoute() {
             {
                 myMap.geoObjects.remove(myCollection);
             }
-            // объявим маршрут
+            // объявим новую коллекцию (инициализируем заново)
             myCollection = new ymaps.GeoObjectCollection();
-            myCollection.add(route);
 
             // Зададим содержание иконок начальной и конечной точкам маршрута.
             var points = route.getWayPoints(),
                 lastPoint = points.getLength() - 1;
-            // Задаем стиль метки - иконки будут красного цвета, и
-            // их изображения будут растягиваться под контент.
-            points.options.set('preset', 'islands#blueStretchyIcon');
+
             // Задаем контент меток в начальной и конечной точках.
-            var fromShort = points.get(0).properties.get("GeocoderMetaData").AddressDetails.Country.AddressLine;
-            var toShort = points.get(lastPoint).properties.get("GeocoderMetaData").AddressDetails.Country.AddressLine;
-            points.get(0).properties.set('iconContent', '<b>От:</b> ' + fromShort);
-            points.get(lastPoint).properties.set('iconContent', '<b>До:</b> ' + toShort);
+            var firstPoint = points.get(0);
+            var lastPoint = points.get(lastPoint);
+            var fromStreetName = firstPoint.properties.get("GeocoderMetaData").AddressDetails.Country.AddressLine;
+            var toStreetName = lastPoint.properties.get("GeocoderMetaData").AddressDetails.Country.AddressLine;
+            firstPoint.properties.set('iconContent', '<b>От:</b> ' + fromStreetName);
+            lastPoint.properties.set('iconContent', '<b>До:</b> ' + toStreetName);
+            firstPoint.options.set('preset', 'islands#redStretchyIcon');
+            lastPoint.options.set('preset', 'islands#redStretchyIcon');
+
+            // добавляем точки на карту
+            myCollection.add(firstPoint);
+            myCollection.add(lastPoint);
 
             // ищем ближайшее растояние до метро
             ymaps.geocode(toAddress).then(function (res) {
