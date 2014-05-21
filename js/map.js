@@ -29,29 +29,35 @@ function init () {
             makeRoute();
         }
     };
+    document.getElementById('toNumberText').onkeyup = function (event) {
+        if (document.getElementById('toText').value != "" && document.getElementById('toNumberText').value != "")
+        {
+            // автоматически строим мартшрут если введены числи [0..9] или буквы "c"/"к" или ENTER
+            makeRoute();
+        }
+    };
     document.getElementById('toNumberText').onkeypress = function (event) {
         if (document.getElementById('toText').value != "")
         {
             var numberLength = document.getElementById('toNumberText').value.length;
-            // запрещаем дальнейший ввод
-            if (numberLength >= 3) {
+            // запрещаем дальнейший ввод неверных символов
+            if (numberLength < 3                                    &&      /* количество символов не больше 3х */
+                (   event.keyCode >= 48 && event.keyCode <= 57 )    ||      /* числа 0...9 */
+                (   event.keyCode == 99                             ||      /* символ "с" en */
+                    event.keyCode == 107                            ||      /* символ "k" en */
+                    event.keyCode == 1089                           ||      /* символ "с" ru */
+                    event.keyCode == 1082 )                                 /* символ "к" ru */
+                ) {
+                // ОК, продолжаем дальше
+            }
+            else {
+                // просто блокируем
                 event.preventDefault();
             }
         }
         else {
             // просто блокируем
             event.preventDefault();
-        }
-
-    };
-    document.getElementById('toNumberText').onkeyup = function (event) {
-        if (document.getElementById('toText').value != "")
-        {
-            // автоматически строим мартшрут если введены числи [0..9] или ENTER
-            if ((event.keyCode == 13) ||
-                (event.keyCode >= 48 && event.keyCode <= 57)) {
-                makeRoute();
-            }
         }
     };
 }

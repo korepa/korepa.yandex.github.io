@@ -24,25 +24,8 @@ input[type=text] {
     color:#08233e;
     font:2.4em Futura, AppleGothic, sans-serif;
     font-size:100%;
-    min-width: 350px;
+    min-width: 330px;
 }
-
-/* ... стиль для кнопок ... */
-/*
-input[type=button] {
-    font-size:120%;
-    cursor:pointer;
-}
-
-input[type=button]:hover {
-     background-color:rgba(0,0,200,0.15);
- }
-
-input[type=button]:disabled {
-    background-color:rgba(200,200,200,0.05);
-    color: rgba(200,200,200,0.5);
-}
-*/
 
 /* ... стиль для элементов происка ... */
 #search_suggestion {
@@ -82,3 +65,107 @@ input[type=button]:disabled {
     background:transparent;
     border:none;
 }
+
+/* стиль кнопок ... */
+
+/* Синяя кнопка */
+.blueButtonClass {
+    -moz-box-shadow:inset 0px 0px 0px 1px #cae3fc;
+    -webkit-box-shadow:inset 0px 0px 0px 1px #cae3fc;
+    box-shadow:inset 0px 0px 0px 1px #cae3fc;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #4197ee) );
+    background:-moz-linear-gradient( center top, #79bbff 5%, #4197ee 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#4197ee');
+    background-color:#79bbff;
+    -webkit-border-top-left-radius:10px;
+    -moz-border-radius-topleft:10px;
+    border-top-left-radius:10px;
+    -webkit-border-top-right-radius:10px;
+    -moz-border-radius-topright:10px;
+    border-top-right-radius:10px;
+    -webkit-border-bottom-right-radius:10px;
+    -moz-border-radius-bottomright:10px;
+    border-bottom-right-radius:10px;
+    -webkit-border-bottom-left-radius:10px;
+    -moz-border-radius-bottomleft:10px;
+    border-bottom-left-radius:10px;
+    text-indent:0px;
+    border:2px solid #469df5;
+    display:inline-block;
+    color:#ffffff;
+    font-family:Verdana;
+    font-size:18px;
+    font-weight:bold;
+    font-style:normal;
+    height:50px;
+    line-height:40px;
+    width:109px;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:1px 1px 0px #287ace;
+}
+.blueButtonClass:hover {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4197ee), color-stop(1, #79bbff) );
+    background:-moz-linear-gradient( center top, #4197ee 5%, #79bbff 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4197ee', endColorstr='#79bbff');
+    background-color:#4197ee;
+}
+.blueButtonClass:active {
+     position:relative;
+     top:1px;
+}
+.blueButtonClass:disabled {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9edf2), color-stop(1, #717e8a) );
+    background:-moz-linear-gradient( center top, #e9edf2 5%, #717e8a 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9edf2', endColorstr='#717e8a');
+    background-color:#e9edf2;
+    color:#ffffff;
+    border:2px solid #99a5b0;
+ }
+
+/* Оранжевая кнопка */
+.orangeButtonClass {
+    -moz-box-shadow:inset 0px 0px 0px 1px #cbfaf1;
+    -webkit-box-shadow:inset 0px 0px 0px 1px #cbfaf1;
+    box-shadow:inset 0px 0px 0px 1px #cbfaf1;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffed7a), color-stop(1, #ed9a42) );
+    background:-moz-linear-gradient( center top, #ffed7a 5%, #ed9a42 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffed7a', endColorstr='#ed9a42');
+    background-color:#ffed7a;
+    -webkit-border-top-left-radius:10px;
+    -moz-border-radius-topleft:10px;
+    border-top-left-radius:10px;
+    -webkit-border-top-right-radius:10px;
+    -moz-border-radius-topright:10px;
+    border-top-right-radius:10px;
+    -webkit-border-bottom-right-radius:10px;
+    -moz-border-radius-bottomright:10px;
+    border-bottom-right-radius:10px;
+    -webkit-border-bottom-left-radius:10px;
+    -moz-border-radius-bottomleft:10px;
+    border-bottom-left-radius:10px;
+    text-indent:0px;
+    border:2px solid #f5b547;
+    display:inline-block;
+    color:#ffffff;
+    font-family:Verdana;
+    font-size:18px;
+    font-weight:bold;
+    font-style:normal;
+    height:50px;
+    line-height:40px;
+    width:109px;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:1px 1px 0px #b9cc29;
+}
+.orangeButtonClass:hover {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ed9a42), color-stop(1, #ffed7a) );
+    background:-moz-linear-gradient( center top, #ed9a42 5%, #ffed7a 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed9a42', endColorstr='#ffed7a');
+    background-color:#ed9a42;
+}
+.orangeButtonClass:active {
+     position:relative;
+     top:1px;
+ }
