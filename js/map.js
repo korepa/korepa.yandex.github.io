@@ -21,14 +21,37 @@ function init () {
     // обрабатываем нажатие на кнопку "Enter" (строим маршрут)
     document.getElementById('fromText').onkeyup = function (event) {
         if (event.keyCode == 13) {
-            if ($("#routeButton").disabled === false)
-                $("#routeButton").click();
+            makeRoute();
         }
     };
     document.getElementById('toText').onkeyup = function (event) {
         if (event.keyCode == 13) {
-            if ($("#routeButton").disabled === false)
-                $("#routeButton").click();
+            makeRoute();
+        }
+    };
+    document.getElementById('toNumberText').onkeypress = function (event) {
+        if (document.getElementById('toText').value != "")
+        {
+            var numberLength = document.getElementById('toNumberText').value.length;
+            // запрещаем дальнейший ввод
+            if (numberLength >= 3) {
+                event.preventDefault();
+            }
+        }
+        else {
+            // просто блокируем
+            event.preventDefault();
+        }
+
+    };
+    document.getElementById('toNumberText').onkeyup = function (event) {
+        if (document.getElementById('toText').value != "")
+        {
+            // автоматически строим мартшрут если введены числи [0..9] или ENTER
+            if ((event.keyCode == 13) ||
+                (event.keyCode >= 48 && event.keyCode <= 57)) {
+                makeRoute();
+            }
         }
     };
 }
@@ -119,7 +142,8 @@ function makeRoute() {
 
                         // если все прошло ОК, делаем кнопку заказа и поле с суммой видимыми
                         $('#orderSection')[0].style.visibility = "visible";
-                        $('#orderButton')[0].style.visibility = "visible";
+                        $('#orderSpan')[0].style.display = "inline";
+                        $('#routeSpan')[0].style.display = "none";
                     });
             });
 

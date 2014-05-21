@@ -107,9 +107,12 @@ function confirm_search(value){
         $(this_element).attr('value',value);
     suggest_selected=0;
     suggest_count=0;
-    $('#routeButton')[0].disabled = false;
+
+    $('#toNumberText')[0].value = '';
+    $('#orderSpan')[0].style.display = "none";
+    $('#routeSpan')[0].style.display = "inline";
     $('#orderSection')[0].style.visibility = "collapse";
-    $('#orderButton')[0].style.visibility = "collapse";
+    $('#routeButton')[0].disabled = false;
 }
 
 function getDim(el){
@@ -144,10 +147,13 @@ function show_suggestion(res){
     }
     else {
         suggest_count=0;
+
         $('#search_suggestion').hide();
-        $('#routeButton')[0].disabled = true;
+        $('#toNumberText')[0].value = '';
+        $('#orderSpan')[0].style.display = "none";
+        $('#routeSpan')[0].style.display = "inline";
         $('#orderSection')[0].style.visibility = "collapse";
-        $('#orderButton')[0].style.visibility = "collapse";
+        $('#routeButton')[0].disabled = true;
     }
 }
 
