@@ -134,6 +134,16 @@ function makeRoute() {
                                     iconColor: '#4d7198'
                                 });
                                 myCollection.add(metroPlacemark);
+
+                                // зададим стоимость поездки как дистанцию
+                                if ($('#checkbox')[0].checked)
+                                {
+                                    $('#priceText')[0].innerHTML = parseFloat(dist0 * 2).toFixed(0) + ' р';
+                                }
+                                else
+                                {
+                                    $('#priceText')[0].innerHTML = parseFloat(dist0).toFixed(0) + ' р';
+                                }
                             }
                             // добавим коллекцию на карту
                             myMap.geoObjects.add(myCollection);
@@ -162,4 +172,25 @@ function makeRoute() {
 function loadModules() {
     // ничего не делаем после загрузки модулей
 }
+
+// при изменении состояния чекбокса
+function check()
+{
+    // текущее значение
+    var value = $('#priceText')[0].innerHTML.split(' ');
+    var valueInt = parseInt(value);
+
+    // удвоим или разделим значение
+    if (!$('#checkbox')[0].checked)
+    {
+        var halfValue = valueInt / 2;
+        $('#priceText')[0].innerHTML = halfValue.toFixed(0) + ' р';
+    }
+    else
+    {
+        var doubleValue = valueInt * 2;
+        $('#priceText')[0].innerHTML = doubleValue.toFixed(0) + ' р';
+    }
+}
+
 
