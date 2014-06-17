@@ -5,8 +5,8 @@
     <title>Параметры</title>
     <script src="js/payment.js" type="text/javascript"></script>
     <script src="js/helper.js" type="text/javascript"></script>
-    <script src="//yandex.st/bootstrap/2.3.2/js/bootstrap.min.js" type="text/javascript"></script>
-    <link href="//yandex.st/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//yandex.st/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
+    <link href="//yandex.st/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="shortcut icon" type="image/x-icon" href="images/payment.ico">
 </head>
@@ -19,33 +19,33 @@
 <table style="width:300px;">
     <tr>
         <td style="min-width: 200px;"><label>Количество пассажиров</label></td>
-        <td><input type="text" id="passCountText" value="" style="width:630px;"/></td>
+        <td><input type="text" id="passCountText" class="form-control" value="" style="width:600px; margin: 5px;"/></td>
     </tr>
     <tr>
         <td><label>Номер рейса</label></td>
-        <td><input type="text" id="flightNumberText" value="" style="width:630px;"/></td>
+        <td><input type="text" id="flightNumberText" class="form-control" value="" style="width:600px; margin: 5px;"/></td>
     </tr>
     <tr>
         <td><label>Дата и время прилета</label></td>
-        <td><input type="text" id="arrivalDateText" value="" style="width:630px;"/></td>
+        <td><input type="text" id="arrivalDateText" class="form-control" value="" style="width:600px; margin: 5px;"/></td>
     </tr>
     <tr>
         <td><label>Имя *</label></td>
-        <td><input type="text" id="nameText" value="" style="width:630px;"/></td>
+        <td><input type="text" id="nameText" class="form-control" value="" style="width:600px; margin: 5px;"/></td>
     </tr>
     <tr>
         <td><label>Мобильный телефон</label></td>
-        <td><input type="text" id="soNameText" value="" style="width:630px;"/></td>
+        <td><input type="text" id="soNameText" class="form-control" value="" style="width:600px; margin: 5px;"/></td>
     </tr>
     <tr>
         <td><label>Примечание</label></td>
-        <td><input type="text" id="commentText" value="" style="width:630px;"/></td>
+        <td><input type="text" id="commentText" class="form-control" value="" style="width:600px; margin: 5px;"/></td>
     </tr>
     <tr>
         <td><label>Надпись на табличке</label></td>
-        <td><input type="text" id="tablePrintText" value="" style="width:630px;"/></td>
+        <td><input type="text" id="tablePrintText" class="form-control" value="" style="width:600px; margin: 5px;"/></td>
     </tr>
 </table>
-<button type="button" id="payButton" class="btn btn-info" onclick="payment()" disabled="true">Перейти к оплате</button>
+<button type="button" id="payButton" class="btn btn-info btn-lg" onclick="payment()" disabled="true">Перейти к оплате</button>
 </body>
 </html>
