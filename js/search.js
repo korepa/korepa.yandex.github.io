@@ -10,6 +10,9 @@ function reposition_search_suggestion(pa){
     var rr=getDim(pa);
     var pos_left = rr.x;
     var pos_top = (rr.y + pa.offsetHeight);
+    // перепишем значения на абсолютные
+    pos_left = 0;
+    pos_top = 30;
     $('#search_suggestion').css({'left':pos_left,'top':Math.ceil(pos_top)});
 }
 

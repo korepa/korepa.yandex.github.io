@@ -13,51 +13,65 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="shortcut icon" type="image/x-icon" href="images/titleicon.ico">
 </head>
-<body style="width: 845px; height: 590px; margin: 10px; padding: 10px; border: 3px solid lightblue; border-radius: 10px;">
-<div style="width:100%; height:5%;">
+<body style="padding: 10px; border: 3px solid lightblue; border-radius: 10px;">
+<div style="height:auto;">
     <label style="font-weight: bold;">Введите параметры трансфера:</label>
     <label style="float: right; font-size: 90%; margin-top: 2px;">Поиск маршрута</label>
     <p></p>
 </div>
-<table style="width:100%; height:20%;">
+<table style="height:auto;">
     <tr>
-        <td><label>Откуда</label></td>
-        <td><label>Куда</label></td>
-        <td><label>&zwnj;</label></td>
+        <td style="width: 42%;"><label>Откуда</label></td>
+        <td style="width: 42%;"><label>Куда</label></td>
+        <td style="width: 16%;"><label>&zwnj;</label></td>
+        <td><label></label></td>
     </tr>
-    <tr>
-        <td><input type="text" id="fromText" class="form-control" value="Россия, Москва, аэропорт Внуково" placeholder="Место отправления" readonly style="margin-bottom: 0px; margin-right: 10px; font-size:120%; width: 330px;"/></td>
-        <td><input type="text" id="toText" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin-bottom: 0px; margin-right: 10px; font-size:120%; vertical-align: bottom; width: 330px;"/></td>
-        <td><input type="text" id="toNumberText" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="margin-bottom: 0px; font-size:120%; vertical-align: bottom; min-width: 135px; width: 100px;"/></td>
+    <tr id="address1Tr">
+        <td><input type="text" id="fromText" class="form-control" value="Россия, Москва, аэропорт Внуково" placeholder="Место отправления" readonly style="margin:0 auto; width: 99%; font-size:120%;"/></td>
+        <td style="position: relative;">
+            <input type="text" id="toText" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%;"/>
+            <ul id="search_suggestion" style="position: absolute;"></ul>
+        </td>
+        <td><input type="text" id="toNumberText" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom;"/></td>
+        <td><button id="addButton" type="button" class="btn btn-primary btn-xs" style="margin-left:70%; margin-top: 2%; margin-bottom: 2%; width: 30%; font-size: 130%;" onclick="addAddress()">+</button></td>
+    </tr>
+    <tr id="address2Tr" style="display: none;">
+        <td></td>
+        <td style="position: relative;">
+            <input type="text" id="to2Text" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%;"/>
+            <ul id="search_suggestion2" style="position: absolute;"></ul>
+        </td>
+        <td><input type="text" id="toNumber2Text" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom;"/></td>
+        <td><button id="add2Button" type="button" class="btn btn-primary btn-xs" style="margin-left:70%; margin-top: 2%; margin-bottom: 2%; width: 30%; font-size: 130%;" onclick="add2Address()">+</button></td>
+    </tr>
+    <tr id="address3Tr" style="display: none;">
+        <td></td>
+        <td style="position: relative;">
+            <input type="text" id="to3Text" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%;"/>
+            <ul id="search_suggestion3" style="position: absolute;"></ul>
+        </td>
+        <td><input type="text" id="toNumber3Text" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom;"/></td>
+        <td><button id="add3Button" type="button" class="btn btn-primary btn-xs" style="margin-left:70%; margin-top: 2%; margin-bottom: 2%; width: 30%; font-size: 130%; visibility: hidden;" onclick="add2Address()">+</button></td>
     </tr>
     <tr>
         <td></td>
-        <td><ul id="search_suggestion" style="position: absolute; left: 1433px; top: 153px; display: block;"></ul></td>
-    </tr>
-    <tr>
-        <td>
-        </td>
         <td>
             <div id="orderSection" style="visibility: collapse; margin-top: 5px;">
                 <u style="float: left; vertical-align: top; margin-bottom: 5px; font-size: 120%; color: darkgrey;">Сумма</u>
                 <p id="priceText" style="float: right; vertical-align: top; font-size: 130%; font-weight: bold; margin-bottom: 5px;margin-right: 15px;">0 р</p>
             </div>
         </td>
+        <td></td>
         <td>
             <span id="routeSpan" style="display: inline;">
-                <button id="routeButton" type="button" style="width: 100%; margin-bottom: 5px; margin-top: 5px;" class="btn btn-primary btn-lg" onclick="makeRoute()" disabled="true">Рассчитать</button>
+                <button id="routeButton" type="button" style="width: 130px; margin-bottom: 5px; margin-top: 5px;" class="btn btn-primary btn-lg" onclick="makeRoute()" disabled="true">Рассчитать</button>
             </span>
             <span id="orderSpan" style="display: none;">
-                <button id="orderButton" type="button" style="width: 100%; margin-bottom: 5px; margin-top: 5px;" class="btn btn-warning btn-lg" onclick="order()">Заказать</button>
+                <button id="orderButton" type="button" style="width: 130px; margin-bottom: 5px; margin-top: 5px;" class="btn btn-warning btn-lg" onclick="order()">Заказать</button>
             </span>
         </td>
     </tr>
 </table>
-<table style="width:100%; height:75%;">
-    <tr style="float: left; width:100%; height:100%;">
-        <td style="float: left; width:100%; height:100%;"><div id="map" style="width:100%; height:100%;"></div></td>
-        <td></td>
-    </tr>
-</table>
+<div id="map" style="height:500px;"></div>
 </body>
 </html>

@@ -1,4 +1,19 @@
 /* ... стиль для карты ...*/
+html, body {
+    height: auto;
+    width: 50%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
 
 /* ... стиль для чекбокса ... */
 
@@ -20,7 +35,7 @@ p{
 
 /* ... стиль для таблиц ... */
 td{
-    min-width: 100px;
+
 }
 
 /* ... стиль для текстовых полей ... */
@@ -28,7 +43,6 @@ input[type=text] {
     color:#08233e;
     font:2.4em Futura, AppleGothic, sans-serif;
     font-size:100%;
-    min-width: 330px;
 }
 
 /* ... стиль для элементов происка ... */
