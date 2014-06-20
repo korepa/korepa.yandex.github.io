@@ -2,7 +2,12 @@ function loadPayment() {
     // получим параметры из запроса (то, что ввели на предыдущей странице)
     var from = decodeURIComponent(parseUrlQuery()['from']);
     var to = decodeURIComponent(parseUrlQuery()['to']);
-    document.getElementById("routeLabel").innerHTML += '(' + from + ' - ' + to + ')';
+    var to2 = decodeURIComponent(parseUrlQuery()['to2']);
+    var to3 = decodeURIComponent(parseUrlQuery()['to3']);
+    document.getElementById("routeFromLabel").innerHTML += from;
+    document.getElementById("routeToLabel").innerHTML += to + '<br>       ' + to2 + '<br>' + to3;
+    //document.getElementById("routeTo2Label").innerHTML += to2 + '<br>' + '1';
+    //document.getElementById("routeTo3Label").innerHTML += to3 + '<br>' + '1';
 
     // обрабатываем ввод текста (активируем кнопку оплаты)
     document.getElementById('nameText').onkeyup = function (event) {
@@ -35,11 +40,17 @@ function loadPaymentSuccess() {
 function order() {
     // находим параметры для передачи
     var fromAddress = document.getElementById('fromText').value;
-    var toAddress = document.getElementById('toText').value;
+    var toAddress = document.getElementById('toText').value + ', ' + document.getElementById('toNumberText').value;
+    var to2Address = document.getElementById('to2Text').value + ', ' + document.getElementById('toNumber2Text').value;
+    var to3Address = document.getElementById('to3Text').value + ', ' + document.getElementById('toNumber3Text').value;
     // используем для заказа доставки
-    var newLocation = 'payment.html?';
-    newLocation += 'from=' + encodeURIComponent(fromAddress) + '&';
-    newLocation += 'to=' + encodeURIComponent(toAddress);
+    var newLocation = 'payment.html';
+    newLocation += '?from=' + encodeURIComponent(fromAddress);
+    newLocation += '&to=' + encodeURIComponent(toAddress);
+    if (to2Address != '')
+        newLocation += '&to2=' + encodeURIComponent(to2Address);
+    if (to3Address != '')
+        newLocation += '&to3=' + encodeURIComponent(to3Address);
     window.location = newLocation;
 }
 
@@ -54,14 +65,14 @@ function payment() {
     var tablePrint = document.getElementById('tablePrintText').value;
 
     // используем для формирования адреса с параметрами
-    var newLocation = 'paymentSuccess.html?';
-    newLocation += 'passcount=' + encodeURIComponent(passCount) + '&';
-    newLocation += 'flightnumber=' + encodeURIComponent(flightNumber) + '&';
-    newLocation += 'arrivaldate=' + encodeURIComponent(arrivalDate) + '&';
-    newLocation += 'name=' + encodeURIComponent(name) + '&';
-    newLocation += 'soname=' + encodeURIComponent(soName) + '&';
-    newLocation += 'comment=' + encodeURIComponent(comment) + '&';
-    newLocation += 'tableprint=' + encodeURIComponent(tablePrint);
+    var newLocation = 'paymentSuccess.html';
+    newLocation += '?passcount=' + encodeURIComponent(passCount);
+    newLocation += '&flightnumber=' + encodeURIComponent(flightNumber);
+    newLocation += '&arrivaldate=' + encodeURIComponent(arrivalDate);
+    newLocation += '&name=' + encodeURIComponent(name);
+    newLocation += '&soname=' + encodeURIComponent(soName);
+    newLocation += '&comment=' + encodeURIComponent(comment);
+    newLocation += '&tableprint=' + encodeURIComponent(tablePrint);
 
     // переход к оплате (пока фиктивно оплатили)
     window.location = newLocation;

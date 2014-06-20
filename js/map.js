@@ -60,6 +60,54 @@ function init () {
             event.preventDefault();
         }
     };
+    document.getElementById('toNumber2Text').onkeypress = function (event) {
+        if (document.getElementById('to2Text').value != "")
+        {
+            var numberLength = document.getElementById('toNumber2Text').value.length;
+            // запрещаем дальнейший ввод неверных символов
+            if (numberLength < 3                                    &&      /* количество символов не больше 3х */
+                (   event.keyCode >= 48 && event.keyCode <= 57 )    ||      /* числа 0...9 */
+                (   event.keyCode == 99                             ||      /* символ "с" en */
+                    event.keyCode == 107                            ||      /* символ "k" en */
+                    event.keyCode == 1089                           ||      /* символ "с" ru */
+                    event.keyCode == 1082 )                                 /* символ "к" ru */
+                ) {
+                // ОК, продолжаем дальше
+            }
+            else {
+                // просто блокируем
+                event.preventDefault();
+            }
+        }
+        else {
+            // просто блокируем
+            event.preventDefault();
+        }
+    };
+    document.getElementById('toNumber3Text').onkeypress = function (event) {
+        if (document.getElementById('to3Text').value != "")
+        {
+            var numberLength = document.getElementById('toNumber3Text').value.length;
+            // запрещаем дальнейший ввод неверных символов
+            if (numberLength < 3                                    &&      /* количество символов не больше 3х */
+                (   event.keyCode >= 48 && event.keyCode <= 57 )    ||      /* числа 0...9 */
+                (   event.keyCode == 99                             ||      /* символ "с" en */
+                    event.keyCode == 107                            ||      /* символ "k" en */
+                    event.keyCode == 1089                           ||      /* символ "с" ru */
+                    event.keyCode == 1082 )                                 /* символ "к" ru */
+                ) {
+                // ОК, продолжаем дальше
+            }
+            else {
+                // просто блокируем
+                event.preventDefault();
+            }
+        }
+        else {
+            // просто блокируем
+            event.preventDefault();
+        }
+    };
 }
 
 // функция построения марштура от точки А к точке В

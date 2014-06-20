@@ -11,10 +11,17 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/payment.ico">
 </head>
 <body style="padding: 10px; border: 3px solid lightblue; border-radius: 10px;" onload="loadPayment()">
-<label style="margin-left: 3px;font-weight: bold;">Введите данные пассажиров:</label>
-<div>
-    <label id="routeLabel" style="margin-left: 3px;">Маршрут </label>
-</div>
+<label style="margin-left: 3px; margin-bottom: 20px; font-weight: bold;">Введите данные пассажиров:</label>
+<table style="height:auto;">
+    <tr>
+        <td style="width:100px;"><label style="font-size: 100%;">Откуда: </label></td>
+        <td style="width:80%;"><label id="routeFromLabel" style="font-size: 100%; text-wrap: none; margin:5px auto; width: 99%; font-weight: normal;"></label></td>
+    </tr>
+    <tr>
+        <td style="vertical-align: top;"><label style="font-size: 100%;">Куда: </label></td>
+        <td><label id="routeToLabel" style="font-size: 100%; text-wrap: none; margin:5px auto; width: 99%; font-weight: normal;"></label></td>
+    </tr>
+</table>
 <p></p>
 <table style="height:auto;">
     <tr>
