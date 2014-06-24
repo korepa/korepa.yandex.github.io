@@ -216,40 +216,30 @@ function loadModules() {
 
 // функция добавления доп. адреса 1
 function addAddress() {
-    if ($('#addButton')[0].innerHTML == '+')
+    if ( $('#address2Tr')[0].style.display === 'none')
     {
         $('#address2Tr')[0].style.display = "table-row";
-        $('#addButton')[0].innerHTML = '-';
+        return;
     }
-    else
+    if ( $('#address3Tr')[0].style.display === 'none')
     {
-        $('#address2Tr')[0].style.display = "none";
-        $('#address3Tr')[0].style.display = "none";
-        $('#addButton')[0].innerHTML = '+';
-        $('#add2Button')[0].innerHTML = '+';
-        // очистим текст
-        $('#to2Text')[0].value = '';
-        $('#to3Text')[0].value = '';
-        $('#toNumber2Text')[0].value = '';
-        $('#toNumber3Text')[0].value = '';
+        $('#address3Tr')[0].style.display = "table-row";
+        return;
     }
 }
 
 // функция добавления доп. адреса 2
 function add2Address() {
-    if ($('#add2Button')[0].innerHTML == '+')
-    {
-        $('#address3Tr')[0].style.display = "table-row";
-        $('#add2Button')[0].innerHTML = '-';
-    }
-    else
-    {
-        $('#address3Tr')[0].style.display = "none";
-        $('#add2Button')[0].innerHTML = '+';
-        // очистим текст
-        $('#to3Text')[0].value = '';
-        $('#toNumber3Text')[0].value = '';
-    }
+    $('#address2Tr')[0].style.display = "none";
+    $('#to2Text')[0].value = '';
+    $('#toNumber2Text')[0].value = '';
+}
+
+// функция добавления доп. адреса 3
+function add3Address() {
+    $('#address3Tr')[0].style.display = "none";
+    $('#to3Text')[0].value = '';
+    $('#toNumber3Text')[0].value = '';
 }
 
 

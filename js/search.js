@@ -211,9 +211,16 @@ function show_suggestion(res){
         for(var i in res[1]){
             if(typeof res[1][i][2]==='undefined')
                 continue;
-            var option = document.createElement("li")
-            option.innerHTML='<a href="#" onclick="confirm_search(this.innerHTML);return false;">'+res[1][i][2]+'</a>';
-            document.getElementById('search_suggestion').appendChild(option);
+            var option = document.createElement("li");
+            // изменим текст
+            var address = res[1][i][2];
+            var addrSplit = address.split(',');
+            if (addrSplit[1] === ' Москва')
+            {
+                address = addrSplit[1].trim() + ',' + addrSplit[2];
+                option.innerHTML='<a href="#" onclick="confirm_search(this.innerHTML);return false;">'+address+'</a>';
+                document.getElementById('search_suggestion').appendChild(option);
+            }
         }
 
         // выставляем сдвиг для подсказки

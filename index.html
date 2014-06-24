@@ -27,7 +27,7 @@
         <td style="width: 6%;"><label></label></td>
     </tr>
     <tr id="address1Tr">
-        <td><input type="text" id="fromText" class="form-control" value="Россия, Москва, аэропорт Внуково" placeholder="Место отправления" readonly style="margin:0 auto; width: 99%; font-size:120%;"/></td>
+        <td><input type="text" id="fromText" class="form-control" value="Москва, аэропорт Внуково" placeholder="Место отправления" readonly style="margin:0 auto; width: 99%; font-size:120%;"/></td>
         <td style="position: relative;">
             <input type="text" id="toText" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%;"/>
             <ul id="search_suggestion" style="position: absolute;"></ul>
@@ -41,7 +41,7 @@
             <input type="text" id="to2Text" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%;"/>
         </td>
         <td><input type="text" id="toNumber2Text" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom;"/></td>
-        <td><button id="add2Button" type="button" class="btn btn-primary btn-xs" style="margin-left:20%; margin-top: 5%; margin-bottom: 5%; width: 70%; font-size: 130%;" onclick="add2Address()">+</button></td>
+        <td><button id="add2Button" type="button" class="btn btn-primary btn-xs" style="margin-left:20%; margin-top: 5%; margin-bottom: 5%; width: 70%; font-size: 130%;" onclick="add2Address()">-</button></td>
     </tr>
     <tr id="address3Tr" style="display: none;">
         <td></td>
@@ -49,7 +49,7 @@
             <input type="text" id="to3Text" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%;"/>
         </td>
         <td><input type="text" id="toNumber3Text" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom;"/></td>
-        <td><button id="add3Button" type="button" class="btn btn-primary btn-xs" style="margin-left:20%; margin-top: 5%; margin-bottom: 5%; width: 70%; font-size: 130%; visibility: hidden;" onclick="add2Address()">+</button></td>
+        <td><button id="add3Button" type="button" class="btn btn-primary btn-xs" style="margin-left:20%; margin-top: 5%; margin-bottom: 5%; width: 70%; font-size: 130%;" onclick="add3Address()">-</button></td>
     </tr>
     <tr>
         <td></td>

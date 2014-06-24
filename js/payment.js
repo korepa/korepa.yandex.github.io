@@ -5,9 +5,12 @@ function loadPayment() {
     var to2 = decodeURIComponent(parseUrlQuery()['to2']);
     var to3 = decodeURIComponent(parseUrlQuery()['to3']);
     document.getElementById("routeFromLabel").innerHTML += from;
-    document.getElementById("routeToLabel").innerHTML += to + '<br>       ' + to2 + '<br>' + to3;
-    //document.getElementById("routeTo2Label").innerHTML += to2 + '<br>' + '1';
-    //document.getElementById("routeTo3Label").innerHTML += to3 + '<br>' + '1';
+    document.getElementById("routeToLabel").innerHTML += to;
+    // добавочные адреса
+    if (to2 != '' && to2 != ', ')
+        document.getElementById("routeToLabel").innerHTML += '<br>' + to2;
+    if (to3 != '' && to3 != ', ')
+        document.getElementById("routeToLabel").innerHTML += '<br>' + to3;
 
     // обрабатываем ввод текста (активируем кнопку оплаты)
     document.getElementById('nameText').onkeyup = function (event) {
