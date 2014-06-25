@@ -108,6 +108,14 @@ function init () {
             event.preventDefault();
         }
     };
+
+    // функция изменения направления транфера (из аэропорта или в аэропорт)
+    $("#forwardRButton, #backwardRButton").change(function () {
+         var from = document.getElementById('fromText').value;
+         var to = document.getElementById('toText').value;
+         document.getElementById('fromText').value = to;
+         document.getElementById('toText').value = from;
+    });
 }
 
 // функция построения марштура от точки А к точке В
@@ -241,5 +249,4 @@ function add3Address() {
     $('#to3Text')[0].value = '';
     $('#toNumber3Text')[0].value = '';
 }
-
 

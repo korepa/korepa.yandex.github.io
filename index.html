@@ -15,8 +15,10 @@
 </head>
 <body style="padding: 10px; border: 3px solid lightblue; border-radius: 10px;">
 <div style="height:auto;">
-    <label style="font-weight: bold;">Введите параметры трансфера:</label>
-    <label style="float: right; font-size: 90%; margin-top: 2px;">Поиск маршрута</label>
+    <form>
+        <input type="radio" id="forwardRButton" name="direction" value="forward" style="font-weight: bold; font-size: 120%; margin-right: 2px;" checked="checked"><label>Из аэропорта</label></input>
+        <input type="radio" id="backwardRButton" name="direction" value="backward" style="font-weight: bold; font-size: 120%; margin-left: 20px; margin-right: 2px;"><label>В аэропорт</label></input>
+    </form>
     <p></p>
 </div>
 <table style="height:auto;">
