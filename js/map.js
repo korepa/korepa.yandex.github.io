@@ -36,6 +36,13 @@ function init () {
             makeRoute();
         }
     };
+    document.getElementById('fromNumberText').onkeyup = function (event) {
+        if (document.getElementById('fromText').value != "" && document.getElementById('fromNumberText').value != "")
+        {
+            // автоматически строим мартшрут если введены числи [0..9] или буквы "c"/"к" или ENTER
+            makeRoute();
+        }
+    };
     document.getElementById('toNumberText').onkeypress = function (event) {
         if (document.getElementById('toText').value != "")
         {
@@ -108,20 +115,154 @@ function init () {
             event.preventDefault();
         }
     };
+    document.getElementById('fromNumberText').onkeypress = function (event) {
+        if (document.getElementById('fromText').value != "")
+        {
+            var numberLength = document.getElementById('fromNumberText').value.length;
+            // запрещаем дальнейший ввод неверных символов
+            if (numberLength < 3                                    &&      /* количество символов не больше 3х */
+                (   event.keyCode >= 48 && event.keyCode <= 57 )    ||      /* числа 0...9 */
+                (   event.keyCode == 99                             ||      /* символ "с" en */
+                    event.keyCode == 107                            ||      /* символ "k" en */
+                    event.keyCode == 1089                           ||      /* символ "с" ru */
+                    event.keyCode == 1082 )                                 /* символ "к" ru */
+                ) {
+                // ОК, продолжаем дальше
+            }
+            else {
+                // просто блокируем
+                event.preventDefault();
+            }
+        }
+        else {
+            // просто блокируем
+            event.preventDefault();
+        }
+    };
+    document.getElementById('fromNumber2Text').onkeypress = function (event) {
+        if (document.getElementById('from2Text').value != "")
+        {
+            var numberLength = document.getElementById('fromNumber2Text').value.length;
+            // запрещаем дальнейший ввод неверных символов
+            if (numberLength < 3                                    &&      /* количество символов не больше 3х */
+                (   event.keyCode >= 48 && event.keyCode <= 57 )    ||      /* числа 0...9 */
+                (   event.keyCode == 99                             ||      /* символ "с" en */
+                    event.keyCode == 107                            ||      /* символ "k" en */
+                    event.keyCode == 1089                           ||      /* символ "с" ru */
+                    event.keyCode == 1082 )                                 /* символ "к" ru */
+                ) {
+                // ОК, продолжаем дальше
+            }
+            else {
+                // просто блокируем
+                event.preventDefault();
+            }
+        }
+        else {
+            // просто блокируем
+            event.preventDefault();
+        }
+    };
+    document.getElementById('fromNumber3Text').onkeypress = function (event) {
+        if (document.getElementById('from3Text').value != "")
+        {
+            var numberLength = document.getElementById('fromNumber3Text').value.length;
+            // запрещаем дальнейший ввод неверных символов
+            if (numberLength < 3                                    &&      /* количество символов не больше 3х */
+                (   event.keyCode >= 48 && event.keyCode <= 57 )    ||      /* числа 0...9 */
+                (   event.keyCode == 99                             ||      /* символ "с" en */
+                    event.keyCode == 107                            ||      /* символ "k" en */
+                    event.keyCode == 1089                           ||      /* символ "с" ru */
+                    event.keyCode == 1082 )                                 /* символ "к" ru */
+                ) {
+                // ОК, продолжаем дальше
+            }
+            else {
+                // просто блокируем
+                event.preventDefault();
+            }
+        }
+        else {
+            // просто блокируем
+            event.preventDefault();
+        }
+    };
 
     // функция изменения направления транфера (из аэропорта или в аэропорт)
     $("#forwardRButton, #backwardRButton").change(function () {
-         var from = document.getElementById('fromText').value;
-         var to = document.getElementById('toText').value;
-         document.getElementById('fromText').value = to;
-         document.getElementById('toText').value = from;
+
+        // закроем другие адреса
+        $('#address2Tr')[0].style.display = "none";
+        $('#address3Tr')[0].style.display = "none";
+
+        // поменяем текст
+        var from = document.getElementById('fromText').value
+        var to = document.getElementById('toText').value;
+        document.getElementById('fromText').value = to;
+        document.getElementById('toText').value = from;
+
+        // изменим кнопки
+        if ( $('#leftTd')[0].style.display === 'none')
+        {
+            $('#leftTd')[0].style.display = "block";
+            $('#left1Td')[0].style.display = "block";
+            $('#left2Td')[0].style.display = "block";
+            $('#left3Td')[0].style.display = "block";
+            $('#fromNumberTd')[0].style.display = "table-cell";
+            $('#fromNumber1Td')[0].style.display = "table-cell";
+            $('#fromNumber2Td')[0].style.display = "table-cell";
+            $('#fromNumber3Td')[0].style.display = "table-cell";
+            $('#rightTd')[0].style.display = "none";
+            $('#right1Td')[0].style.display = "none";
+            $('#right2Td')[0].style.display = "none";
+            $('#right3Td')[0].style.display = "none";
+            $('#toNumberTd')[0].style.display = "none";
+            $('#toNumber1Td')[0].style.display = "none";
+            $('#toNumber2Td')[0].style.display = "none";
+            $('#toNumber3Td')[0].style.display = "none";
+
+            document.getElementById('fromText').readOnly = false;
+            document.getElementById('toText').readOnly = true;
+
+            document.getElementById('fromText').value = '';
+            document.getElementById('fromNumberText').value = '';
+            document.getElementById('toText').value = from;
+            document.getElementById('toNumberText').value = '';
+        }
+        else
+        {
+            $('#leftTd')[0].style.display = "none";
+            $('#left1Td')[0].style.display = "none";
+            $('#left2Td')[0].style.display = "none";
+            $('#left3Td')[0].style.display = "none";
+            $('#fromNumberTd')[0].style.display = "none";
+            $('#fromNumber1Td')[0].style.display = "none";
+            $('#fromNumber2Td')[0].style.display = "none";
+            $('#fromNumber3Td')[0].style.display = "none";
+            $('#rightTd')[0].style.display = "block";
+            $('#right1Td')[0].style.display = "block";
+            $('#right2Td')[0].style.display = "block";
+            $('#right3Td')[0].style.display = "block";
+            $('#toNumberTd')[0].style.display = "table-cell";
+            $('#toNumber1Td')[0].style.display = "table-cell";
+            $('#toNumber2Td')[0].style.display = "table-cell";
+            $('#toNumber3Td')[0].style.display = "table-cell";
+
+            document.getElementById('fromText').readOnly = true;
+            document.getElementById('toText').readOnly = false;
+
+            document.getElementById('fromText').value = to;
+            document.getElementById('fromNumberText').value = '';
+            document.getElementById('toText').value = '';
+            document.getElementById('toNumberText').value = '';
+        }
     });
 }
 
 // функция построения марштура от точки А к точке В
 function makeRoute() {
     // откуда и куда
-    var fromAddress = document.getElementById('fromText').value;
+    var fromAddress = document.getElementById('fromText').value + ' ' + document.getElementById('fromNumberText').value;
     var toAddress = document.getElementById('toText').value + ' ' + document.getElementById('toNumberText').value;
 
     var route1 = [
@@ -192,7 +333,7 @@ function makeRoute() {
                                 myCollection.add(metroPlacemark);
 
                                 // зададим стоимость поездки как дистанцию
-                                $('#priceText')[0].innerHTML = parseFloat(dist0).toFixed(0) + ' р';
+                                priceCount(parseFloat(dist0).toFixed(0));
                             }
                             // добавим коллекцию на карту
                             myMap.geoObjects.add(myCollection);
@@ -223,30 +364,74 @@ function loadModules() {
 }
 
 // функция добавления доп. адреса 1
-function addAddress() {
+function addRightAddress() {
     if ( $('#address2Tr')[0].style.display === 'none')
     {
         $('#address2Tr')[0].style.display = "table-row";
+        $('#from2Text')[0].style.visibility = "hidden";
+        $('#fromNumber2Text')[0].style.visibility = "hidden";
+        $('#to2Text')[0].style.visibility = "visible";
+        $('#toNumber2Text')[0].style.visibility = "visible";
         return;
     }
     if ( $('#address3Tr')[0].style.display === 'none')
     {
         $('#address3Tr')[0].style.display = "table-row";
+        $('#from3Text')[0].style.visibility = "hidden";
+        $('#fromNumber3Text')[0].style.visibility = "hidden";
+        $('#to3Text')[0].style.visibility = "visible";
+        $('#toNumber3Text')[0].style.visibility = "visible";
+        return;
+    }
+}
+
+function addLeftAddress() {
+    if ( $('#address2Tr')[0].style.display === 'none')
+    {
+        $('#address2Tr')[0].style.display = "table-row";
+        $('#from2Text')[0].style.visibility = "visible";
+        $('#fromNumber2Text')[0].style.visibility = "visible";
+        $('#to2Text')[0].style.visibility = "hidden";
+        $('#toNumber2Text')[0].style.visibility = "hidden";
+        return;
+    }
+    if ( $('#address3Tr')[0].style.display === 'none')
+    {
+        $('#address3Tr')[0].style.display = "table-row";
+        $('#from3Text')[0].style.visibility = "visible";
+        $('#fromNumber3Text')[0].style.visibility = "visible";
+        $('#to3Text')[0].style.visibility = "hidden";
+        $('#toNumber3Text')[0].style.visibility = "hidden";
         return;
     }
 }
 
 // функция добавления доп. адреса 2
-function add2Address() {
+function remove2Address() {
     $('#address2Tr')[0].style.display = "none";
+    $('#from2Text')[0].value = '';
     $('#to2Text')[0].value = '';
     $('#toNumber2Text')[0].value = '';
 }
 
 // функция добавления доп. адреса 3
-function add3Address() {
+function remove3Address() {
     $('#address3Tr')[0].style.display = "none";
+    $('#from3Text')[0].value = '';
     $('#to3Text')[0].value = '';
     $('#toNumber3Text')[0].value = '';
+}
+
+function priceCount(distance){
+    if (distance < 1000)
+    {
+        $('#priceText')[0].innerHTML = 500 + ' р';
+    }
+    else if (distance > 1000 && distance < 2000)
+    {
+        $('#priceText')[0].innerHTML = 1000 + ' р';
+    }
+    else
+        $('#priceText')[0].innerHTML = 1500 + ' р';
 }
 

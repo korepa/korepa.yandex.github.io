@@ -16,60 +16,66 @@
 <body style="padding: 10px; border: 3px solid lightblue; border-radius: 10px;">
 <div style="height:auto;">
     <form>
-        <input type="radio" id="forwardRButton" name="direction" value="forward" style="font-weight: bold; font-size: 120%; margin-right: 2px;" checked="checked"><label>Из аэропорта</label></input>
-        <input type="radio" id="backwardRButton" name="direction" value="backward" style="font-weight: bold; font-size: 120%; margin-left: 20px; margin-right: 2px;"><label>В аэропорт</label></input>
+        <input type="radio" id="forwardRButton" name="direction" value="forward" style="font-weight: bold; font-size: 120%; margin-right: 2px;" checked="checked"><label style="font-size: 130%;">Из аэропорта</label></input>
+        <input type="radio" id="backwardRButton" name="direction" value="backward" style="font-weight: bold; font-size: 120%; margin-left: 20px; margin-right: 2px;"><label style="font-size: 130%;">В аэропорт</label></input>
     </form>
     <p></p>
 </div>
 <table style="height:auto;">
     <tr>
-        <td style="width: 42%;"><label>Откуда</label></td>
-        <td style="width: 42%;"><label>Куда</label></td>
-        <td style="width: 10%;"><label>&zwnj;</label></td>
-        <td style="width: 6%;"><label></label></td>
+        <td style="width: 6%; display: none;" id="leftTd"><label></label></td>
+        <td style="width: 40%;"><label>Откуда</label></td>
+        <td style="width: 14%; display: none;" id="fromNumberTd"><label>&zwnj;</label></td>
+        <td style="width: 40%;"><label>Куда</label></td>
+        <td style="width: 14%;" id="toNumberTd"><label>&zwnj;</label></td>
+        <td style="width: 6%; display: table-column;" id="rightTd"><label></label></td>
     </tr>
     <tr id="address1Tr">
-        <td><input type="text" id="fromText" class="form-control" value="Москва, аэропорт Внуково" placeholder="Место отправления" readonly style="margin:0 auto; width: 99%; font-size:120%;"/></td>
+        <td style="display: none;" id="left1Td"><button id="addLeftButton" type="button" class="btn btn-primary btn-xs" style="margin-top: 5%; margin-bottom: 5%; width: 70%; font-size: 130%;" onclick="addLeftAddress()">+</button></td>
+        <td><input type="text" id="fromText" class="form-control" value="Москва, аэропорт Внуково" placeholder="Улица" readonly style="margin:0 auto; width: 99%; font-size:120%;"/></td>
+        <td style="display: none;" id="fromNumber1Td"><input type="text" id="fromNumberText" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom;"/></td>
         <td style="position: relative;">
             <input type="text" id="toText" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%;"/>
             <ul id="search_suggestion" style="position: absolute;"></ul>
         </td>
-        <td><input type="text" id="toNumberText" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom;"/></td>
-        <td><button id="addButton" type="button" class="btn btn-primary btn-xs" style="margin-left:20%; margin-top: 5%; margin-bottom: 5%; width: 70%; font-size: 130%;" onclick="addAddress()">+</button></td>
+        <td style="display: table-cell;" id="toNumber1Td"><input type="text" id="toNumberText" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom;"/></td>
+        <td style="display: block;" id="right1Td"><button id="addButton" type="button" class="btn btn-primary btn-xs" style="margin-left:30%; margin-top: 5%; margin-bottom: 5%; width: 70%; font-size: 130%;" onclick="addRightAddress()">+</button></td>
     </tr>
     <tr id="address2Tr" style="display: none;">
-        <td></td>
-        <td style="position: relative;">
-            <input type="text" id="to2Text" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%;"/>
-        </td>
-        <td><input type="text" id="toNumber2Text" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom;"/></td>
-        <td><button id="add2Button" type="button" class="btn btn-primary btn-xs" style="margin-left:20%; margin-top: 5%; margin-bottom: 5%; width: 70%; font-size: 130%;" onclick="add2Address()">-</button></td>
+        <td style="display: none;" id="left2Td"><button id="addLeft2Button" type="button" class="btn btn-primary btn-xs" style="margin-top: 5%; margin-bottom: 5%; width: 70%; font-size: 130%;" onclick="remove2Address()">-</button></td>
+        <td><input type="text" id="from2Text" class="form-control" value="" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%; visibility: hidden;"/></td>
+        <td style="display: none;" id="fromNumber2Td"><input type="text" id="fromNumber2Text" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom; visibility: hidden;"/></td>
+        <td><input type="text" id="to2Text" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%; visibility: hidden;"/></td>
+        <td style="display: table-cell;" id="toNumber2Td"><input type="text" id="toNumber2Text" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom; visibility: hidden;"/></td>
+        <td style="display: block;" id="right2Td"><button id="add2Button" type="button" class="btn btn-primary btn-xs" style="margin-left:30%; margin-top: 5%; margin-bottom: 5%; width: 70%; font-size: 130%;" onclick="remove2Address()">-</button></td>
     </tr>
     <tr id="address3Tr" style="display: none;">
-        <td></td>
-        <td style="position: relative;">
-            <input type="text" id="to3Text" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%;"/>
-        </td>
-        <td><input type="text" id="toNumber3Text" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom;"/></td>
-        <td><button id="add3Button" type="button" class="btn btn-primary btn-xs" style="margin-left:20%; margin-top: 5%; margin-bottom: 5%; width: 70%; font-size: 130%;" onclick="add3Address()">-</button></td>
+        <td style="display: none;" id="left3Td"><button id="addLeft3Button" type="button" class="btn btn-primary btn-xs" style="margin-top: 5%; margin-bottom: 5%; width: 70%; font-size: 130%;" onclick="remove3Address()">-</button></td>
+        <td><input type="text" id="from3Text" class="form-control" value="" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%; visibility: hidden;"/></td>
+        <td style="display: none;" id="fromNumber3Td"><input type="text" id="fromNumber3Text" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom; visibility: hidden;"/></td>
+        <td><input type="text" id="to3Text" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%; visibility: hidden;"/></td>
+        <td style="display: table-cell;" id="toNumber3Td"><input type="text" id="toNumber3Text" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom; visibility: hidden;"/></td>
+        <td style="display: block;" id="right3Td"><button id="add3Button" type="button" class="btn btn-primary btn-xs" style="margin-left:30%; margin-top: 5%; margin-bottom: 5%; width: 70%; font-size: 130%;" onclick="remove3Address()">-</button></td>
     </tr>
+</table>
+<table style="height:auto;">
     <tr>
-        <td></td>
-        <td>
+        <td style="width: 80%;"></td>
+        <td style="width: 20%;">
             <div id="orderSection" style="visibility: collapse; margin-top: 5px;">
                 <u style="float: left; vertical-align: top; margin-left: 5px; margin-bottom: 5px; font-size: 120%; color: darkgrey;">Сумма</u>
-                <p id="priceText" style="float: right; vertical-align: top; font-size: 130%; font-weight: bold; margin-bottom: 5px; margin-right: 10px;">0 р</p>
+                <p id="priceText" style="float: right; vertical-align: top; font-size: 130%; font-weight: bold; margin-bottom: 5px; margin-right: 5px;">0 р</p>
             </div>
         </td>
-        <td>
+        <td style="width: 0%;"></td>
+        <td style="width: 0%;">
             <span id="routeSpan" style="display: inline;">
-                <button id="routeButton" type="button" style="width: 130px; margin-bottom: 5px; margin-top: 5px;" class="btn btn-primary btn-lg" onclick="makeRoute()" disabled="true">Рассчитать</button>
+                <button id="routeButton" type="button" style="width: 130px; margin-bottom: 5px; margin-top: 5px; margin-left: 5px;" class="btn btn-primary btn-lg" onclick="makeRoute()" disabled="true">Рассчитать</button>
             </span>
             <span id="orderSpan" style="display: none;">
-                <button id="orderButton" type="button" style="width: 130px; margin-bottom: 5px; margin-top: 5px;" class="btn btn-warning btn-lg" onclick="order()">Заказать</button>
+                <button id="orderButton" type="button" style="width: 130px; margin-bottom: 5px; margin-top: 5px; margin-left: 5px;" class="btn btn-warning btn-lg" onclick="order()">Заказать</button>
             </span>
         </td>
-        <td></td>
     </tr>
 </table>
 <div id="map" style="height:500px;"></div>

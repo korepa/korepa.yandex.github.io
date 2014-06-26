@@ -39,6 +39,19 @@ $(window).load(function(){
         keyupToTextBox(I);
         current_Address = 3;
     });
+    $("#fromText").keyup(function(I){
+        keyupToTextBox(I);
+        current_Address = 4;
+    });
+    $("#from2Text").keyup(function(I){
+        keyupToTextBox(I);
+        current_Address = 5;
+    });
+    $("#from3Text").keyup(function(I){
+        keyupToTextBox(I);
+        current_Address = 6;
+    });
+
 
     // ввод текста в текстбокс
     function keyupToTextBox(I){
@@ -66,13 +79,23 @@ $(window).load(function(){
         this_element=this;
         focusinToTextBox();
     });
-
     $("#to2Text").focusin(function(){
         this_element=this;
         focusinToTextBox();
     });
-
     $("#to3Text").focusin(function(){
+        this_element=this;
+        focusinToTextBox();
+    });
+    $("#fromText").focusin(function(){
+        this_element=this;
+        focusinToTextBox();
+    });
+    $("#from2Text").focusin(function(){
+        this_element=this;
+        focusinToTextBox();
+    });
+    $("#from3Text").focusin(function(){
         this_element=this;
         focusinToTextBox();
     });
@@ -95,6 +118,18 @@ $(window).load(function(){
         this_element=this;
         clickToTextBox(event);
     });
+    $("#fromText").click(function(event){
+        this_element=this;
+        clickToTextBox(event);
+    });
+    $("#from2Text").click(function(event){
+        this_element=this;
+        clickToTextBox(event);
+    });
+    $("#from3Text").click(function(event){
+        this_element=this;
+        clickToTextBox(event);
+    });
 
     // клик в текстбокс
     function clickToTextBox(event){
@@ -108,6 +143,7 @@ $(window).load(function(){
         event.stopPropagation();
     }
 
+    // нажатие кнопки
     $("#toText").keypress(function(J) {
         keypressToTextBox(J);
         current_Address = 1;
@@ -119,6 +155,18 @@ $(window).load(function(){
     $("#to3Text").keypress(function(J) {
         keypressToTextBox(J);
         current_Address = 3;
+    });
+    $("#fromText").keypress(function(J) {
+        keypressToTextBox(J);
+        current_Address = 4;
+    });
+    $("#from2Text").keypress(function(J) {
+        keypressToTextBox(J);
+        current_Address = 5;
+    });
+    $("#from3Text").keypress(function(J) {
+        keypressToTextBox(J);
+        current_Address = 6;
     });
 
     // ввод текста в текстбокс
@@ -174,6 +222,7 @@ function confirm_search(value){
     switch (current_Address){
         case 1:
             $('#toNumberText')[0].value = '';
+            $('#fromNumberText')[0].value = '';
             $('#orderSpan')[0].style.display = "none";
             $('#routeSpan')[0].style.display = "inline";
             $('#orderSection')[0].style.visibility = "collapse";
@@ -181,9 +230,11 @@ function confirm_search(value){
             break;
         case 2:
             $('#toNumber2Text')[0].value = '';
+            $('#fromNumber2Text')[0].value = '';
             break;
         case 3:
             $('#toNumber3Text')[0].value = '';
+            $('#fromNumber3Text')[0].value = '';
             break;
     }
 }
@@ -234,6 +285,15 @@ function show_suggestion(res){
             case 3:
                 $('#search_suggestion').css({'left':0,'top':105});
                 break;
+            case 4:
+                $('#search_suggestion').css({'left':-500,'top':35});
+                break;
+            case 5:
+                $('#search_suggestion').css({'left':-500,'top':70});
+                break;
+            case 6:
+                $('#search_suggestion').css({'left':-500,'top':105});
+                break;
         }
 
         $('#search_suggestion').show(500);
@@ -246,6 +306,7 @@ function show_suggestion(res){
         switch (current_Address){
             case 1:
                 $('#toNumberText')[0].value = '';
+                $('#fromNumberText')[0].value = '';
                 $('#orderSpan')[0].style.display = "none";
                 $('#routeSpan')[0].style.display = "inline";
                 $('#orderSection')[0].style.visibility = "collapse";
@@ -253,9 +314,11 @@ function show_suggestion(res){
                 break;
             case 2:
                 $('#toNumber2Text')[0].value = '';
+                $('#fromNumber2Text')[0].value = '';
                 break;
             case 3:
                 $('#toNumber3Text')[0].value = '';
+                $('#fromNumber3Text')[0].value = '';
                 break;
         }
     }
