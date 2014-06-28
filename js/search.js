@@ -286,13 +286,13 @@ function show_suggestion(res){
                 $('#search_suggestion').css({'left':0,'top':105});
                 break;
             case 4:
-                $('#search_suggestion').css({'left':-500,'top':35});
+                $('#search_suggestion').css({'left':-510,'top':35});
                 break;
             case 5:
-                $('#search_suggestion').css({'left':-500,'top':70});
+                $('#search_suggestion').css({'left':-510,'top':70});
                 break;
             case 6:
-                $('#search_suggestion').css({'left':-500,'top':105});
+                $('#search_suggestion').css({'left':-510,'top':105});
                 break;
         }
 

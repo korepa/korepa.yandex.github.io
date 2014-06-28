@@ -11,7 +11,7 @@ function init () {
     myMap = new ymaps.Map('map', {
         // указываем центр и масштаб карты
         center:[55.76, 37.64], // Москва
-        zoom:11,
+        zoom:10,
         controls: ['smallMapDefaultSet']
     });
 
@@ -194,6 +194,10 @@ function init () {
         // закроем другие адреса
         $('#address2Tr')[0].style.display = "none";
         $('#address3Tr')[0].style.display = "none";
+        $('#orderSection')[0].style.visibility = "collapse";
+        $('#orderSpan')[0].style.display = "none";
+        $('#routeSpan')[0].style.display = "inline";
+        $('#routeButton')[0].disabled = true;
 
         // поменяем текст
         var from = document.getElementById('fromText').value
@@ -224,10 +228,8 @@ function init () {
             document.getElementById('fromText').readOnly = false;
             document.getElementById('toText').readOnly = true;
 
-            document.getElementById('fromText').value = '';
-            document.getElementById('fromNumberText').value = '';
-            document.getElementById('toText').value = from;
-            document.getElementById('toNumberText').value = '';
+            clearAddress(1);
+            $('#toText')[0].value = from;
         }
         else
         {
@@ -251,10 +253,8 @@ function init () {
             document.getElementById('fromText').readOnly = true;
             document.getElementById('toText').readOnly = false;
 
-            document.getElementById('fromText').value = to;
-            document.getElementById('fromNumberText').value = '';
-            document.getElementById('toText').value = '';
-            document.getElementById('toNumberText').value = '';
+            clearAddress(1);
+            $('#fromText')[0].value = to;
         }
     });
 }
@@ -296,8 +296,8 @@ function makeRoute() {
             var toStreetName = lastPoint.properties.get("GeocoderMetaData").AddressDetails.Country.AddressLine;
             firstPoint.properties.set('iconContent', '<b>От:</b> ' + fromStreetName);
             lastPoint.properties.set('iconContent', '<b>До:</b> ' + toStreetName);
-            firstPoint.options.set('preset', 'islands#redStretchyIcon');
-            lastPoint.options.set('preset', 'islands#redStretchyIcon');
+            firstPoint.options.set('preset', 'islands#blueStretchyIcon');
+            lastPoint.options.set('preset', 'islands#blueStretchyIcon');
 
             // добавляем точки на карту
             myCollection.add(firstPoint);
@@ -343,7 +343,9 @@ function makeRoute() {
                         setTimeout(function ()
                         {
                             // открываем балун для метки (последней, если их несколько)
+                            /* пока не выводим балун на экран
                             metroPlacemark.balloon.open();
+                            */
                         }, 1000);
 
                         // если все прошло ОК, делаем кнопку заказа и поле с суммой видимыми
@@ -363,45 +365,38 @@ function loadModules() {
     // ничего не делаем после загрузки модулей
 }
 
-// функция добавления доп. адреса 1
+// функция добавления доп. адреса (правый)
 function addRightAddress() {
     if ( $('#address2Tr')[0].style.display === 'none')
     {
         $('#address2Tr')[0].style.display = "table-row";
-        $('#from2Text')[0].style.visibility = "hidden";
-        $('#fromNumber2Text')[0].style.visibility = "hidden";
-        $('#to2Text')[0].style.visibility = "visible";
-        $('#toNumber2Text')[0].style.visibility = "visible";
+        clearAddress(2);
+        hideAddress(2, 'left');
         return;
     }
     if ( $('#address3Tr')[0].style.display === 'none')
     {
         $('#address3Tr')[0].style.display = "table-row";
-        $('#from3Text')[0].style.visibility = "hidden";
-        $('#fromNumber3Text')[0].style.visibility = "hidden";
-        $('#to3Text')[0].style.visibility = "visible";
-        $('#toNumber3Text')[0].style.visibility = "visible";
+        clearAddress(3);
+        hideAddress(3, 'left');
         return;
     }
 }
 
+// функция добавления доп. адреса (левый)
 function addLeftAddress() {
     if ( $('#address2Tr')[0].style.display === 'none')
     {
         $('#address2Tr')[0].style.display = "table-row";
-        $('#from2Text')[0].style.visibility = "visible";
-        $('#fromNumber2Text')[0].style.visibility = "visible";
-        $('#to2Text')[0].style.visibility = "hidden";
-        $('#toNumber2Text')[0].style.visibility = "hidden";
+        clearAddress(2);
+        hideAddress(2, 'right');
         return;
     }
     if ( $('#address3Tr')[0].style.display === 'none')
     {
         $('#address3Tr')[0].style.display = "table-row";
-        $('#from3Text')[0].style.visibility = "visible";
-        $('#fromNumber3Text')[0].style.visibility = "visible";
-        $('#to3Text')[0].style.visibility = "hidden";
-        $('#toNumber3Text')[0].style.visibility = "hidden";
+        clearAddress(3);
+        hideAddress(3, 'right');
         return;
     }
 }
@@ -409,19 +404,73 @@ function addLeftAddress() {
 // функция добавления доп. адреса 2
 function remove2Address() {
     $('#address2Tr')[0].style.display = "none";
-    $('#from2Text')[0].value = '';
-    $('#to2Text')[0].value = '';
-    $('#toNumber2Text')[0].value = '';
+    clearAddress(2);
 }
 
 // функция добавления доп. адреса 3
 function remove3Address() {
     $('#address3Tr')[0].style.display = "none";
-    $('#from3Text')[0].value = '';
-    $('#to3Text')[0].value = '';
-    $('#toNumber3Text')[0].value = '';
+    clearAddress(3);
 }
 
+// Функция очистки доп. адресов
+function clearAddress(number){
+    if (number == 1){
+        $('#fromText')[0].value = '';
+        $('#fromNumberText')[0].value = '';
+        $('#toText')[0].value = '';
+        $('#toNumberText')[0].value = '';
+    }
+    else if (number == 2){
+        $('#from2Text')[0].value = '';
+        $('#fromNumber2Text')[0].value = '';
+        $('#to2Text')[0].value = '';
+        $('#toNumber2Text')[0].value = '';
+    }
+    else if (number == 3){
+        $('#from3Text')[0].value = '';
+        $('#fromNumber3Text')[0].value = '';
+        $('#to3Text')[0].value = '';
+        $('#toNumber3Text')[0].value = '';
+    }
+}
+
+// Функция очистки доп. адресов
+function hideAddress(number, side){
+    if (number == 1){
+        // не используем
+    }
+    else if (number == 2){
+        if (side == 'right'){
+            $('#from2Text')[0].style.visibility = "visible";
+            $('#fromNumber2Text')[0].style.visibility = "visible";
+            $('#to2Text')[0].style.visibility = "hidden";
+            $('#toNumber2Text')[0].style.visibility = "hidden";
+        }
+        else {
+            $('#from2Text')[0].style.visibility = "hidden";
+            $('#fromNumber2Text')[0].style.visibility = "hidden";
+            $('#to2Text')[0].style.visibility = "visible";
+            $('#toNumber2Text')[0].style.visibility = "visible";
+        }
+    }
+    else if (number == 3){
+        if (side == 'right'){
+            $('#from3Text')[0].style.visibility = "visible";
+            $('#fromNumber3Text')[0].style.visibility = "visible";
+            $('#to3Text')[0].style.visibility = "hidden";
+            $('#toNumber3Text')[0].style.visibility = "hidden";
+        }
+        else {
+            $('#from3Text')[0].style.visibility = "hidden";
+            $('#fromNumber3Text')[0].style.visibility = "hidden";
+            $('#to3Text')[0].style.visibility = "visible";
+            $('#toNumber3Text')[0].style.visibility = "visible";
+        }
+    }
+}
+
+// подсчет стоимости поездки
 function priceCount(distance){
     if (distance < 1000)
     {
