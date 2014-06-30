@@ -14,11 +14,11 @@
 <label style="margin-left: 3px; margin-bottom: 20px; font-weight: bold;">Введите данные пассажиров:</label>
 <table style="height:auto;">
     <tr>
-        <td style="width:100px;"><label style="font-size: 100%;">Откуда: </label></td>
+        <td style="width:100px; vertical-align: top;"><label style="font-size: 100%; margin-top: 5px;">Откуда: </label></td>
         <td style="width:80%;"><label id="routeFromLabel" style="font-size: 100%; text-wrap: none; margin:5px auto; width: 99%; font-weight: normal;"></label></td>
     </tr>
     <tr>
-        <td style="vertical-align: top;"><label style="font-size: 100%;">Куда: </label></td>
+        <td style="vertical-align: top;"><label style="font-size: 100%; margin-top: 5px;">Куда: </label></td>
         <td><label id="routeToLabel" style="font-size: 100%; text-wrap: none; margin:5px auto; width: 99%; font-weight: normal;"></label></td>
     </tr>
 </table>
@@ -53,6 +53,7 @@
         <td><input type="text" id="tablePrintText" class="form-control" value="" style="margin:5px auto; width: 99%;"/></td>
     </tr>
 </table>
+<button type="button" id="backButton" class="btn btn-default btn-lg" onclick="paymentBack()" style="margin-right: 10px;">Назад</button>
 <button type="button" id="payButton" class="btn btn-info btn-lg" onclick="payment()" disabled="true">Перейти к оплате</button>
 </body>
 </html>

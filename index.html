@@ -7,6 +7,7 @@
     <script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
     <script src="js/map.js" type="text/javascript"></script>
     <script src="js/payment.js" type="text/javascript"></script>
+    <script src="js/helper.js" type="text/javascript"></script>
     <script src="js/search.js" type="text/javascript"></script>
     <script src="//yandex.st/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
     <link href="//yandex.st/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
@@ -34,31 +35,31 @@
     <tr id="address1Tr">
         <td style="display: none;" id="left1Td"><button id="addLeftButton" type="button" class="btn btn-primary btn-xs" style="margin-top: 10%; margin-bottom: 10%; width: 80%; font-size: 130%;" onclick="addLeftAddress()">+</button></td>
         <td><input type="text" id="fromText" class="form-control" value="Москва, аэропорт Внуково" placeholder="Улица" readonly style="margin:0 auto; width: 99%; font-size:120%;"/></td>
-        <td style="display: none;" id="fromNumber1Td"><input type="text" id="fromNumberText" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom;"/></td>
+        <td style="display: none;" id="fromNumber1Td"><input type="text" id="fromNumberText" class="form-control" value="" autocomplete="off" placeholder="Дом" style="font-size:120%; vertical-align: bottom;"/></td>
         <td></td>
         <td style="position: relative;">
             <input type="text" id="toText" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%;"/>
             <ul id="search_suggestion" style="position: absolute;"></ul>
         </td>
-        <td style="display: table-cell;" id="toNumber1Td"><input type="text" id="toNumberText" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom;"/></td>
+        <td style="display: table-cell;" id="toNumber1Td"><input type="text" id="toNumberText" class="form-control" value="" autocomplete="off" placeholder="Дом" style="font-size:120%; vertical-align: bottom;"/></td>
         <td style="display: block;" id="right1Td"><button id="addButton" type="button" class="btn btn-primary btn-xs" style="margin-left:20%; margin-top: 10%; margin-bottom: 10%; width: 80%; font-size: 130%;" onclick="addRightAddress()">+</button></td>
     </tr>
     <tr id="address2Tr" style="display: none;">
         <td style="display: none;" id="left2Td"><button id="addLeft2Button" type="button" class="btn btn-primary btn-xs" style="margin-top: 10%; margin-bottom: 10%; width: 80%; font-size: 130%;" onclick="remove2Address()">-</button></td>
         <td><input type="text" id="from2Text" class="form-control" value="" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%; visibility: hidden;"/></td>
-        <td style="display: none;" id="fromNumber2Td"><input type="text" id="fromNumber2Text" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom; visibility: hidden;"/></td>
+        <td style="display: none;" id="fromNumber2Td"><input type="text" id="fromNumber2Text" class="form-control" value="" autocomplete="off" placeholder="Дом" style="font-size:120%; vertical-align: bottom; visibility: hidden;"/></td>
         <td></td>
         <td><input type="text" id="to2Text" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%; visibility: hidden;"/></td>
-        <td style="display: table-cell;" id="toNumber2Td"><input type="text" id="toNumber2Text" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom; visibility: hidden;"/></td>
+        <td style="display: table-cell;" id="toNumber2Td"><input type="text" id="toNumber2Text" class="form-control" value="" autocomplete="off" placeholder="Дом" style="font-size:120%; vertical-align: bottom; visibility: hidden;"/></td>
         <td style="display: block;" id="right2Td"><button id="add2Button" type="button" class="btn btn-primary btn-xs" style="margin-left:20%; margin-top: 10%; margin-bottom: 10%; width: 80%; font-size: 130%;" onclick="remove2Address()">-</button></td>
     </tr>
     <tr id="address3Tr" style="display: none;">
         <td style="display: none;" id="left3Td"><button id="addLeft3Button" type="button" class="btn btn-primary btn-xs" style="margin-top: 10%; margin-bottom: 10%; width: 80%; font-size: 130%;" onclick="remove3Address()">-</button></td>
         <td><input type="text" id="from3Text" class="form-control" value="" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%; visibility: hidden;"/></td>
-        <td style="display: none;" id="fromNumber3Td"><input type="text" id="fromNumber3Text" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom; visibility: hidden;"/></td>
+        <td style="display: none;" id="fromNumber3Td"><input type="text" id="fromNumber3Text" class="form-control" value="" autocomplete="off" placeholder="Дом" style="font-size:120%; vertical-align: bottom; visibility: hidden;"/></td>
         <td></td>
         <td><input type="text" id="to3Text" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%; visibility: hidden;"/></td>
-        <td style="display: table-cell;" id="toNumber3Td"><input type="text" id="toNumber3Text" class="form-control" value="" autocomplete="off" placeholder="Номер дома" style="font-size:120%; vertical-align: bottom; visibility: hidden;"/></td>
+        <td style="display: table-cell;" id="toNumber3Td"><input type="text" id="toNumber3Text" class="form-control" value="" autocomplete="off" placeholder="Дом" style="font-size:120%; vertical-align: bottom; visibility: hidden;"/></td>
         <td style="display: block;" id="right3Td"><button id="add3Button" type="button" class="btn btn-primary btn-xs" style="margin-left:20%; margin-top: 10%; margin-bottom: 10%; width: 80%; font-size: 130%;" onclick="remove3Address()">-</button></td>
     </tr>
 </table>

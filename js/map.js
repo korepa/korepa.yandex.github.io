@@ -188,76 +188,88 @@ function init () {
         }
     };
 
+    window.onpopstate = function(event) {
+        alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+    };
+
     // функция изменения направления транфера (из аэропорта или в аэропорт)
     $("#forwardRButton, #backwardRButton").change(function () {
-
-        // закроем другие адреса
-        $('#address2Tr')[0].style.display = "none";
-        $('#address3Tr')[0].style.display = "none";
-        $('#orderSection')[0].style.visibility = "collapse";
-        $('#orderSpan')[0].style.display = "none";
-        $('#routeSpan')[0].style.display = "inline";
-        $('#routeButton')[0].disabled = true;
-
-        // поменяем текст
-        var from = document.getElementById('fromText').value
-        var to = document.getElementById('toText').value;
-        document.getElementById('fromText').value = to;
-        document.getElementById('toText').value = from;
-
-        // изменим кнопки
-        if ( $('#leftTd')[0].style.display === 'none')
-        {
-            $('#leftTd')[0].style.display = "block";
-            $('#left1Td')[0].style.display = "block";
-            $('#left2Td')[0].style.display = "block";
-            $('#left3Td')[0].style.display = "block";
-            $('#fromNumberTd')[0].style.display = "table-cell";
-            $('#fromNumber1Td')[0].style.display = "table-cell";
-            $('#fromNumber2Td')[0].style.display = "table-cell";
-            $('#fromNumber3Td')[0].style.display = "table-cell";
-            $('#rightTd')[0].style.display = "none";
-            $('#right1Td')[0].style.display = "none";
-            $('#right2Td')[0].style.display = "none";
-            $('#right3Td')[0].style.display = "none";
-            $('#toNumberTd')[0].style.display = "none";
-            $('#toNumber1Td')[0].style.display = "none";
-            $('#toNumber2Td')[0].style.display = "none";
-            $('#toNumber3Td')[0].style.display = "none";
-
-            document.getElementById('fromText').readOnly = false;
-            document.getElementById('toText').readOnly = true;
-
-            clearAddress(1);
-            $('#toText')[0].value = from;
-        }
-        else
-        {
-            $('#leftTd')[0].style.display = "none";
-            $('#left1Td')[0].style.display = "none";
-            $('#left2Td')[0].style.display = "none";
-            $('#left3Td')[0].style.display = "none";
-            $('#fromNumberTd')[0].style.display = "none";
-            $('#fromNumber1Td')[0].style.display = "none";
-            $('#fromNumber2Td')[0].style.display = "none";
-            $('#fromNumber3Td')[0].style.display = "none";
-            $('#rightTd')[0].style.display = "block";
-            $('#right1Td')[0].style.display = "block";
-            $('#right2Td')[0].style.display = "block";
-            $('#right3Td')[0].style.display = "block";
-            $('#toNumberTd')[0].style.display = "table-cell";
-            $('#toNumber1Td')[0].style.display = "table-cell";
-            $('#toNumber2Td')[0].style.display = "table-cell";
-            $('#toNumber3Td')[0].style.display = "table-cell";
-
-            document.getElementById('fromText').readOnly = true;
-            document.getElementById('toText').readOnly = false;
-
-            clearAddress(1);
-            $('#fromText')[0].value = to;
-        }
+        changeDirection();
     });
+
+    // загрузка адресов
+    loadAddresses();
 }
+
+// смена направления
+function changeDirection() {
+    // закроем другие адреса
+    $('#address2Tr')[0].style.display = "none";
+    $('#address3Tr')[0].style.display = "none";
+    $('#orderSection')[0].style.visibility = "collapse";
+    $('#orderSpan')[0].style.display = "none";
+    $('#routeSpan')[0].style.display = "inline";
+    $('#routeButton')[0].disabled = true;
+
+    // поменяем текст
+    var from = document.getElementById('fromText').value
+    var to = document.getElementById('toText').value;
+    document.getElementById('fromText').value = to;
+    document.getElementById('toText').value = from;
+
+    // изменим кнопки
+    if ( $('#leftTd')[0].style.display === 'none')
+    {
+        $('#leftTd')[0].style.display = "block";
+        $('#left1Td')[0].style.display = "block";
+        $('#left2Td')[0].style.display = "block";
+        $('#left3Td')[0].style.display = "block";
+        $('#fromNumberTd')[0].style.display = "table-cell";
+        $('#fromNumber1Td')[0].style.display = "table-cell";
+        $('#fromNumber2Td')[0].style.display = "table-cell";
+        $('#fromNumber3Td')[0].style.display = "table-cell";
+        $('#rightTd')[0].style.display = "none";
+        $('#right1Td')[0].style.display = "none";
+        $('#right2Td')[0].style.display = "none";
+        $('#right3Td')[0].style.display = "none";
+        $('#toNumberTd')[0].style.display = "none";
+        $('#toNumber1Td')[0].style.display = "none";
+        $('#toNumber2Td')[0].style.display = "none";
+        $('#toNumber3Td')[0].style.display = "none";
+
+        document.getElementById('fromText').readOnly = false;
+        document.getElementById('toText').readOnly = true;
+
+        clearAddress(1);
+        $('#toText')[0].value = from;
+    }
+    else
+    {
+        $('#leftTd')[0].style.display = "none";
+        $('#left1Td')[0].style.display = "none";
+        $('#left2Td')[0].style.display = "none";
+        $('#left3Td')[0].style.display = "none";
+        $('#fromNumberTd')[0].style.display = "none";
+        $('#fromNumber1Td')[0].style.display = "none";
+        $('#fromNumber2Td')[0].style.display = "none";
+        $('#fromNumber3Td')[0].style.display = "none";
+        $('#rightTd')[0].style.display = "block";
+        $('#right1Td')[0].style.display = "block";
+        $('#right2Td')[0].style.display = "block";
+        $('#right3Td')[0].style.display = "block";
+        $('#toNumberTd')[0].style.display = "table-cell";
+        $('#toNumber1Td')[0].style.display = "table-cell";
+        $('#toNumber2Td')[0].style.display = "table-cell";
+        $('#toNumber3Td')[0].style.display = "table-cell";
+
+        document.getElementById('fromText').readOnly = true;
+        document.getElementById('toText').readOnly = false;
+
+        clearAddress(1);
+        $('#fromText')[0].value = to;
+    }
+}
+
 
 // функция построения марштура от точки А к точке В
 function makeRoute() {
@@ -482,5 +494,78 @@ function priceCount(distance){
     }
     else
         $('#priceText')[0].innerHTML = 1500 + ' р';
+}
+
+function loadAddresses() {
+    // получим параметры из запроса (то, что ввели на предыдущей странице)
+    var dir = decodeURIComponent(parseUrlQuery()['dir']);
+    var from = decodeURIComponent(parseUrlQuery()['from']);
+    var from2 = decodeURIComponent(parseUrlQuery()['from2']);
+    var from3 = decodeURIComponent(parseUrlQuery()['from3']);
+    var to = decodeURIComponent(parseUrlQuery()['to']);
+    var to2 = decodeURIComponent(parseUrlQuery()['to2']);
+    var to3 = decodeURIComponent(parseUrlQuery()['to3']);
+
+    if (dir != "" && dir != "undefined"){
+        if (dir == "from"){
+            if ($("#forwardRButton")[0].checked == false){
+                $("#forwardRButton")[0].checked = true;
+                changeDirection();
+            }
+        }
+        if (dir == "to"){
+            if ($("#backwardRButton")[0].checked == false){
+                $("#backwardRButton")[0].checked = true;
+                changeDirection();
+            }
+        }
+    }
+
+    // адреса оттуда
+    if (from != "" && from != "undefined"){
+        var fromSplit = from.split(',');
+        document.getElementById("fromText").value = fromSplit[0].trim() + ', ' + fromSplit[1].trim();
+        if (fromSplit.length > 2)
+            document.getElementById("fromNumberText").value = fromSplit[2].trim();
+    }
+    if (from2 != "" && from2 != "undefined"){
+        addLeftAddress();
+        var fromSplit = from2.split(',');
+        document.getElementById("from2Text").value = fromSplit[0].trim() + ', ' + fromSplit[1].trim();
+        if (fromSplit.length > 2)
+            document.getElementById("fromNumber2Text").value = fromSplit[2].trim();
+    }
+    if (from3 != "" && from3 != "undefined"){
+        addLeftAddress();
+        var fromSplit = from3.split(',');
+        document.getElementById("from3Text").value  = fromSplit[0].trim() + ', ' + fromSplit[1].trim();
+        if (fromSplit.length > 2)
+            document.getElementById("fromNumber3Text").value = fromSplit[2].trim();
+    }
+    // адреса туда
+    if (to != "" && to != "undefined"){
+        var toSplit = to.split(',');
+        document.getElementById("toText").value = toSplit[0].trim() + ', ' + toSplit[1].trim();
+        if (toSplit.length > 2)
+            document.getElementById("toNumberText").value = toSplit[2].trim();
+    }
+    if (to2 != "" && to2 != "undefined"){
+        addRightAddress();
+        var toSplit = to2.split(',');
+        document.getElementById("to2Text").value = toSplit[0].trim() + ', ' + toSplit[1].trim();
+        if (toSplit.length > 2)
+            document.getElementById("toNumber2Text").value = toSplit[2].trim();
+    }
+    if (to3 != "" && to3 != "undefined"){
+        addRightAddress();
+        var toSplit = to3.split(',');
+        document.getElementById("to3Text").value = toSplit[0].trim() + ', ' + toSplit[1].trim();
+        if (toSplit.length > 2)
+            document.getElementById("toNumber3Text").value = toSplit[2].trim();
+    }
+    // строим маршрут
+    if (from != "" && from != "undefined"){
+        makeRoute();
+    }
 }
 
