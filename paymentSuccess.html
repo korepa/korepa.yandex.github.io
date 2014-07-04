@@ -18,16 +18,12 @@
 <p style="margin-bottom: 20px;"></p>
 <table style="height:auto;">
     <tr>
-        <td style="width:250px;"><label style="margin:10px auto; font-weight: bold; font-size: 100%;">Количество пассажиров:</label></td>
-        <td style="width:75%;"><label type="text" id="passCountLabel" value="" style="width: 99%; font-weight: 200;"/></td>
+        <td style="width:250px;"><label style="margin:10px auto; font-weight: bold; font-size: 100%;">Номер рейса:</label></td>
+        <td style="width:75%;"><label type="text" id="flightNumberLabel" value="" style="width: 99%; font-weight: 200;"/></td>
     </tr>
     <tr>
-        <td><label style="margin:10px auto; font-weight: bold; font-size: 100%;">Номер рейса:</label></td>
-        <td><label type="text" id="flightNumberLabel" value="" style="width: 99%; font-weight: 200;"/></td>
-    </tr>
-    <tr>
-        <td><label style="margin:10px auto; font-weight: bold; font-size: 100%;">Дата и время прилета:</label></td>
-        <td><label type="text" id="arrivalDateLabel" value="" style="width: 99%; font-weight: 200;"/></td>
+        <td><label style="margin:10px auto; font-weight: bold; font-size: 100%;">Дата прилета:</label></td>
+        <td><label type="text" id="dateLabel" value="" style="width: 99%; font-weight: 200;"/></td>
     </tr>
     <tr>
         <td><label style="margin:10px auto; font-weight: bold; font-size: 100%;">Имя:</label></td>
@@ -35,18 +31,26 @@
     </tr>
     <tr>
         <td><label style="margin:10px auto; font-weight: bold; font-size: 100%;">Мобильный телефон:</label></td>
-        <td><label type="text" id="soNameLabel" value="" style="width: 99%; font-weight: 200;"/></td>
+        <td><label type="text" id="phoneLabel" value="" style="width: 99%; font-weight: 200;"/></td>
     </tr>
     <tr>
-        <td><label style="margin:10px auto; font-weight: bold; font-size: 100%;">Примечание:</label></td>
-        <td><label type="text" id="commentLabel" value="" style="width: 99%; font-weight: 200;"/></td>
+        <td><label style="margin:10px auto; font-weight: bold; font-size: 100%;">Email:</label></td>
+        <td><label type="text" id="emailLabel" value="" style="width: 99%; font-weight: 200;"/></td>
+    </tr>
+    <tr>
+        <td><label style="margin:10px auto; font-weight: bold; font-size: 100%;">Количество пассажиров:</label></td>
+        <td><label type="text" id="passCountLabel" value="" style="width: 99%; font-weight: 200;"/></td>
+    </tr>
+    <tr>
+        <td><label style="margin:10px auto; font-weight: bold; font-size: 100%;">Детей (с креслом):</label></td>
+        <td><label type="text" id="childrenCountLabel" value="" style="width: 99%; font-weight: 200;"/></td>
     </tr>
     <tr>
         <td><label style="margin:10px auto; font-weight: bold; font-size: 100%;">Надпись на табличке:</label></td>
-        <td><label type="text" id="tablePrintLabel" value="" style="width: 99%; font-weight: 200;"/></td>
+        <td><label type="text" id="tablePrintLabel" value="" style="width: 99%; font-weight: 200;"/>ТРАНС-ФРИ</td>
     </tr>
 </table>
 <p></p>
-<button type="button" id="payBackButton" class="btn btn-info btn-lg" onclick="paymentSuccessBack()">На главную</button>
+<button type="button" id="payBackButton" class="btn btn-primary btn-lg" onclick="paymentSuccessBack()" style="float: right;">На главную</button>
 </body>
 </html>

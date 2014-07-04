@@ -11,49 +11,43 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/payment.ico">
 </head>
 <body style="padding: 10px; border: 3px solid lightblue; border-radius: 10px;" onload="loadPayment()">
-<label style="margin-left: 3px; margin-bottom: 20px; font-weight: bold;">Введите данные пассажиров:</label>
+<label style="font-weight: bold; text-align: center; font-size: 150%; padding: 10px; border: 2px solid lightblue; border-radius: 10px; width: 100%; background-color: aliceblue;">Параметры авиарейса:</label>
 <table style="height:auto;">
     <tr>
-        <td style="width:100px; vertical-align: top;"><label style="font-size: 100%; margin-top: 5px;">Откуда: </label></td>
-        <td style="width:80%;"><label id="routeFromLabel" style="font-size: 100%; text-wrap: none; margin:5px auto; width: 99%; font-weight: normal;"></label></td>
+        <td style="width:100px; vertical-align: top;"><label style="font-size: 100%; margin-top: 5px;">Авиарейс: </label></td>
+        <td style="width:80%;"><label id="flightNumberLabel" style="font-size: 100%; text-wrap: none; margin:5px auto; width: 99%; font-weight: normal;">777А</label></td>
     </tr>
     <tr>
-        <td style="vertical-align: top;"><label style="font-size: 100%; margin-top: 5px;">Куда: </label></td>
-        <td><label id="routeToLabel" style="font-size: 100%; text-wrap: none; margin:5px auto; width: 99%; font-weight: normal;"></label></td>
+        <td style="vertical-align: top;"><label style="font-size: 100%; margin-top: 5px;">Прилет: </label></td>
+        <td><input type="date" id="dateText" class="form-control" value="" style="margin:5px auto; width: 99%;"/></td>
     </tr>
 </table>
-<p></p>
+<p style="margin-bottom: 10px;"></p>
+<label style="font-weight: bold; text-align: center; font-size: 150%; padding: 10px; border: 2px solid lightblue; border-radius: 10px; width: 100%; background-color: aliceblue;">Данные пассажиров:</label>
 <table style="height:auto;">
     <tr>
-        <td style="width:250px;"><label>Количество пассажиров</label></td>
-        <td style="width:75%;"><input type="text" id="passCountText" class="form-control" value="" style="margin:5px auto; width: 99%;"/></td>
+        <td style="width:250px;"><label>Имя и фамилия</label></td>
+        <td style="width:75%;"><input type="text" id="nameText" class="form-control" value="" style="margin:5px auto; width: 99%;"/></td>
     </tr>
     <tr>
-        <td><label>Номер рейса</label></td>
-        <td><input type="text" id="flightNumberText" class="form-control" value="" style="margin:5px auto; width: 99%;"/></td>
+        <td><label>Телефон</label></td>
+        <td><input type="text" id="phoneText" class="form-control" value="" style="margin:5px auto; width: 99%;"/></td>
     </tr>
     <tr>
-        <td><label>Дата и время прилета</label></td>
-        <td><input type="text" id="arrivalDateText" class="form-control" value=""style="margin:5px auto; width: 99%;"/></td>
+        <td><label>Email</label></td>
+        <td><input type="text" id="emailText" class="form-control" value="" style="margin:5px auto; width: 99%;"/></td>
     </tr>
     <tr>
-        <td><label>Имя *</label></td>
-        <td><input type="text" id="nameText" class="form-control" value="" style="margin:5px auto; width: 99%;"/></td>
+        <td><label>Взрослых пассажиров</label></td>
+        <td><input type="text" id="passCountText" class="form-control" value="" style="margin:5px auto; width: 99%;"/></td>
     </tr>
     <tr>
-        <td><label>Мобильный телефон</label></td>
-        <td><input type="text" id="soNameText" class="form-control" value="" style="margin:5px auto; width: 99%;"/></td>
-    </tr>
-    <tr>
-        <td><label>Примечание</label></td>
-        <td><input type="text" id="commentText" class="form-control" value="" style="margin:5px auto; width: 99%;"/></td>
-    </tr>
-    <tr>
-        <td><label>Надпись на табличке</label></td>
-        <td><input type="text" id="tablePrintText" class="form-control" value="" style="margin:5px auto; width: 99%;"/></td>
+        <td><label>Детей (с креслом)</label></td>
+        <td><input type="text" id="childrenCountText" class="form-control" value="" style="margin:5px auto; width: 99%;"/></td>
     </tr>
 </table>
+<label style="font-weight: bold; text-align: center; font-size: 130%; padding: 10px; border: 2px solid lightblue; border-radius: 10px; width: 100%; background-color: lightgoldenrodyellow;">Надпись на табличке: ТРАНС-ФРИ</label>
 <button type="button" id="backButton" class="btn btn-default btn-lg" onclick="paymentBack()" style="margin-right: 10px;">Назад</button>
-<button type="button" id="payButton" class="btn btn-info btn-lg" onclick="payment()" disabled="true">Перейти к оплате</button>
+<button type="button" id="payButton" class="btn btn-primary btn-lg" onclick="payment()" disabled="true" style="float: right;">Перейти к оплате</button>
 </body>
 </html>

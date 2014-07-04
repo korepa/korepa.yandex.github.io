@@ -222,7 +222,7 @@ function confirm_search(value){
     switch (current_Address){
         case 1:
             $('#toNumberText')[0].value = '';
-            $('#fromNumberText')[0].value = '';
+            $('#toNumberText')[0].focus();
             $('#orderSpan')[0].style.display = "none";
             $('#routeSpan')[0].style.display = "inline";
             $('#orderSection')[0].style.visibility = "collapse";
@@ -230,11 +230,27 @@ function confirm_search(value){
             break;
         case 2:
             $('#toNumber2Text')[0].value = '';
-            $('#fromNumber2Text')[0].value = '';
+            $('#toNumber2Text')[0].focus();
             break;
         case 3:
             $('#toNumber3Text')[0].value = '';
+            $('#toNumber3Text')[0].focus();
+            break;
+        case 4:
+            $('#fromNumberText')[0].value = '';
+            $('#fromNumberText')[0].focus();
+            $('#orderSpan')[0].style.display = "none";
+            $('#routeSpan')[0].style.display = "inline";
+            $('#orderSection')[0].style.visibility = "collapse";
+            $('#routeButton')[0].disabled = false;
+            break;
+        case 5:
+            $('#fromNumber2Text')[0].value = '';
+            $('#fromNumber2Text')[0].focus();
+            break;
+        case 6:
             $('#fromNumber3Text')[0].value = '';
+            $('#fromNumber3Text')[0].focus();
             break;
     }
 }

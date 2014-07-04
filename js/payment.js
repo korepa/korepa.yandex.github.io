@@ -1,23 +1,23 @@
 function loadPayment() {
     // получим параметры из запроса (то, что ввели на предыдущей странице)
-    var from = decodeURIComponent(parseUrlQuery()['from']);
-    var from2 = decodeURIComponent(parseUrlQuery()['from2']);
-    var from3 = decodeURIComponent(parseUrlQuery()['from3']);
-    var to = decodeURIComponent(parseUrlQuery()['to']);
-    var to2 = decodeURIComponent(parseUrlQuery()['to2']);
-    var to3 = decodeURIComponent(parseUrlQuery()['to3']);
-    // адреса оттуда
-    document.getElementById("routeFromLabel").innerHTML += from;
-    if (from2 != '' && from2 != ', ' && from2 != 'undefined')
-        document.getElementById("routeFromLabel").innerHTML += '<br>' + from2;
-    if (from3 != '' && from3 != ', ' && from3 != 'undefined')
-        document.getElementById("routeFromLabel").innerHTML += '<br>' + from3;
-    // адреса туда
-    document.getElementById("routeToLabel").innerHTML += to;
-    if (to2 != '' && to2 != ', ' && to2 != 'undefined')
-        document.getElementById("routeToLabel").innerHTML += '<br>' + to2;
-    if (to3 != '' && to3 != ', ' && to3 != 'undefined')
-        document.getElementById("routeToLabel").innerHTML += '<br>' + to3;
+//    var from = decodeURIComponent(parseUrlQuery()['from']);
+//    var from2 = decodeURIComponent(parseUrlQuery()['from2']);
+//    var from3 = decodeURIComponent(parseUrlQuery()['from3']);
+//    var to = decodeURIComponent(parseUrlQuery()['to']);
+//    var to2 = decodeURIComponent(parseUrlQuery()['to2']);
+//    var to3 = decodeURIComponent(parseUrlQuery()['to3']);
+//    // адреса оттуда
+//    document.getElementById("routeFromLabel").innerHTML += from;
+//    if (from2 != '' && from2 != ', ' && from2 != 'undefined')
+//        document.getElementById("routeFromLabel").innerHTML += '<br>' + from2;
+//    if (from3 != '' && from3 != ', ' && from3 != 'undefined')
+//        document.getElementById("routeFromLabel").innerHTML += '<br>' + from3;
+//    // адреса туда
+//    document.getElementById("routeToLabel").innerHTML += to;
+//    if (to2 != '' && to2 != ', ' && to2 != 'undefined')
+//        document.getElementById("routeToLabel").innerHTML += '<br>' + to2;
+//    if (to3 != '' && to3 != ', ' && to3 != 'undefined')
+//        document.getElementById("routeToLabel").innerHTML += '<br>' + to3;
 
     // обрабатываем ввод текста (активируем кнопку оплаты)
     document.getElementById('nameText').onkeyup = function (event) {
@@ -30,21 +30,22 @@ function loadPayment() {
 
 function loadPaymentSuccess() {
     // получим параметры из запроса (то, что ввели на предыдущей странице)
-    var passCount = decodeURIComponent(parseUrlQuery()['passcount']);
     var flightNumber = decodeURIComponent(parseUrlQuery()['flightnumber']);
-    var arrivalDate = decodeURIComponent(parseUrlQuery()['arrivaldate']);
+
     var name = decodeURIComponent(parseUrlQuery()['name']);
-    var soName = decodeURIComponent(parseUrlQuery()['soname']);
-    var comment = decodeURIComponent(parseUrlQuery()['comment']);
-    var tablePrint = decodeURIComponent(parseUrlQuery()['tableprint']);
+    var phone = decodeURIComponent(parseUrlQuery()['phone']);
+    var email = decodeURIComponent(parseUrlQuery()['email']);
+    var passCount = decodeURIComponent(parseUrlQuery()['passcount']);
+    var childrenCount = decodeURIComponent(parseUrlQuery()['childrenCount']);
+    var date = decodeURIComponent(parseUrlQuery()['date']);
 
     document.getElementById("passCountLabel").innerHTML = passCount;
     document.getElementById("flightNumberLabel").innerHTML = flightNumber;
-    document.getElementById("arrivalDateLabel").innerHTML = arrivalDate;
+    document.getElementById("dateLabel").innerHTML = date;
     document.getElementById("nameLabel").innerHTML = name;
-    document.getElementById("soNameLabel").innerHTML = soName;
-    document.getElementById("commentLabel").innerHTML = comment;
-    document.getElementById("tablePrintLabel").innerHTML = tablePrint;
+    document.getElementById("phoneLabel").innerHTML = phone;
+    document.getElementById("emailLabel").innerHTML = email;
+    document.getElementById("childrenCountLabel").innerHTML = childrenCount;
 }
 
 function order() {
@@ -96,23 +97,27 @@ function order() {
 
 function payment() {
     // находим параметры для передачи
-    var passCount = document.getElementById('passCountText').value;
-    var flightNumber = document.getElementById('flightNumberText').value;
-    var arrivalDate = document.getElementById('arrivalDateText').value;
+
+    // параметры рейса
+    var flightNumber = document.getElementById('flightNumberLabel').innerText;
+    var date = document.getElementById('dateText').value;
+
+    // данные пассажиров
     var name = document.getElementById('nameText').value;
-    var soName = document.getElementById('soNameText').value;
-    var comment = document.getElementById('commentText').value;
-    var tablePrint = document.getElementById('tablePrintText').value;
+    var phone = document.getElementById('phoneText').value;
+    var email = document.getElementById('emailText').value;
+    var passCount = document.getElementById('passCountText').value;
+    var childrenCount = document.getElementById('childrenCountText').value;
 
     // используем для формирования адреса с параметрами
     var newLocation = 'paymentSuccess.html';
     newLocation += '?passcount=' + encodeURIComponent(passCount);
     newLocation += '&flightnumber=' + encodeURIComponent(flightNumber);
-    newLocation += '&arrivaldate=' + encodeURIComponent(arrivalDate);
+    newLocation += '&date=' + encodeURIComponent(date);
     newLocation += '&name=' + encodeURIComponent(name);
-    newLocation += '&soname=' + encodeURIComponent(soName);
-    newLocation += '&comment=' + encodeURIComponent(comment);
-    newLocation += '&tableprint=' + encodeURIComponent(tablePrint);
+    newLocation += '&phone=' + encodeURIComponent(phone);
+    newLocation += '&email=' + encodeURIComponent(email);
+    newLocation += '&childrenCount=' + encodeURIComponent(childrenCount);
 
     // переход к оплате (пока фиктивно оплатили)
     window.location = newLocation;
