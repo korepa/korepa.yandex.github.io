@@ -1,23 +1,25 @@
 function loadPayment() {
     // получим параметры из запроса (то, что ввели на предыдущей странице)
-//    var from = decodeURIComponent(parseUrlQuery()['from']);
-//    var from2 = decodeURIComponent(parseUrlQuery()['from2']);
-//    var from3 = decodeURIComponent(parseUrlQuery()['from3']);
-//    var to = decodeURIComponent(parseUrlQuery()['to']);
-//    var to2 = decodeURIComponent(parseUrlQuery()['to2']);
-//    var to3 = decodeURIComponent(parseUrlQuery()['to3']);
-//    // адреса оттуда
-//    document.getElementById("routeFromLabel").innerHTML += from;
-//    if (from2 != '' && from2 != ', ' && from2 != 'undefined')
-//        document.getElementById("routeFromLabel").innerHTML += '<br>' + from2;
-//    if (from3 != '' && from3 != ', ' && from3 != 'undefined')
-//        document.getElementById("routeFromLabel").innerHTML += '<br>' + from3;
-//    // адреса туда
-//    document.getElementById("routeToLabel").innerHTML += to;
-//    if (to2 != '' && to2 != ', ' && to2 != 'undefined')
-//        document.getElementById("routeToLabel").innerHTML += '<br>' + to2;
-//    if (to3 != '' && to3 != ', ' && to3 != 'undefined')
-//        document.getElementById("routeToLabel").innerHTML += '<br>' + to3;
+    var dir = decodeURIComponent(parseUrlQuery()['dir']);
+    var from = decodeURIComponent(parseUrlQuery()['from']);
+    var from2 = decodeURIComponent(parseUrlQuery()['from2']);
+    var from3 = decodeURIComponent(parseUrlQuery()['from3']);
+    var to = decodeURIComponent(parseUrlQuery()['to']);
+    var to2 = decodeURIComponent(parseUrlQuery()['to2']);
+    var to3 = decodeURIComponent(parseUrlQuery()['to3']);
+
+    // адреса оттуда
+    document.getElementById("routeLabel").innerHTML += from;
+    if (from2 != '' && from2 != ', ' && from2 != 'undefined')
+        document.getElementById("routeLabel").innerHTML += ' - ' + from2;
+    if (from3 != '' && from3 != ', ' && from3 != 'undefined')
+        document.getElementById("routeLabel").innerHTML += ' - ' + from3;
+    // адреса туда
+    document.getElementById("routeLabel").innerHTML += ' - ' + to;
+    if (to2 != '' && to2 != ', ' && to2 != 'undefined')
+        document.getElementById("routeLabel").innerHTML += ' - ' + to2;
+    if (to3 != '' && to3 != ', ' && to3 != 'undefined')
+        document.getElementById("routeLabel").innerHTML += ' - ' + to3;
 
     // обрабатываем ввод текста (активируем кнопку оплаты)
     document.getElementById('nameText').onkeyup = function (event) {
@@ -26,18 +28,24 @@ function loadPayment() {
         else
             document.getElementById('payButton').disabled = true;
     };
+
+    // выводим или нет табличку "ТАКС ФРИ"
+    if (dir == 'from'){
+        document.getElementById('dirLabel').innerHTML = "Прилет: ";
+        document.getElementById('signLabel').style.display = "block";
+    }
 }
 
 function loadPaymentSuccess() {
     // получим параметры из запроса (то, что ввели на предыдущей странице)
     var flightNumber = decodeURIComponent(parseUrlQuery()['flightnumber']);
-
+    var date = decodeURIComponent(parseUrlQuery()['date']);
     var name = decodeURIComponent(parseUrlQuery()['name']);
     var phone = decodeURIComponent(parseUrlQuery()['phone']);
     var email = decodeURIComponent(parseUrlQuery()['email']);
     var passCount = decodeURIComponent(parseUrlQuery()['passcount']);
     var childrenCount = decodeURIComponent(parseUrlQuery()['childrenCount']);
-    var date = decodeURIComponent(parseUrlQuery()['date']);
+    var sign = decodeURIComponent(parseUrlQuery()['sign']);
 
     document.getElementById("passCountLabel").innerHTML = passCount;
     document.getElementById("flightNumberLabel").innerHTML = flightNumber;
@@ -46,6 +54,10 @@ function loadPaymentSuccess() {
     document.getElementById("phoneLabel").innerHTML = phone;
     document.getElementById("emailLabel").innerHTML = email;
     document.getElementById("childrenCountLabel").innerHTML = childrenCount;
+    if (sign != "undefined"){
+        document.getElementById("signTr").style.display = "table-row";
+        document.getElementById("signLabel").innerHTML = sign;
+    }
 }
 
 function order() {
@@ -96,8 +108,6 @@ function order() {
 }
 
 function payment() {
-    // находим параметры для передачи
-
     // параметры рейса
     var flightNumber = document.getElementById('flightNumberLabel').innerText;
     var date = document.getElementById('dateText').value;
@@ -111,13 +121,21 @@ function payment() {
 
     // используем для формирования адреса с параметрами
     var newLocation = 'paymentSuccess.html';
-    newLocation += '?passcount=' + encodeURIComponent(passCount);
-    newLocation += '&flightnumber=' + encodeURIComponent(flightNumber);
+    newLocation += '?flightnumber=' + encodeURIComponent(flightNumber);
     newLocation += '&date=' + encodeURIComponent(date);
     newLocation += '&name=' + encodeURIComponent(name);
     newLocation += '&phone=' + encodeURIComponent(phone);
     newLocation += '&email=' + encodeURIComponent(email);
+    newLocation += '&passcount=' + encodeURIComponent(passCount);
     newLocation += '&childrenCount=' + encodeURIComponent(childrenCount);
+
+    // добавим надпись на табличке
+    if (document.getElementById('signLabel').style.display == "block"){
+        var sign = document.getElementById('signLabel').innerText;
+        var signArr = sign.split(':');
+        sign = signArr[1].trim();
+        newLocation += '&sign=' + encodeURIComponent(sign);
+    }
 
     // переход к оплате (пока фиктивно оплатили)
     window.location = newLocation;

@@ -315,8 +315,13 @@ function makeRoute() {
             myCollection.add(firstPoint);
             myCollection.add(lastPoint);
 
+            // выберем откуда вычислять метро
+            var addressToMetro = toAddress;
+            if ($("#backwardRButton")[0].checked == true)
+                addressToMetro = fromAddress;
+
             // ищем ближайшее растояние до метро
-            ymaps.geocode(toAddress).then(function (res) {
+            ymaps.geocode(addressToMetro).then(function (res) {
                 var coords = res.geoObjects.get(0).geometry.getCoordinates();
                 // поиск станций метро
                 ymaps.geocode(coords, {
