@@ -17,11 +17,13 @@
 <table style="height:auto;">
     <tr>
         <td style="width:100px;"><label style="font-size: 100%; margin-top: 5px;">Авиарейс: </label></td>
-        <td style="width:80%;"><label id="flightNumberLabel" style="font-size: 100%; text-wrap: none; margin:5px auto; width: 99%; font-weight: normal;">777А</label></td>
+        <td style="width:40%;"><label id="flightNumberLabel" style="font-size: 100%; text-wrap: none; margin:5px auto; width: 99%; font-weight: normal;">777А</label></td>
+        <td style="width:40%;"></td>
     </tr>
     <tr>
         <td><label id="dirLabel" style="font-size: 100%; margin-top: 5px;">Вылет: </label></td>
-        <td><input type="datetime-local" id="dateText" class="form-control" value="" style="margin:5px auto; width: 99%;"/></td>
+        <td><input type="date" id="dateText" class="form-control" style="margin:5px auto; width: 99%;"/>
+        <td><input type="time" id="timeText" class="form-control" style="margin:5px auto; width: 99%;"/>
     </tr>
 </table>
 <p style="margin-bottom: 10px;"></p>
@@ -41,15 +43,15 @@
     </tr>
     <tr>
         <td><label>Взрослых пассажиров</label></td>
-        <td><select  id="passCountText"class="form-control" style="margin:5px auto; width: 99%;">
-                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+        <td><select  id="passCountText"class="form-control" style="margin:5px auto; width: 99%;" onchange="passCountChange()">
+                <option>1</option><option>2</option><option>3</option><option>4</option>
             </select>
         </td>
     </tr>
     <tr>
         <td><label>Детей (с креслом)</label></td>
-        <td><select  id="childrenCountText"class="form-control" style="margin:5px auto; width: 99%;">
-                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+        <td><select  id="childrenCountText"class="form-control" style="margin:5px auto; width: 99%;" onchange="childrenCountChange()">
+                <option>1</option><option>2</option><option>3</option><option>4</option>
             </select>
         </td>
     </tr>

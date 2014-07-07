@@ -40,6 +40,7 @@ function loadPaymentSuccess() {
     // получим параметры из запроса (то, что ввели на предыдущей странице)
     var flightNumber = decodeURIComponent(parseUrlQuery()['flightnumber']);
     var date = decodeURIComponent(parseUrlQuery()['date']);
+    var time = decodeURIComponent(parseUrlQuery()['time']);
     var name = decodeURIComponent(parseUrlQuery()['name']);
     var phone = decodeURIComponent(parseUrlQuery()['phone']);
     var email = decodeURIComponent(parseUrlQuery()['email']);
@@ -49,7 +50,7 @@ function loadPaymentSuccess() {
 
     document.getElementById("passCountLabel").innerHTML = passCount;
     document.getElementById("flightNumberLabel").innerHTML = flightNumber;
-    document.getElementById("dateLabel").innerHTML = date;
+    document.getElementById("dateLabel").innerHTML = date + ' ' + time;
     document.getElementById("nameLabel").innerHTML = name;
     document.getElementById("phoneLabel").innerHTML = phone;
     document.getElementById("emailLabel").innerHTML = email;
@@ -111,6 +112,7 @@ function payment() {
     // параметры рейса
     var flightNumber = document.getElementById('flightNumberLabel').innerText;
     var date = document.getElementById('dateText').value;
+    var time = document.getElementById('timeText').value;
 
     // данные пассажиров
     var name = document.getElementById('nameText').value;
@@ -123,6 +125,7 @@ function payment() {
     var newLocation = 'paymentSuccess.html';
     newLocation += '?flightnumber=' + encodeURIComponent(flightNumber);
     newLocation += '&date=' + encodeURIComponent(date);
+    newLocation += '&time=' + encodeURIComponent(time);
     newLocation += '&name=' + encodeURIComponent(name);
     newLocation += '&phone=' + encodeURIComponent(phone);
     newLocation += '&email=' + encodeURIComponent(email);
@@ -149,6 +152,32 @@ function paymentSuccessBack() {
 function paymentBack() {
     // назад по истории
     window.history.back();
+}
+
+// изменяем количество пассажиров
+function passCountChange(){
+    var options = document.getElementById('passCountText').options;
+    var index = document.getElementById('passCountText').selectedIndex;
+    var childrenIndex = 3 - index;
+
+    // удалим все варианты
+    var i;
+    for(i=document.getElementById('childrenCountText').options.length-1;i>=0;i--)
+    {
+        document.getElementById('childrenCountText').remove(i);
+    }
+
+    // добавим нужные варианты
+//    var i;
+//    for(i=document.getElementById('childrenCountText').options.length-1;i>=0;i--)
+//    {
+//        document.getElementById('childrenCountText').remove(i);
+//    }
+}
+
+// изменяем количество пассажиров
+function childrenCountChange(){
+    var options = document.getElementById('childrenCountText').options;
 }
 
 
