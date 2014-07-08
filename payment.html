@@ -16,14 +16,17 @@
 </label>
 <table style="height:auto;">
     <tr>
-        <td style="width:100px;"><label style="font-size: 100%; margin-top: 5px;">Авиарейс: </label></td>
-        <td style="width:40%;"><label id="flightNumberLabel" style="font-size: 100%; text-wrap: none; margin:5px auto; width: 99%; font-weight: normal;">777А</label></td>
-        <td style="width:40%;"></td>
+        <td><label style="font-size: 100%; margin-top: 5px;">Авиарейс: </label></td>
+        <td><input type="text" id="flightNumberText" class="form-control" style="margin:5px auto; width: 91%; float: left"/></td>
+        <td></td>
     </tr>
     <tr>
-        <td><label id="dirLabel" style="font-size: 100%; margin-top: 5px;">Вылет: </label></td>
-        <td><input type="date" id="dateText" class="form-control" style="margin:5px auto; width: 99%;"/>
-        <td><input type="time" id="timeText" class="form-control" style="margin:5px auto; width: 99%;"/>
+        <td style="width:120px;"><label id="dirLabel" style="font-size: 100%; margin-top: 5px;">Вылет: </label></td>
+        <td style="width:35%;">
+                <input type="date" id="dateText" class="form-control" style="margin:5px auto; width: 55%; display: inline-block;"/>
+                <input type="time" id="timeText" class="form-control" style="margin:5px auto; width: 35%; display: inline-block;"/>
+        </td>
+        <td style="width:50%;"></td>
     </tr>
 </table>
 <p style="margin-bottom: 10px;"></p>

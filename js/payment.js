@@ -110,7 +110,7 @@ function order() {
 
 function payment() {
     // параметры рейса
-    var flightNumber = document.getElementById('flightNumberLabel').innerText;
+    var flightNumber = document.getElementById('flightNumberText').value;
     var date = document.getElementById('dateText').value;
     var time = document.getElementById('timeText').value;
 
