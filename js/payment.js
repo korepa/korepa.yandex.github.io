@@ -159,25 +159,33 @@ function passCountChange(){
     var options = document.getElementById('passCountText').options;
     var index = document.getElementById('passCountText').selectedIndex;
     var childrenIndex = 3 - index;
+    var i;
 
     // удалим все варианты
-    var i;
     for(i=document.getElementById('childrenCountText').options.length-1;i>=0;i--)
     {
         document.getElementById('childrenCountText').remove(i);
     }
 
-    // добавим нужные варианты
-//    var i;
-//    for(i=document.getElementById('childrenCountText').options.length-1;i>=0;i--)
-//    {
-//        document.getElementById('childrenCountText').remove(i);
-//    }
+    // если нет больше мест
+    if (childrenIndex == 0){
+        document.getElementById('childrenCountText').disabled = true;
+    }
+    else{
+        document.getElementById('childrenCountText').disabled = false;
+        // добавим нужные варианты
+        for(i=0;i<childrenIndex;i++)
+        {
+            var option = document.createElement("option");
+            option.text = (i + 1);
+            document.getElementById('childrenCountText').add(option);
+        }
+    }
 }
 
 // изменяем количество пассажиров
 function childrenCountChange(){
-    var options = document.getElementById('childrenCountText').options;
+    // тут ничего не делаем
 }
 
 

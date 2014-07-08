@@ -35,11 +35,11 @@
     </tr>
     <tr>
         <td><label>Телефон</label></td>
-        <td><input type="tel" id="phoneText" class="form-control" pattern="[0-9]{10}" style="margin:5px auto; width: 99%;"/></td>
+        <td><input type="tel" id="phoneText" class="form-control" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" title="Номер телефона. Например, +7 915 5555555" style="margin:5px auto; width: 99%;"/></td>
     </tr>
     <tr>
         <td><label>Email</label></td>
-        <td><input type="email" id="emailText" class="form-control" pattern="[^ @]*@[^ @]*" style="margin:5px auto; width: 99%;"/></td>
+        <td><input type="email" id="emailText" class="form-control" pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$" title="Формат почты. Например, example@example.com " style="margin:5px auto; width: 99%;"/></td>
     </tr>
     <tr>
         <td><label>Взрослых пассажиров</label></td>

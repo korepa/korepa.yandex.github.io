@@ -15,13 +15,26 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/titleicon.ico">
 </head>
 <body style="padding: 10px; border: 3px solid lightblue; border-radius: 10px;">
-<div style="height:auto;">
-    <form>
-        <input type="radio" id="forwardRButton" name="direction" value="forward" style="font-weight: bold; font-size: 120%; margin-right: 2px;" checked="checked"><label for="forwardRButton" style="font-size: 130%;">Из аэропорта</label></input>
-        <input type="radio" id="backwardRButton" name="direction" value="backward" style="font-weight: bold; font-size: 120%; margin-left: 20px; margin-right: 2px;"><label for="backwardRButton" style="font-size: 130%;">В аэропорт</label></input>
-    </form>
-    <p></p>
-</div>
+<table style="height:auto;">
+    <tr>
+        <td style="width: 75%;">
+            <form>
+                <input type="radio" id="forwardRButton" name="direction" value="forward" style="font-weight: bold; font-size: 120%; margin-right: 2px;" checked="checked"><label for="forwardRButton" style="font-size: 130%;">Из аэропорта</label></input>
+                <input type="radio" id="backwardRButton" name="direction" value="backward" style="font-weight: bold; font-size: 120%; margin-left: 20px; margin-right: 2px;"><label for="backwardRButton" style="font-size: 130%;">В аэропорт</label></input>
+            </form>
+        </td>
+        <td>
+        <td style="width: 12%;">
+            <label style="margin:5px auto; font-weight: bold; font-size: 130%;">Аэропорт: </label>
+        </td>
+        <td style="width: 15%;">
+            <select  id="airportText" class="form-control" style="margin:5px auto; width: 200px;" onchange="">
+                <option>Внуково</option><option>Домодедово</option><option>Шереметево</option>
+            </select>
+        </td>
+    </tr>
+</table>
+<p></p>
 <table style="height:auto;">
     <tr>
         <td style="width: 4%; display: none;" id="leftTd"><label></label></td>
