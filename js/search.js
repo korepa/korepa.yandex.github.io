@@ -22,36 +22,19 @@ $(window).load(function(){
     var typingTimer;                //timer identifier
     var doneTypingInterval = 42;  //time in ms
 
-//    if(document.getElementById('search_suggestion')===null){
-//        $('<ul id="search_suggestion"></ul>').appendTo('body').css({'display':'none','position':'absolute'});
-//    }
-
     //Если keyup, start the countdown
-    $("#toText").keyup(function(I){
+    $("#toStreetText").keyup(function(I){
         keyupToTextBox(I);
         current_Address = 1;
     });
-    $("#to2Text").keyup(function(I){
+    $("#toStreet2Text").keyup(function(I){
         keyupToTextBox(I);
         current_Address = 2;
     });
-    $("#to3Text").keyup(function(I){
+    $("#toStreet3Text").keyup(function(I){
         keyupToTextBox(I);
         current_Address = 3;
     });
-    $("#fromText").keyup(function(I){
-        keyupToTextBox(I);
-        current_Address = 4;
-    });
-    $("#from2Text").keyup(function(I){
-        keyupToTextBox(I);
-        current_Address = 5;
-    });
-    $("#from3Text").keyup(function(I){
-        keyupToTextBox(I);
-        current_Address = 6;
-    });
-
 
     // ввод текста в текстбокс
     function keyupToTextBox(I){
@@ -75,27 +58,15 @@ $(window).load(function(){
     });
 
     // фокус на текстбокс
-    $("#toText").focusin(function(){
+    $("#toStreetText").focusin(function(){
         this_element=this;
         focusinToTextBox();
     });
-    $("#to2Text").focusin(function(){
+    $("#toStreet2Text").focusin(function(){
         this_element=this;
         focusinToTextBox();
     });
-    $("#to3Text").focusin(function(){
-        this_element=this;
-        focusinToTextBox();
-    });
-    $("#fromText").focusin(function(){
-        this_element=this;
-        focusinToTextBox();
-    });
-    $("#from2Text").focusin(function(){
-        this_element=this;
-        focusinToTextBox();
-    });
-    $("#from3Text").focusin(function(){
+    $("#toStreet3Text").focusin(function(){
         this_element=this;
         focusinToTextBox();
     });
@@ -106,27 +77,15 @@ $(window).load(function(){
     }
 
     // клик
-    $("#toText").click(function(event){
+    $("#toStreetText").click(function(event){
         this_element=this;
         clickToTextBox(event);
     });
-    $("#to2Text").click(function(event){
+    $("#toStreet2Text").click(function(event){
         this_element=this;
         clickToTextBox(event);
     });
-    $("#to3Text").click(function(event){
-        this_element=this;
-        clickToTextBox(event);
-    });
-    $("#fromText").click(function(event){
-        this_element=this;
-        clickToTextBox(event);
-    });
-    $("#from2Text").click(function(event){
-        this_element=this;
-        clickToTextBox(event);
-    });
-    $("#from3Text").click(function(event){
+    $("#toStreet3Text").click(function(event){
         this_element=this;
         clickToTextBox(event);
     });
@@ -144,29 +103,17 @@ $(window).load(function(){
     }
 
     // нажатие кнопки
-    $("#toText").keypress(function(J) {
+    $("#toStreetText").keypress(function(J) {
         keypressToTextBox(J);
         current_Address = 1;
     });
-    $("#to2Text").keypress(function(J) {
+    $("#toStreet2Text").keypress(function(J) {
         keypressToTextBox(J);
         current_Address = 2;
     });
-    $("#to3Text").keypress(function(J) {
+    $("#toStreet3Text").keypress(function(J) {
         keypressToTextBox(J);
         current_Address = 3;
-    });
-    $("#fromText").keypress(function(J) {
-        keypressToTextBox(J);
-        current_Address = 4;
-    });
-    $("#from2Text").keypress(function(J) {
-        keypressToTextBox(J);
-        current_Address = 5;
-    });
-    $("#from3Text").keypress(function(J) {
-        keypressToTextBox(J);
-        current_Address = 6;
     });
 
     // ввод текста в текстбокс
@@ -236,22 +183,6 @@ function confirm_search(value){
             $('#toNumber3Text')[0].value = '';
             $('#toNumber3Text')[0].focus();
             break;
-        case 4:
-            $('#fromNumberText')[0].value = '';
-            $('#fromNumberText')[0].focus();
-            $('#orderSpan')[0].style.display = "none";
-            $('#routeSpan')[0].style.display = "inline";
-            $('#orderSection')[0].style.visibility = "collapse";
-            $('#routeButton')[0].disabled = false;
-            break;
-        case 5:
-            $('#fromNumber2Text')[0].value = '';
-            $('#fromNumber2Text')[0].focus();
-            break;
-        case 6:
-            $('#fromNumber3Text')[0].value = '';
-            $('#fromNumber3Text')[0].focus();
-            break;
     }
 }
 
@@ -284,7 +215,8 @@ function show_suggestion(res){
             var addrSplit = address.split(',');
             if (addrSplit[1] === ' Москва')
             {
-                address = addrSplit[1].trim() + ',' + addrSplit[2];
+                //address = addrSplit[1].trim() + ',' + addrSplit[2];
+                address = addrSplit[2];
                 option.innerHTML='<a href="#" onclick="confirm_search(this.innerHTML);return false;">'+address+'</a>';
                 document.getElementById('search_suggestion').appendChild(option);
             }
@@ -300,15 +232,6 @@ function show_suggestion(res){
                 break;
             case 3:
                 $('#search_suggestion').css({'left':0,'top':105});
-                break;
-            case 4:
-                $('#search_suggestion').css({'left':-510,'top':35});
-                break;
-            case 5:
-                $('#search_suggestion').css({'left':-510,'top':70});
-                break;
-            case 6:
-                $('#search_suggestion').css({'left':-510,'top':105});
                 break;
         }
 
