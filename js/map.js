@@ -33,6 +33,20 @@ function init () {
             makeRoute();
         }
     };
+    document.getElementById('toNumber2Text').onkeyup = function (event) {
+        if (document.getElementById('toStreet2Text').value != "" && document.getElementById('toNumber2Text').value != "")
+        {
+            // автоматически строим мартшрут если введены числи [0..9] или буквы "c"/"к" или ENTER
+            makeRoute();
+        }
+    };
+    document.getElementById('toNumber3Text').onkeyup = function (event) {
+        if (document.getElementById('toStreet3Text').value != "" && document.getElementById('toNumber3Text').value != "")
+        {
+            // автоматически строим мартшрут если введены числи [0..9] или буквы "c"/"к" или ENTER
+            makeRoute();
+        }
+    };
     document.getElementById('toNumberText').onkeypress = function (event) {
         if (document.getElementById('toStreetText').value != "")
         {
@@ -172,6 +186,8 @@ function makeRoute() {
     // откуда и куда
     var fromAddress = airport;
     var toAddress = document.getElementById('toCityText').value + ' ' + document.getElementById('toStreetText').value + ' ' + document.getElementById('toNumberText').value;
+    var to2Address = document.getElementById('toCity2Text').value + ' ' + document.getElementById('toStreet2Text').value + ' ' + document.getElementById('toNumber2Text').value;
+    var to3Address = document.getElementById('toCity3Text').value + ' ' + document.getElementById('toStreet3Text').value + ' ' + document.getElementById('toNumber3Text').value;
 
     var route1 = [
         fromAddress,
@@ -225,6 +241,7 @@ function makeRoute() {
                     results: 1
                 }).then(function(res) {
                         if (res.geoObjects.getLength()) {
+                            // обработаем все точки маршрута
                             for (var i = 0; i < res.geoObjects.getLength(); i ++)
                             {
                                 // получим информацию о текущем метро
@@ -248,8 +265,6 @@ function makeRoute() {
                                 // зададим стоимость поездки как дистанцию
                                 priceCount(parseFloat(dist0).toFixed(0));
                             }
-                            // добавим коллекцию на карту
-                            myMap.geoObjects.add(myCollection);
                         }
 
                         // работаем с задержкой
@@ -260,6 +275,45 @@ function makeRoute() {
                             metroPlacemark.balloon.open();
                             */
                         }, 1000);
+
+                        // Поиск 2 адреса, если есть
+                        if (document.getElementById('toStreet2Text').value != '' && document.getElementById('toNumber2Text').value != ''){
+                            ymaps.geocode(to2Address, {
+                                results: 1 // Если нужен только один результат, экономим трафик пользователей
+                            }).then(function (res) {
+                                    // Выбираем первый результат геокодирования.
+                                    var firstGeoObject = res.geoObjects.get(0),
+                                    // Координаты геообъекта.
+                                        coords = firstGeoObject.geometry.getCoordinates();
+
+                                    firstGeoObject.properties.set('iconContent', '<b>До:</b> ' + to2Address);
+                                    firstGeoObject.options.set('preset', 'islands#blueStretchyIcon');
+
+                                    // Добавляем первый найденный геообъект на карту.
+                                    myCollection.add(firstGeoObject);
+                                });
+                        }
+
+                        // Поиск 3 адреса, если есть
+                        if (document.getElementById('toStreet3Text').value != '' && document.getElementById('toNumber3Text').value != ''){
+                            ymaps.geocode(to3Address, {
+                                results: 1 // Если нужен только один результат, экономим трафик пользователей
+                            }).then(function (res) {
+                                    // Выбираем первый результат геокодирования.
+                                    var secondGeoObject = res.geoObjects.get(0),
+                                    // Координаты геообъекта.
+                                        coords = secondGeoObject.geometry.getCoordinates();
+
+                                    secondGeoObject.properties.set('iconContent', '<b>До:</b> ' + to3Address);
+                                    secondGeoObject.options.set('preset', 'islands#blueStretchyIcon');
+
+                                    // Добавляем первый найденный геообъект на карту.
+                                    myCollection.add(secondGeoObject);
+                                });
+                        }
+
+                        // добавим коллекцию на карту
+                        myMap.geoObjects.add(myCollection);
 
                         // если все прошло ОК, делаем кнопку заказа и поле с суммой видимыми
                         $('#orderSection')[0].style.visibility = "visible";
