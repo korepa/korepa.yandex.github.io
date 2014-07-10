@@ -26,7 +26,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="45" selection-start="2409" selection-end="2419" vertical-scroll-proportion="-12.423077" vertical-offset="459" max-vertical-offset="1734">
+            <state line="63" column="93" selection-start="4486" selection-end="4486" vertical-scroll-proportion="-17.653847" vertical-offset="612" max-vertical-offset="1734">
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -69,10 +69,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="example3.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="example3.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/example3.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="12" selection-start="338" selection-end="338" vertical-scroll-proportion="0.2125" vertical-offset="0" max-vertical-offset="1003">
+            <state line="51" column="11" selection-start="2166" selection-end="2166" vertical-scroll-proportion="0.0" vertical-offset="283" max-vertical-offset="1003">
               <folding />
             </state>
           </provider>
@@ -87,10 +87,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="map.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="map.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="57" selection-start="556" selection-end="556" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9146">
+            <state line="22" column="0" selection-start="499" selection-end="499" vertical-scroll-proportion="0.51944447" vertical-offset="0" max-vertical-offset="9112">
               <folding />
             </state>
           </provider>
@@ -174,9 +174,9 @@
         <option value="$PROJECT_DIR$/js/jquery.kladr.min.js" />
         <option value="$PROJECT_DIR$/js/jquery-1.10.2.min.js" />
         <option value="$PROJECT_DIR$/js/sovetnik.min.js" />
+        <option value="$PROJECT_DIR$/js/example3.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/map.js" />
-        <option value="$PROJECT_DIR$/js/example3.js" />
       </list>
     </option>
   </component>
@@ -456,7 +456,7 @@
           <option name="timeStamp" value="212" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="224" />
+      <option name="time" value="227" />
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
@@ -957,16 +957,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/map.js">
+    <entry file="file://$PROJECT_DIR$/js/jquery.kladr.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="57" selection-start="556" selection-end="556" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9146">
+        <state line="6" column="8" selection-start="262" selection-end="262" vertical-scroll-proportion="0.0" vertical-offset="4947" max-vertical-offset="7378">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/example3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="11" selection-start="2166" selection-end="2166" vertical-scroll-proportion="0.0" vertical-offset="283" max-vertical-offset="1003">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="45" selection-start="2409" selection-end="2419" vertical-scroll-proportion="-12.423077" vertical-offset="459" max-vertical-offset="1734">
+        <state line="63" column="93" selection-start="4486" selection-end="4486" vertical-scroll-proportion="-17.653847" vertical-offset="612" max-vertical-offset="1734">
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -997,16 +1004,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/jquery.kladr.min.js">
+    <entry file="file://$PROJECT_DIR$/js/map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="8" selection-start="262" selection-end="262" vertical-scroll-proportion="0.0" vertical-offset="4947" max-vertical-offset="7378">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/example3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="12" selection-start="338" selection-end="338" vertical-scroll-proportion="0.2125" vertical-offset="0" max-vertical-offset="1003">
+        <state line="22" column="0" selection-start="499" selection-end="499" vertical-scroll-proportion="0.51944447" vertical-offset="0" max-vertical-offset="9112">
           <folding />
         </state>
       </provider>

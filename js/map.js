@@ -20,8 +20,6 @@ function init () {
     // загрузим модули для метро
     ymaps.load(["metro"], loadModules);
 
-    document.getElementById('toCityText').value = 'Москва';
-
     // обрабатываем нажатие на кнопку "Enter" (строим маршрут)
     document.getElementById('toStreetText').onkeyup = function (event) {
         if (event.keyCode == 13) {

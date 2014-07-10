@@ -1,7 +1,7 @@
 (function($){
     $(function() {
         var container = $('#example3');
-        
+
         // Автодополнение населённых пунктов
         container.find( '[name="location"]' ).kladr({
             token: '51dfe5d42fb2b43e3300006e',
