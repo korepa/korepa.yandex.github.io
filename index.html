@@ -5,20 +5,20 @@
     <title>Транфер</title>
     <script src="//api-maps.yandex.ru/2.1/?load=package.full&modules=regions~metro&lang=ru-RU" type="text/javascript"></script>
     <script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+    <script src="//yandex.st/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="js/jquery.kladr.min.js" type="text/javascript"></script>
     <script src="js/map.js" type="text/javascript"></script>
     <script src="js/payment.js" type="text/javascript"></script>
     <script src="js/helper.js" type="text/javascript"></script>
-    <script src="//yandex.st/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
-    <link href="//yandex.st/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/main.js" type="text/javascript"></script>
     <link href="css/jquery.kladr.min.css" rel="stylesheet">
-    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="js/jquery.kladr.min.js" type="text/javascript"></script>
-    <script src="js/example3.js" type="text/javascript"></script>
-    <link href="css/example3.css" rel="stylesheet">
+    <link href="//yandex.st/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="shortcut icon" type="image/x-icon" href="images/titleicon.ico">
 </head>
-<body id="example3" style="padding: 10px; border: 3px solid lightblue; border-radius: 10px;">
+<body id="main" style="padding: 10px; border: 3px solid lightblue; border-radius: 10px;">
 <table style="height:auto;">
     <tr>
         <td style="width: 80%;">
@@ -44,7 +44,7 @@
     </tr>
     <tr id="address1Tr">
         <td><label id="directionLabel">Куда</label></td>
-        <td><input type="text" id="toCityText" name="location" class="form-control" value="" autocomplete="off" placeholder="Город" style="margin:0 auto; width: 99%; font-size:120%;"/></td>
+        <td><input type="text" id="toCityText" name="location" class="form-control" value="Москва" autocomplete="off" placeholder="Город" style="margin:0 auto; width: 99%; font-size:120%;"/></td>
         <td style="position: relative;">
             <input type="text" id="toStreetText" name="street" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%;"/>
             <ul id="search_suggestion" style="position: absolute;"></ul>
@@ -54,14 +54,14 @@
     </tr>
     <tr id="address2Tr" style="display: none;">
         <td></td>
-        <td><input type="text" id="toCity2Text" name="location2" class="form-control" value="" autocomplete="off" placeholder="Город" style="margin:0 auto; width: 99%; font-size:120%;"/></td>
+        <td><input type="text" id="toCity2Text" name="location2" class="form-control" value="Москва" autocomplete="off" placeholder="Город" style="margin:0 auto; width: 99%; font-size:120%;"/></td>
         <td><input type="text" id="toStreet2Text" name="street2" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%; visibility: hidden;"/></td>
         <td style="display: table-cell;" id="toNumber2Td"><input type="text" id="toNumber2Text" class="form-control" value="" autocomplete="off" placeholder="Дом" style="font-size:120%; vertical-align: bottom; visibility: hidden;"/></td>
         <td style="display: block;" id="right2Td"><button id="add2Button" type="button" class="btn btn-primary btn-xs" style="margin-left:20%; margin-top: 10%; margin-bottom: 10%; width: 80%; font-size: 130%;" onclick="remove2Address()">-</button></td>
     </tr>
     <tr id="address3Tr" style="display: none;">
         <td></td>
-        <td><input type="text" id="toCity3Text" name="location3" class="form-control" value="" autocomplete="off" placeholder="Город" style="margin:0 auto; width: 99%; font-size:120%;"/></td>
+        <td><input type="text" id="toCity3Text" name="location3" class="form-control" value="Москва" autocomplete="off" placeholder="Город" style="margin:0 auto; width: 99%; font-size:120%;"/></td>
         <td><input type="text" id="toStreet3Text" name="street3" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%; visibility: hidden;"/></td>
         <td style="display: table-cell;" id="toNumber3Td"><input type="text" id="toNumber3Text" class="form-control" value="" autocomplete="off" placeholder="Дом" style="font-size:120%; vertical-align: bottom; visibility: hidden;"/></td>
         <td style="display: block;" id="right3Td"><button id="add3Button" type="button" class="btn btn-primary btn-xs" style="margin-left:20%; margin-top: 10%; margin-bottom: 10%; width: 80%; font-size: 130%;" onclick="remove3Address()">-</button></td>

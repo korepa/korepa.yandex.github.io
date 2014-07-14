@@ -502,13 +502,13 @@ function order() {
         dir = 'to';
     }
 
-    var toAddress = document.getElementById('toStreetText').value;
+    var toAddress = document.getElementById('toCityText').value + ', ' + document.getElementById('toStreetText').value;
     if (document.getElementById('toNumberText').value!= '')
         toAddress += ', ' + document.getElementById('toNumberText').value;
-    var to2Address = document.getElementById('toStreet2Text').value;
+    var to2Address = document.getElementById('toCity2Text').value + ', ' + document.getElementById('toStreet2Text').value;
     if (document.getElementById('toNumber2Text').value!= '')
         to2Address += ', ' + document.getElementById('toNumber2Text').value;
-    var to3Address = document.getElementById('toStreet3Text').value;
+    var to3Address = document.getElementById('toCity3Text').value + ', ' + document.getElementById('toStreet3Text').value;
     if (document.getElementById('toNumber3Text').value!= '')
         to3Address += ', ' + document.getElementById('toNumber3Text').value;
 

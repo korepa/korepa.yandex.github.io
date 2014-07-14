@@ -1,4 +1,4 @@
-#example3 .address{
+#main .address{
     width: 455px;
     margin: 20px auto;
     padding: 10px;
@@ -9,7 +9,7 @@
     line-height: 25px;
 }
 
-#example3 .address .field {
+#main .address .field {
     position: relative;
     padding-top: 2px;
     padding-bottom: 11px;
@@ -17,11 +17,11 @@
     width: 100%;
 }
 
-#example3 .address .field-end {
+#main .address .field-end {
     padding-bottom: 2px;
 }
 
-#example3 .address label {
+#main .address label {
     font-size: 100%;
     font: inherit;
     font-weight: normal;
@@ -36,8 +36,8 @@
     color: #333333;
 }
 
-#example3 .address input,
-#example3 .address select{
+#main .address input,
+#main .address select{
     width: 300px;
     display: inline-block;
     height: 23px;
