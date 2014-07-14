@@ -29,8 +29,8 @@
     display: block;
     cursor: default;
     width: 10000px;
-    color: #000099;
-    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    color: #111111;
+    font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
 }
 
 #kladr_autocomplete .spinner {
