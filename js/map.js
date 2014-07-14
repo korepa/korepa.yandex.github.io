@@ -180,7 +180,6 @@ function changeDirection() {
     }
 }
 
-
 // функция построения марштура от точки А к точке В
 function makeRoute() {
     // откуда и куда
@@ -229,8 +228,9 @@ function makeRoute() {
 
             // выберем откуда вычислять метро
             var addressToMetro = toAddress;
-            if ($("#backwardRButton")[0].checked == true)
-                addressToMetro = fromAddress;
+            // пока закомментим
+            //if ($("#backwardRButton")[0].checked == true)
+            //    addressToMetro = fromAddress;
 
             // ищем ближайшее растояние до метро
             ymaps.geocode(addressToMetro).then(function (res) {
@@ -459,35 +459,39 @@ function loadAddresses() {
         }
     }
 
-    // адреса оттуда
-    var from = "";
-
-    // адреса туда
+    // адреса
     if (to != "" && to != "undefined"){
         var toSplit = to.split(',');
-        document.getElementById("toStreetText").value = toSplit[0].trim() + ', ' + toSplit[1].trim();
+        if (toSplit.length > 1){
+            document.getElementById("toCityText").value = toSplit[0].trim();
+            document.getElementById("toStreetText").value = toSplit[1].trim();
+        }
         if (toSplit.length > 2)
             document.getElementById("toNumberText").value = toSplit[2].trim();
     }
     if (to2 != "" && to2 != "undefined"){
-        addRightAddress();
         var toSplit = to2.split(',');
-        document.getElementById("toStreet2Text").value = toSplit[0].trim() + ', ' + toSplit[1].trim();
+        if (toSplit.length > 1){
+            addRightAddress();
+            document.getElementById("toCity2Text").value = toSplit[0].trim();
+            document.getElementById("toStreet2Text").value = toSplit[1].trim();
+        }
         if (toSplit.length > 2)
             document.getElementById("toNumber2Text").value = toSplit[2].trim();
     }
     if (to3 != "" && to3 != "undefined"){
-        addRightAddress();
         var toSplit = to3.split(',');
-        document.getElementById("toStreet3Text").value = toSplit[0].trim() + ', ' + toSplit[1].trim();
+        if (toSplit.length > 1){
+            addRightAddress();
+            document.getElementById("toCity3Text").value = toSplit[0].trim();
+            document.getElementById("toStreet3Text").value = toSplit[1].trim();
+        }
         if (toSplit.length > 2)
             document.getElementById("toNumber3Text").value = toSplit[2].trim();
     }
 
     // строим маршрут
     if (to != "" && to != "undefined"){
-
-        from = airport;
         makeRoute();
     }
 }
@@ -501,14 +505,22 @@ function order() {
     else{
         dir = 'to';
     }
-
-    var toAddress = document.getElementById('toCityText').value + ', ' + document.getElementById('toStreetText').value;
+    // адрес 1
+    var toAddress = '';
+    if (document.getElementById('toStreetText').value!= '')
+        toAddress = document.getElementById('toCityText').value + ', ' + document.getElementById('toStreetText').value;
     if (document.getElementById('toNumberText').value!= '')
         toAddress += ', ' + document.getElementById('toNumberText').value;
-    var to2Address = document.getElementById('toCity2Text').value + ', ' + document.getElementById('toStreet2Text').value;
+    // адрес 2
+    var to2Address = '';
+    if (document.getElementById('toStreet2Text').value!= '')
+        to2Address = document.getElementById('toCity2Text').value + ', ' + document.getElementById('toStreet2Text').value;
     if (document.getElementById('toNumber2Text').value!= '')
         to2Address += ', ' + document.getElementById('toNumber2Text').value;
-    var to3Address = document.getElementById('toCity3Text').value + ', ' + document.getElementById('toStreet3Text').value;
+    // адрес 3
+    var to3Address = '';
+    if (document.getElementById('toStreet3Text').value!= '')
+        to3Address = document.getElementById('toCity3Text').value + ', ' + document.getElementById('toStreet3Text').value;
     if (document.getElementById('toNumber3Text').value!= '')
         to3Address += ', ' + document.getElementById('toNumber3Text').value;
 
