@@ -52,7 +52,7 @@ function init () {
         {
             var numberLength = document.getElementById('toNumberText').value.length;
             // запрещаем дальнейший ввод неверных символов
-            if (numberLength < 3                                    &&      /* количество символов не больше 3х */
+            if (numberLength < 10                                    &&     /* количество символов не больше 3х */
                 (   event.keyCode >= 48 && event.keyCode <= 57 )    ||      /* числа 0...9 */
                 (   event.keyCode == 99                             ||      /* символ "с" en */
                     event.keyCode == 107                            ||      /* символ "k" en */
@@ -76,7 +76,7 @@ function init () {
         {
             var numberLength = document.getElementById('toNumber2Text').value.length;
             // запрещаем дальнейший ввод неверных символов
-            if (numberLength < 3                                    &&      /* количество символов не больше 3х */
+            if (numberLength < 10                                    &&     /* количество символов не больше 3х */
                 (   event.keyCode >= 48 && event.keyCode <= 57 )    ||      /* числа 0...9 */
                 (   event.keyCode == 99                             ||      /* символ "с" en */
                     event.keyCode == 107                            ||      /* символ "k" en */
@@ -100,7 +100,7 @@ function init () {
         {
             var numberLength = document.getElementById('toNumber3Text').value.length;
             // запрещаем дальнейший ввод неверных символов
-            if (numberLength < 3                                    &&      /* количество символов не больше 3х */
+            if (numberLength < 10                                    &&     /* количество символов не больше 3х */
                 (   event.keyCode >= 48 && event.keyCode <= 57 )    ||      /* числа 0...9 */
                 (   event.keyCode == 99                             ||      /* символ "с" en */
                     event.keyCode == 107                            ||      /* символ "k" en */
@@ -493,6 +493,10 @@ function loadAddresses() {
     // строим маршрут
     if (to != "" && to != "undefined"){
         makeRoute();
+    }
+    else{
+        // фокус на улице
+        document.getElementById("toStreetText").focus();
     }
 }
 
