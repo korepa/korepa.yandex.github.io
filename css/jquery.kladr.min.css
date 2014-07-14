@@ -30,7 +30,7 @@
     cursor: default;
     width: 10000px;
     color: #000099;
-    font-family: Helvetica Neue;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
 #kladr_autocomplete .spinner {

@@ -32,10 +32,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery.kladr.min.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="jquery.kladr.min.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/jquery.kladr.min.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="32" selection-start="669" selection-end="669" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="901">
+            <state line="32" column="52" selection-start="689" selection-end="689" vertical-scroll-proportion="0.65068495" vertical-offset="69" max-vertical-offset="901">
               <folding />
             </state>
           </provider>
@@ -61,10 +61,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="0" selection-start="581" selection-end="581" vertical-scroll-proportion="0.44246575" vertical-offset="408" max-vertical-offset="1581">
+            <state line="43" column="0" selection-start="581" selection-end="581" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1581">
               <folding />
             </state>
           </provider>
@@ -109,7 +109,7 @@
       <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="34" selection-start="910" selection-end="910" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="1054">
+            <state line="29" column="4" selection-start="572" selection-end="602" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="1054">
               <folding />
             </state>
           </provider>
@@ -147,8 +147,9 @@
         <option value="yandex.st/jquery/1.6.4/jquery.min.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/map.js" />
-        <option value="$PROJECT_DIR$/css/jquery.kladr.min.css" />
         <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/css/main.css" />
+        <option value="$PROJECT_DIR$/css/jquery.kladr.min.css" />
       </list>
     </option>
   </component>
@@ -807,23 +808,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="0" selection-start="581" selection-end="581" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1581">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="34" selection-start="910" selection-end="910" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1054">
+        <state line="29" column="4" selection-start="572" selection-end="602" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="1054">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/jquery.kladr.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="32" selection-start="669" selection-end="669" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="901">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="581" selection-end="581" vertical-scroll-proportion="0.44246575" vertical-offset="408" max-vertical-offset="1581">
+        <state line="32" column="52" selection-start="689" selection-end="689" vertical-scroll-proportion="0.65068495" vertical-offset="69" max-vertical-offset="901">
           <folding />
         </state>
       </provider>
