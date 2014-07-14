@@ -187,6 +187,8 @@ function makeRoute() {
     var toAddress = document.getElementById('toCityText').value + ' ' + document.getElementById('toStreetText').value + ' ' + document.getElementById('toNumberText').value;
     var to2Address = document.getElementById('toCity2Text').value + ' ' + document.getElementById('toStreet2Text').value + ' ' + document.getElementById('toNumber2Text').value;
     var to3Address = document.getElementById('toCity3Text').value + ' ' + document.getElementById('toStreet3Text').value + ' ' + document.getElementById('toNumber3Text').value;
+    var point1 = "От:";
+    var point2 = "До:";
 
     var route1 = [
         fromAddress,
@@ -208,6 +210,14 @@ function makeRoute() {
             // объявим новую коллекцию (инициализируем заново)
             myCollection = new ymaps.GeoObjectCollection();
 
+            // выберем откуда вычислять метро
+            var addressToMetro = toAddress;
+            // если обратное направление
+            if ($("#backwardRButton")[0].checked == true){
+                var point1 = "До:";
+                var point2 = "От:";
+            }
+
             // Зададим содержание иконок начальной и конечной точкам маршрута.
             var points = route.getWayPoints(),
                 lastPoint = points.getLength() - 1;
@@ -217,20 +227,14 @@ function makeRoute() {
             var lastPoint = points.get(lastPoint);
             var fromStreetName = firstPoint.properties.get("GeocoderMetaData").AddressDetails.Country.AddressLine;
             var toStreetName = lastPoint.properties.get("GeocoderMetaData").AddressDetails.Country.AddressLine;
-            firstPoint.properties.set('iconContent', '<b>От:</b> ' + fromStreetName);
-            lastPoint.properties.set('iconContent', '<b>До:</b> ' + toStreetName);
+            firstPoint.properties.set('iconContent', '<b>point1</b> ' + fromStreetName);
+            lastPoint.properties.set('iconContent', '<b>point2</b> ' + toStreetName);
             firstPoint.options.set('preset', 'islands#blueStretchyIcon');
             lastPoint.options.set('preset', 'islands#blueStretchyIcon');
 
             // добавляем точки на карту
             myCollection.add(firstPoint);
             myCollection.add(lastPoint);
-
-            // выберем откуда вычислять метро
-            var addressToMetro = toAddress;
-            // пока закомментим
-            //if ($("#backwardRButton")[0].checked == true)
-            //    addressToMetro = fromAddress;
 
             // ищем ближайшее растояние до метро
             ymaps.geocode(addressToMetro).then(function (res) {
@@ -286,7 +290,7 @@ function makeRoute() {
                                     // Координаты геообъекта.
                                         coords = firstGeoObject.geometry.getCoordinates();
 
-                                    firstGeoObject.properties.set('iconContent', '<b>До:</b> ' + to2Address);
+                                    firstGeoObject.properties.set('iconContent', '<b>point2</b> ' + to2Address);
                                     firstGeoObject.options.set('preset', 'islands#blueStretchyIcon');
 
                                     // Добавляем первый найденный геообъект на карту.
@@ -304,7 +308,7 @@ function makeRoute() {
                                     // Координаты геообъекта.
                                         coords = secondGeoObject.geometry.getCoordinates();
 
-                                    secondGeoObject.properties.set('iconContent', '<b>До:</b> ' + to3Address);
+                                    secondGeoObject.properties.set('iconContent', '<b>point2</b> ' + to3Address);
                                     secondGeoObject.options.set('preset', 'islands#blueStretchyIcon');
 
                                     // Добавляем первый найденный геообъект на карту.
