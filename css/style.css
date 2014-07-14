@@ -41,7 +41,6 @@ td{
 /* ... стиль для текстовых полей ... */
 input[type=text] {
     color:#08233e;
-    font:2.4em Futura, AppleGothic, sans-serif;
     font-size:100%;
 }
 
