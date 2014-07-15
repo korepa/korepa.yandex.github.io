@@ -214,8 +214,8 @@ function makeRoute() {
             var addressToMetro = toAddress;
             // если обратное направление
             if ($("#backwardRButton")[0].checked == true){
-                var point1 = "До:";
-                var point2 = "От:";
+                point1 = "До:";
+                point2 = "От:";
             }
 
             // Зададим содержание иконок начальной и конечной точкам маршрута.
@@ -227,8 +227,8 @@ function makeRoute() {
             var lastPoint = points.get(lastPoint);
             var fromStreetName = firstPoint.properties.get("GeocoderMetaData").AddressDetails.Country.AddressLine;
             var toStreetName = lastPoint.properties.get("GeocoderMetaData").AddressDetails.Country.AddressLine;
-            firstPoint.properties.set('iconContent', '<b>point1</b> ' + fromStreetName);
-            lastPoint.properties.set('iconContent', '<b>point2</b> ' + toStreetName);
+            firstPoint.properties.set('iconContent', '<b>' + point1 + '</b> ' + fromStreetName);
+            lastPoint.properties.set('iconContent', '<b>' + point2 + '</b> ' + toStreetName);
             firstPoint.options.set('preset', 'islands#blueStretchyIcon');
             lastPoint.options.set('preset', 'islands#blueStretchyIcon');
 
@@ -290,7 +290,7 @@ function makeRoute() {
                                     // Координаты геообъекта.
                                         coords = firstGeoObject.geometry.getCoordinates();
 
-                                    firstGeoObject.properties.set('iconContent', '<b>point2</b> ' + to2Address);
+                                    firstGeoObject.properties.set('iconContent', '<b>' + point2 + '</b> ' + to2Address);
                                     firstGeoObject.options.set('preset', 'islands#blueStretchyIcon');
 
                                     // Добавляем первый найденный геообъект на карту.
@@ -308,7 +308,7 @@ function makeRoute() {
                                     // Координаты геообъекта.
                                         coords = secondGeoObject.geometry.getCoordinates();
 
-                                    secondGeoObject.properties.set('iconContent', '<b>point2</b> ' + to3Address);
+                                    secondGeoObject.properties.set('iconContent', '<b>' + point2 + '</b> ' + to3Address);
                                     secondGeoObject.options.set('preset', 'islands#blueStretchyIcon');
 
                                     // Добавляем первый найденный геообъект на карту.
