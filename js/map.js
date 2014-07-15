@@ -7,15 +7,67 @@ var myCollection;
 var metroPlacemark;
 var airport = "Москва, аэропорт Внуково";
 var dir = 'to';
+var searchOrigin,
+    searchDestination,
+    tarifs,
+    calculator;
 
 function init () {
-    var myPlacemark;
     myMap = new ymaps.Map('map', {
         // указываем центр и масштаб карты
         center:[55.76, 37.64], // Москва
         zoom:10,
         controls: ['smallMapDefaultSet']
     });
+
+    tarifs = [{
+        id: 'moscow',
+        name: 'Москва',
+        label: 'Маршрут по Москве',
+        color: '#0000ff',
+        cost: 20,
+        url: 'moscow.json'
+    }, {
+        id: 'mo',
+        name: 'Московская область',
+        label: 'Маршрут за МКАД',
+        cost: 40,
+        color: '#ff0000',
+        url: 'mo.json'
+    }];
+
+    calculator = new DeliveryCalculator(myMap, 'Москва, Льва Толстого 18', tarifs);
+
+    //myMap.controls.add(searchOrigin, { right: 5, top: 5 });
+    //myMap.controls.add(searchDestination, { right: 5, top: 45 });
+
+//    searchOrigin.events.add('resultselect', function (e) {
+//        var results = searchOrigin.getResultsArray(),
+//            selected = e.get('resultIndex'),
+//            point = results[selected].geometry.getCoordinates();
+//
+//        calculator.setOrigin(point);
+//    });
+//
+//    searchDestination.events.add('resultselect', function (e) {
+//        var results = searchDestination.getResultsArray(),
+//            selected = e.get('resultIndex'),
+//            point = results[selected].geometry.getCoordinates();
+//
+//        calculator.setDestination(point);
+//    });
+//
+//    myMap.events.add('click', function (e) {
+//        var position = e.get('coordPosition');
+//
+//        if(calculator.getOrigin()) {
+//            calculator.setDestination(position);
+//        }
+//        else {
+//            calculator.setOrigin(position);
+//        }
+//    });
+
 
     // загрузим модули для метро
     ymaps.load(["metro"], loadModules);
@@ -232,6 +284,10 @@ function makeRoute() {
             firstPoint.options.set('preset', 'islands#blueStretchyIcon');
             lastPoint.options.set('preset', 'islands#blueStretchyIcon');
 
+            // калькулятор
+            calculator.setOrigin('Москва, аэропорт Внуково');
+            calculator.setDestination('Москва, площадь революции');
+
             // добавляем точки на карту
             myCollection.add(firstPoint);
             myCollection.add(lastPoint);
@@ -350,24 +406,6 @@ function addRightAddress() {
         $('#address3Tr')[0].style.display = "table-row";
         clearAddress(3);
         hideAddress(3, 'left');
-        return;
-    }
-}
-
-// функция добавления доп. адреса (левый)
-function addLeftAddress() {
-    if ( $('#address2Tr')[0].style.display === 'none')
-    {
-        $('#address2Tr')[0].style.display = "table-row";
-        clearAddress(2);
-        hideAddress(2, 'right');
-        return;
-    }
-    if ( $('#address3Tr')[0].style.display === 'none')
-    {
-        $('#address3Tr')[0].style.display = "table-row";
-        clearAddress(3);
-        hideAddress(3, 'right');
         return;
     }
 }
