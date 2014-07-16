@@ -6,7 +6,7 @@ function DirectionsRenderer(options) {
     };
     this._routeIndex = this._options.routeIndex = 0;
     this._polyline = null;
-    this._markers = new ymaps.GeoObjectCollection();
+    this._markers = new ymaps.GeoObjectArray();
 
     this.setOptions(options);
 }

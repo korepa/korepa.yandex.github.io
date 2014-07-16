@@ -49,18 +49,17 @@ MultiGeocoder.prototype.geocode = function (requests, options) {
     requests.forEach(function (request, index) {
         ymaps.geocode(request, opts)
             .then(
-                function (response) {
-                    var geoObject = response.geoObjects.get(0);
+            function (response) {
+                var geoObject = response.geoObjects.get(0);
 
-                    geoObject && (result[index] = geoObject);
-                    --size || (result.forEach(geoObjects.add, geoObjects), promise.resolve({ geoObjects : geoObjects }));
-                },
-                function (err) {
-                    promise.reject(err);
-                }
-            );
+                geoObject && (result[index] = geoObject);
+                --size || (result.forEach(geoObjects.add, geoObjects), promise.resolve({ geoObjects : geoObjects }));
+            },
+            function (err) {
+                promise.reject(err);
+            }
+        );
     });
 
     return promise;
 };
-
