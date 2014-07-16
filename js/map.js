@@ -17,8 +17,8 @@ function init () {
         // указываем центр и масштаб карты
         center:[55.76, 37.64], // Москва
         zoom:10,
-        behaviors: ['drag', 'scrollZoom']
-        //controls: ['smallMapDefaultSet']
+        //behaviors: ['drag', 'scrollZoom']
+        controls: ['smallMapDefaultSet']
     }),
 
         searchOrigin = new ymaps.control.SearchControl({

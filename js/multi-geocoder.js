@@ -42,9 +42,9 @@ MultiGeocoder.prototype.geocode = function (requests, options) {
     var self = this,
         opts = ymaps.util.extend({}, self._options, options),
         size = requests.length,
-        promise = new ymaps.util.Promise(),
+        promise = new ymaps.vow.Defer(),
         result = [],
-        geoObjects = new ymaps.GeoObjectArray();
+        geoObjects = new ymaps.GeoObjectCollection();  //new ymaps.GeoObjectArray();
 
     requests.forEach(function (request, index) {
         ymaps.geocode(request, opts)
@@ -53,7 +53,12 @@ MultiGeocoder.prototype.geocode = function (requests, options) {
                 var geoObject = response.geoObjects.get(0);
 
                 geoObject && (result[index] = geoObject);
-                --size || (result.forEach(geoObjects.add, geoObjects), promise.resolve({ geoObjects : geoObjects }));
+                --size ||
+                (
+                    result.forEach(geoObjects.add, geoObjects),
+                        promise.resolve
+                        (
+                            { geoObjects : geoObjects }));
             },
             function (err) {
                 promise.reject(err);
