@@ -89,5 +89,12 @@ DeliveryCalculator.prototype = {
             }, {
                 formatter: ymaps.formatter
             }));
+
+        // на экран
+        var message = 'Расстояние:\nпо МО - ' + results[1].distance/10 + '\nпо Москве - ' + results[0].distance/10;
+        message += '\nЦена:\nпо МО - ' + (results[1].value) + '\nпо Москве - ' + (results[0].value);
+        message += '\nОбщая цена:\n' + total.value;
+        alert(message);
+        priceCount(total.value);
     }
 };

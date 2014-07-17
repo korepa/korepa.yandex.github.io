@@ -17,8 +17,8 @@ function init () {
         // указываем центр и масштаб карты
         center:[55.76, 37.64], // Москва
         zoom:10,
-        //behaviors: ['drag', 'scrollZoom']
-        controls: ['smallMapDefaultSet']
+        behaviors: ['drag', 'scrollZoom']
+        //controls: ['smallMapDefaultSet']
     }),
 
         searchOrigin = new ymaps.control.SearchControl({
@@ -291,8 +291,8 @@ function makeRoute() {
             var toStreetName = lastPoint.properties.get("GeocoderMetaData").AddressDetails.Country.AddressLine;
             firstPoint.properties.set('iconContent', '<b>' + point1 + '</b> ' + fromStreetName);
             lastPoint.properties.set('iconContent', '<b>' + point2 + '</b> ' + toStreetName);
-            firstPoint.options.set('preset', 'islands#blueStretchyIcon');
-            lastPoint.options.set('preset', 'islands#blueStretchyIcon');
+            firstPoint.options.set('preset', 'twirl#blueStretchyIcon');
+            lastPoint.options.set('preset', 'twirl#blueStretchyIcon');
 
             // калькулятор
             calculator.setOrigin(firstPoint.geometry.getCoordinates());
@@ -333,7 +333,7 @@ function makeRoute() {
                                 myCollection.add(metroPlacemark);
 
                                 // зададим стоимость поездки как дистанцию
-                                priceCount(parseFloat(dist0).toFixed(0));
+                                //priceCount(parseFloat(dist0).toFixed(0));
                             }
                         }
 
@@ -357,7 +357,7 @@ function makeRoute() {
                                         coords = firstGeoObject.geometry.getCoordinates();
 
                                     firstGeoObject.properties.set('iconContent', '<b>' + point2 + '</b> ' + to2Address);
-                                    firstGeoObject.options.set('preset', 'islands#blueStretchyIcon');
+                                    firstGeoObject.options.set('preset', 'twirl#blueStretchyIcon');
 
                                     // Добавляем первый найденный геообъект на карту.
                                     myCollection.add(firstGeoObject);
@@ -375,7 +375,7 @@ function makeRoute() {
                                         coords = secondGeoObject.geometry.getCoordinates();
 
                                     secondGeoObject.properties.set('iconContent', '<b>' + point2 + '</b> ' + to3Address);
-                                    secondGeoObject.options.set('preset', 'islands#blueStretchyIcon');
+                                    secondGeoObject.options.set('preset', 'twirl#blueStretchyIcon');
 
                                     // Добавляем первый найденный геообъект на карту.
                                     myCollection.add(secondGeoObject);
@@ -476,17 +476,22 @@ function hideAddress(number, side){
 }
 
 // подсчет стоимости поездки
-function priceCount(distance){
-    if (distance < 1000)
-    {
-        $('#priceText')[0].innerHTML = 500 + ' р';
-    }
-    else if (distance > 1000 && distance < 2000)
-    {
-        $('#priceText')[0].innerHTML = 1000 + ' р';
-    }
-    else
-        $('#priceText')[0].innerHTML = 1500 + ' р';
+//function priceCount(distance){
+//    if (distance < 1000)
+//    {
+//        $('#priceText')[0].innerHTML = 500 + ' р';
+//    }
+//    else if (distance > 1000 && distance < 2000)
+//    {
+//        $('#priceText')[0].innerHTML = 1000 + ' р';
+//    }
+//    else
+//        $('#priceText')[0].innerHTML = 1500 + ' р';
+//}
+
+// подсчет стоимости поездки
+function priceCount(amount){
+    $('#priceText')[0].innerHTML = amount + ' р';
 }
 
 function loadAddresses() {
