@@ -1,6 +1,6 @@
 function DeliveryCalculator(map, origin, tarifs) {
     this._map = map;
-    this._routeService = new DirectionsService({ avoidTrafficJams: true });
+    this._routeService = new DirectionsService({ avoidTrafficJams: false });
     this._routeRenderer = new DirectionsRenderer({ suppressPolylines: true, draggable: true, map: map });
     this._origin = origin;
     this._destination = null;
@@ -91,9 +91,10 @@ DeliveryCalculator.prototype = {
             }));
 
         // на экран
-        var message = 'Расстояние:\nпо МО - ' + results[1].distance/10 + '\nпо Москве - ' + results[0].distance/10;
-        message += '\nЦена:\nпо МО - ' + (results[1].value) + '\nпо Москве - ' + (results[0].value);
-        message += '\nОбщая цена:\n' + total.value;
+        var message = 'Расстояние:\nпо МО - ' + results[1].distance/1000 + ' км' + '\nпо Москве - ' + results[0].distance/1000 + ' км';
+        message += '\nОбщее растояние:\n' + total.distance/1000 + ' км';
+        message += '\nЦена:\nпо МО - ' + (results[1].value) + ' p' + '\nпо Москве - ' + (results[0].value) + ' p';
+        message += '\nОбщая цена:\n' + total.value + ' p';
         alert(message);
         priceCount(total.value);
     }
