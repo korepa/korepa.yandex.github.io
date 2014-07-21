@@ -23,25 +23,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="kladr.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/kladr.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="21" selection-start="2608" selection-end="2608" vertical-scroll-proportion="0.91760904" vertical-offset="401" max-vertical-offset="2448">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="147" column="63" selection-start="8525" selection-end="8525" vertical-scroll-proportion="-11.692307" vertical-offset="1447" max-vertical-offset="2057">
+            <state line="156" column="64" selection-start="9108" selection-end="9108" vertical-scroll-proportion="-18.923077" vertical-offset="2160" max-vertical-offset="2805">
               <folding>
-                <element signature="tag#style#0;tag#head#0;tag#html#0" expanded="false" />
-                <element signature="tag#script#16;tag#head#0;tag#html#0" expanded="false" />
-                <element signature="tag#script#17;tag#head#0;tag#html#0" expanded="false" />
-                <element signature="n#style#0;n#label#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,7 +38,7 @@
       <file leaf-file-name="jquery.kladr.min.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/jquery.kladr.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="111" selection-start="186" selection-end="194" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7378">
+            <state line="3" column="111" selection-start="186" selection-end="194" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="7378">
               <folding />
             </state>
           </provider>
@@ -59,7 +47,7 @@
       <file leaf-file-name="multi-geocoder.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/multi-geocoder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="10" selection-start="1546" selection-end="1546" vertical-scroll-proportion="0.0" vertical-offset="151" max-vertical-offset="1071">
+            <state line="44" column="10" selection-start="1546" selection-end="1546" vertical-scroll-proportion="0.0" vertical-offset="748" max-vertical-offset="1360">
               <folding />
             </state>
           </provider>
@@ -101,10 +89,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="delivery-calculator.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/delivery-calculator.js">
+      <file leaf-file-name="kladr.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/kladr.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="16" selection-start="3235" selection-end="3235" vertical-scroll-proportion="0.0" vertical-offset="1217" max-vertical-offset="1853">
+            <state line="28" column="22" selection-start="1116" selection-end="1116" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="2499">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="map.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/map.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="0" selection-start="198" selection-end="198" vertical-scroll-proportion="-10.85693" vertical-offset="7438" max-vertical-offset="8109">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="payment.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/payment.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="197" selection-start="2784" selection-end="2790" vertical-scroll-proportion="-19.576923" vertical-offset="239" max-vertical-offset="1207">
               <folding />
             </state>
           </provider>
@@ -153,16 +159,18 @@
         <option value="yandex.st/jquery/1.8.0/jquery.min.js" />
         <option value="$PROJECT_DIR$/js/multi-geocoder.js" />
         <option value="$PROJECT_DIR$/js/directions-renderer.js" />
-        <option value="$PROJECT_DIR$/js/map.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/delivery-calculator.js" />
         <option value="$PROJECT_DIR$/js/kladr.js" />
+        <option value="$PROJECT_DIR$/js/map.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1920" />
-    <option name="height" value="1040" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -300,14 +308,6 @@
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -318,15 +318,23 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -392,26 +400,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1402018" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27118644" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14007372" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2264151" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3218646" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -429,7 +437,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="405" />
+      <option name="time" value="406" />
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
@@ -445,6 +453,13 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/js/delivery-calculator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="16" selection-start="3177" selection-end="3177" vertical-scroll-proportion="0.0" vertical-offset="1632" max-vertical-offset="1785">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="57" column="32" selection-start="1156" selection-end="1156" vertical-scroll-proportion="0.0" vertical-offset="586" max-vertical-offset="1445" />
@@ -476,11 +491,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="54" selection-start="728" selection-end="728" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="748">
           <folding>
-            <element signature="tag#style#0;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="tag#script#16;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="tag#script#17;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="n#style#0;n#label#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -511,11 +523,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="5" selection-start="636" selection-end="636" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="680">
           <folding>
-            <element signature="tag#style#0;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="tag#script#16;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="tag#script#17;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="n#style#0;n#label#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -529,11 +538,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="64" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="680">
           <folding>
-            <element signature="tag#style#0;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="tag#script#16;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="tag#script#17;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="n#style#0;n#label#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -547,11 +553,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="48" selection-start="777" selection-end="777" vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="680">
           <folding>
-            <element signature="tag#style#0;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="tag#script#16;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="tag#script#17;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="n#style#0;n#label#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -565,11 +568,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="48" selection-start="777" selection-end="777" vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="680">
           <folding>
-            <element signature="tag#style#0;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="tag#script#16;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="tag#script#17;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="n#style#0;n#label#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -614,11 +614,6 @@
         <state line="6" column="0" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="2618">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/payment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="197" selection-start="2784" selection-end="2790" vertical-scroll-proportion="0.0" vertical-offset="545" max-vertical-offset="1207" />
       </provider>
     </entry>
     <entry file="http://yandex.st/jquery/1.6.4/jquery.min.js">
@@ -696,13 +691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="17" selection-start="3611" selection-end="3611" vertical-scroll-proportion="3.4272" vertical-offset="0" max-vertical-offset="4964">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/es5-shim.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="22542">
@@ -747,29 +735,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="63" selection-start="8525" selection-end="8525" vertical-scroll-proportion="-11.692307" vertical-offset="1447" max-vertical-offset="2057">
-          <folding>
-            <element signature="tag#style#0;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="tag#script#16;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="tag#script#17;tag#head#0;tag#html#0" expanded="false" />
-            <element signature="n#style#0;n#label#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/delivery-calculator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="16" selection-start="3235" selection-end="3235" vertical-scroll-proportion="0.0" vertical-offset="1217" max-vertical-offset="1853">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="362" column="30" selection-start="14475" selection-end="14475" vertical-scroll-proportion="0.38449112" vertical-offset="5916" max-vertical-offset="10727">
+        <state line="105" column="32" selection-start="3674" selection-end="3674" vertical-scroll-proportion="0.0" vertical-offset="536" max-vertical-offset="1921">
           <folding />
         </state>
       </provider>
@@ -783,7 +751,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/kladr.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="21" selection-start="2608" selection-end="2608" vertical-scroll-proportion="0.91760904" vertical-offset="401" max-vertical-offset="2448">
+        <state line="28" column="22" selection-start="1116" selection-end="1116" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="2499">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/payment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="197" selection-start="2784" selection-end="2790" vertical-scroll-proportion="-19.576923" vertical-offset="239" max-vertical-offset="1207">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="64" selection-start="9108" selection-end="9108" vertical-scroll-proportion="-18.923077" vertical-offset="2160" max-vertical-offset="2805">
+          <folding>
+            <element signature="n#style#0;n#ul#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="198" selection-end="198" vertical-scroll-proportion="-10.85693" vertical-offset="7438" max-vertical-offset="8109">
           <folding />
         </state>
       </provider>
