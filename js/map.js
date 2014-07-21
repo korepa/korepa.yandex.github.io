@@ -7,30 +7,36 @@ var myCollection;
 var metroPlacemark;
 var airport = "Москва, аэропорт Внуково";
 var dir = 'to';
-var searchOrigin,
-    searchDestination,
-    tarifs,
-    calculator;
+var searchOrigin;
+var searchDestination;
+var tarifs;
+var calculator;
 
 function init () {
     myMap = new ymaps.Map('map', {
-        // указываем центр и масштаб карты
-        center:[55.76, 37.64], // Москва
+        center:[55.76, 37.64],
         zoom:10,
         behaviors: ['drag', 'scrollZoom']
         //controls: ['smallMapDefaultSet']
     }),
+        // добавим элементы управления
+        myMap.controls
+            // Кнопка изменения масштаба.
+            .add('zoomControl', { left: 5, top: 5 })
+            // Стандартный набор кнопок
+            .add('mapTools', { left: 35, top: 5 });
 
-        searchOrigin = new ymaps.control.SearchControl({
-            useMapBounds: true,
-            noCentering: true,
-            noPlacemark: true
-        }),
-        searchDestination = new ymaps.control.SearchControl({
-            useMapBounds: true,
-            noCentering: true,
-            noPlacemark: true
-        }),
+//        searchOrigin = new ymaps.control.SearchControl({
+//            useMapBounds: true,
+//            noCentering: true,
+//            noPlacemark: true
+//        }),
+//        searchDestination = new ymaps.control.SearchControl({
+//            useMapBounds: true,
+//            noCentering: true,
+//            noPlacemark: true
+//        }),
+
         tarifs = [{
             id: 'moscow',
             name: 'Москва',
@@ -48,36 +54,35 @@ function init () {
         }],
         calculator = new DeliveryCalculator(myMap, 'Москва, Льва Толстого 18', tarifs);
 
-    //myMap.controls.add(searchOrigin, { right: 5, top: 5});
-    //myMap.controls.add(searchDestination, { right: 5, top: 45});
+//    myMap.controls.add(searchOrigin, { right: 5, top: 5});
+//    myMap.controls.add(searchDestination, { right: 5, top: 45});
 
-    searchOrigin.events.add('resultselect', function (e) {
-        var results = searchOrigin.getResultsArray(),
-            selected = e.get('resultIndex'),
-            point = results[selected].geometry.getCoordinates();
+//    searchOrigin.events.add('resultselect', function (e) {
+//        var results = searchOrigin.getResultsArray(),
+//            selected = e.get('resultIndex'),
+//            point = results[selected].geometry.getCoordinates();
+//
+//        calculator.setOrigin(point);
+//    });
+//
+//    searchDestination.events.add('resultselect', function (e) {
+//        var results = searchDestination.getResultsArray(),
+//            selected = e.get('resultIndex'),
+//            point = results[selected].geometry.getCoordinates();
+//
+//        calculator.setDestination(point);
+//    });
 
-        calculator.setOrigin(point);
-    });
-
-    searchDestination.events.add('resultselect', function (e) {
-        var results = searchDestination.getResultsArray(),
-            selected = e.get('resultIndex'),
-            point = results[selected].geometry.getCoordinates();
-
-        calculator.setDestination(point);
-    });
-
-    myMap.events.add('click', function (e) {
-        var position = e.get('coordPosition');
-
-        if(calculator.getOrigin()) {
-            calculator.setDestination(position);
-        }
-        else {
-            calculator.setOrigin(position);
-        }
-    });
-
+//    myMap.events.add('click', function (e) {
+//        var position = e.get('coordPosition');
+//
+//        if(calculator.getOrigin()) {
+//            calculator.setDestination(position);
+//        }
+//        else {
+//            calculator.setOrigin(position);
+//        }
+//    });
 
     // загрузим модули для метро
     ymaps.load(["metro"], loadModules);
@@ -88,99 +93,116 @@ function init () {
             makeRoute();
         }
     };
+
     document.getElementById('toNumberText').onkeyup = function (event) {
-        if (document.getElementById('toStreetText').value != "" && document.getElementById('toNumberText').value != "")
-        {
-            // автоматически строим мартшрут если введены числи [0..9] или буквы "c"/"к" или ENTER
+        if (event.keyCode == 13) {
             makeRoute();
         }
     };
     document.getElementById('toNumber2Text').onkeyup = function (event) {
-        if (document.getElementById('toStreet2Text').value != "" && document.getElementById('toNumber2Text').value != "")
-        {
-            // автоматически строим мартшрут если введены числи [0..9] или буквы "c"/"к" или ENTER
+        if (event.keyCode == 13) {
             makeRoute();
         }
     };
     document.getElementById('toNumber3Text').onkeyup = function (event) {
-        if (document.getElementById('toStreet3Text').value != "" && document.getElementById('toNumber3Text').value != "")
-        {
-            // автоматически строим мартшрут если введены числи [0..9] или буквы "c"/"к" или ENTER
+        if (event.keyCode == 13) {
             makeRoute();
         }
     };
-    document.getElementById('toNumberText').onkeypress = function (event) {
-        if (document.getElementById('toStreetText').value != "")
-        {
-            var numberLength = document.getElementById('toNumberText').value.length;
-            // запрещаем дальнейший ввод неверных символов
-            if (numberLength < 10                                    &&     /* количество символов не больше 3х */
-                (   event.keyCode >= 48 && event.keyCode <= 57 )    ||      /* числа 0...9 */
-                (   event.keyCode == 99                             ||      /* символ "с" en */
-                    event.keyCode == 107                            ||      /* символ "k" en */
-                    event.keyCode == 1089                           ||      /* символ "с" ru */
-                    event.keyCode == 1082 )                                 /* символ "к" ru */
-                ) {
-                // ОК, продолжаем дальше
-            }
-            else {
-                // просто блокируем
-                event.preventDefault();
-            }
-        }
-        else {
-            // просто блокируем
-            event.preventDefault();
-        }
-    };
-    document.getElementById('toNumber2Text').onkeypress = function (event) {
-        if (document.getElementById('toStreet2Text').value != "")
-        {
-            var numberLength = document.getElementById('toNumber2Text').value.length;
-            // запрещаем дальнейший ввод неверных символов
-            if (numberLength < 10                                    &&     /* количество символов не больше 3х */
-                (   event.keyCode >= 48 && event.keyCode <= 57 )    ||      /* числа 0...9 */
-                (   event.keyCode == 99                             ||      /* символ "с" en */
-                    event.keyCode == 107                            ||      /* символ "k" en */
-                    event.keyCode == 1089                           ||      /* символ "с" ru */
-                    event.keyCode == 1082 )                                 /* символ "к" ru */
-                ) {
-                // ОК, продолжаем дальше
-            }
-            else {
-                // просто блокируем
-                event.preventDefault();
-            }
-        }
-        else {
-            // просто блокируем
-            event.preventDefault();
-        }
-    };
-    document.getElementById('toNumber3Text').onkeypress = function (event) {
-        if (document.getElementById('toStreet3Text').value != "")
-        {
-            var numberLength = document.getElementById('toNumber3Text').value.length;
-            // запрещаем дальнейший ввод неверных символов
-            if (numberLength < 10                                    &&     /* количество символов не больше 3х */
-                (   event.keyCode >= 48 && event.keyCode <= 57 )    ||      /* числа 0...9 */
-                (   event.keyCode == 99                             ||      /* символ "с" en */
-                    event.keyCode == 107                            ||      /* символ "k" en */
-                    event.keyCode == 1089                           ||      /* символ "с" ru */
-                    event.keyCode == 1082 )                                 /* символ "к" ru */
-                ) {
-                // ОК, продолжаем дальше
-            }
-            else {
-                // просто блокируем
-                event.preventDefault();
-            }
-        }
-        else {
-            // просто блокируем
-            event.preventDefault();
-        }
-    };
+
+//    document.getElementById('toNumberText').onkeyup = function (event) {
+//        if (document.getElementById('toStreetText').value != "" && document.getElementById('toNumberText').value != "")
+//        {
+//            // автоматически строим мартшрут если введены числи [0..9] или буквы "c"/"к" или ENTER
+//            makeRoute();
+//        }
+//    };
+//    document.getElementById('toNumber2Text').onkeyup = function (event) {
+//        if (document.getElementById('toStreet2Text').value != "" && document.getElementById('toNumber2Text').value != "")
+//        {
+//            // автоматически строим мартшрут если введены числи [0..9] или буквы "c"/"к" или ENTER
+//            makeRoute();
+//        }
+//    };
+//    document.getElementById('toNumber3Text').onkeyup = function (event) {
+//        if (document.getElementById('toStreet3Text').value != "" && document.getElementById('toNumber3Text').value != "")
+//        {
+//            // автоматически строим мартшрут если введены числи [0..9] или буквы "c"/"к" или ENTER
+//            makeRoute();
+//        }
+//    };
+//    document.getElementById('toNumberText').onkeypress = function (event) {
+//        if (document.getElementById('toStreetText').value != "")
+//        {
+//            var numberLength = document.getElementById('toNumberText').value.length;
+//            // запрещаем дальнейший ввод неверных символов
+//            if (numberLength < 10                                    &&     /* количество символов не больше 3х */
+//                (   event.keyCode >= 48 && event.keyCode <= 57 )    ||      /* числа 0...9 */
+//                (   event.keyCode == 99                             ||      /* символ "с" en */
+//                    event.keyCode == 107                            ||      /* символ "k" en */
+//                    event.keyCode == 1089                           ||      /* символ "с" ru */
+//                    event.keyCode == 1082 )                                 /* символ "к" ru */
+//                ) {
+//                // ОК, продолжаем дальше
+//            }
+//            else {
+//                // просто блокируем
+//                event.preventDefault();
+//            }
+//        }
+//        else {
+//            // просто блокируем
+//            event.preventDefault();
+//        }
+//    };
+//    document.getElementById('toNumber2Text').onkeypress = function (event) {
+//        if (document.getElementById('toStreet2Text').value != "")
+//        {
+//            var numberLength = document.getElementById('toNumber2Text').value.length;
+//            // запрещаем дальнейший ввод неверных символов
+//            if (numberLength < 10                                    &&     /* количество символов не больше 3х */
+//                (   event.keyCode >= 48 && event.keyCode <= 57 )    ||      /* числа 0...9 */
+//                (   event.keyCode == 99                             ||      /* символ "с" en */
+//                    event.keyCode == 107                            ||      /* символ "k" en */
+//                    event.keyCode == 1089                           ||      /* символ "с" ru */
+//                    event.keyCode == 1082 )                                 /* символ "к" ru */
+//                ) {
+//                // ОК, продолжаем дальше
+//            }
+//            else {
+//                // просто блокируем
+//                event.preventDefault();
+//            }
+//        }
+//        else {
+//            // просто блокируем
+//            event.preventDefault();
+//        }
+//    };
+//    document.getElementById('toNumber3Text').onkeypress = function (event) {
+//        if (document.getElementById('toStreet3Text').value != "")
+//        {
+//            var numberLength = document.getElementById('toNumber3Text').value.length;
+//            // запрещаем дальнейший ввод неверных символов
+//            if (numberLength < 10                                    &&     /* количество символов не больше 3х */
+//                (   event.keyCode >= 48 && event.keyCode <= 57 )    ||      /* числа 0...9 */
+//                (   event.keyCode == 99                             ||      /* символ "с" en */
+//                    event.keyCode == 107                            ||      /* символ "k" en */
+//                    event.keyCode == 1089                           ||      /* символ "с" ru */
+//                    event.keyCode == 1082 )                                 /* символ "к" ru */
+//                ) {
+//                // ОК, продолжаем дальше
+//            }
+//            else {
+//                // просто блокируем
+//                event.preventDefault();
+//            }
+//        }
+//        else {
+//            // просто блокируем
+//            event.preventDefault();
+//        }
+//    };
 
     window.onpopstate = function(event) {
         alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
