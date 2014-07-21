@@ -26,10 +26,24 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="64" selection-start="9108" selection-end="9108" vertical-scroll-proportion="-18.923077" vertical-offset="2160" max-vertical-offset="2805">
+            <state line="76" column="19" selection-start="3757" selection-end="3757" vertical-scroll-proportion="-1.2692307" vertical-offset="1259" max-vertical-offset="2227">
               <folding>
+                <element signature="n#style#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#4;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#4;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#4;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#td#3;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#ul#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,7 +61,7 @@
       <file leaf-file-name="multi-geocoder.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/multi-geocoder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="10" selection-start="1546" selection-end="1546" vertical-scroll-proportion="0.0" vertical-offset="748" max-vertical-offset="1360">
+            <state line="44" column="10" selection-start="1546" selection-end="1546" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1071">
               <folding />
             </state>
           </provider>
@@ -74,7 +88,7 @@
       <file leaf-file-name="delivery-tarif.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/delivery-tarif.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1632">
+            <state line="30" column="0" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1632">
               <folding />
             </state>
           </provider>
@@ -83,7 +97,7 @@
       <file leaf-file-name="directions-service.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/directions-service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0" vertical-offset="38" max-vertical-offset="1462">
+            <state line="13" column="0" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0" vertical-offset="806" max-vertical-offset="1462">
               <folding />
             </state>
           </provider>
@@ -92,16 +106,16 @@
       <file leaf-file-name="kladr.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/kladr.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="22" selection-start="1116" selection-end="1116" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="2499">
+            <state line="84" column="0" selection-start="3368" selection-end="3532" vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="2499">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="map.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/map.js">
+      <file leaf-file-name="directions-renderer.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/directions-renderer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="198" selection-end="198" vertical-scroll-proportion="-10.85693" vertical-offset="7438" max-vertical-offset="8109">
+            <state line="136" column="28" selection-start="4106" selection-end="4106" vertical-scroll-proportion="0.86737806" vertical-offset="1743" max-vertical-offset="2618">
               <folding />
             </state>
           </provider>
@@ -158,11 +172,11 @@
         <option value="api-maps.yandex.ru/2.1.11/release/combine.xml?modules=2!)h3z0g),22)f)l)8)326)I)E-13J)*)_)x2)2(2W)Q.D,o)w,n)-)2)p2*_o5C5h)k5d6L5e5A5p5l)1(j272_7a8G)!)Z)))P!!-M-S2N!M!K!H.,!N!L!I!E)D.G)S8Z9b80).3F3K9x)u)g,k8W,F*j04*)(M8S8L)b0i40)$7-0t5X.E)50a0b0c0d0e0f0h0k0l0m0n0o0p0r0s0u0v0y0A0B0C0D0E0F090z0Q0J0Z1a1c1d1e1f1g1h1i1k1l1m1r1t1q2w2F2K2L2M2O2P2R2S2T2U2V2X2Y202123242528292$2,2q2j2z2Q2J2Z3a3b3c3d3e3f3g3h3i3k3l3m3n3o3r3s3t3u3v3w3x3y3A3B3E3G3L3M3N3O3S3T3U3V3X3Y303132353738393$3_3!3*3(3Q3Z4a4b4c4e4f4g4h4k4l4m4n4o4p4s4t4u4v4w4x4y4B4C4D4E4F4G4H4I4K4L4M4N4O4P4R4S4T4U4V4W4X4Y4243494$4-4*4(4)4,4q4j4z4Q4J4Z5a5b5c5f5g5i5k5m5n5o5r5s5t5u5v5w5x5y5B5D5E5F5G5H5I5K5L5M5N5R5T5V5W6p6t6D6q6j6z6Q6J6Z7b7c7d7e7f7g7h7i7k7l7m7n7X7Y707172737475767778797$7_7.7!7*7(7)7,7j8c8d8f8g8h8i8D8O8X8Y8182838485868788898$8-8_8.8!8*8(8)8,8q8j8z8Q8J9c9d9e9f9g9h9i9k9l9m9n9o9p9r9s9t9u9v9w9y9A9B9C9D9E9F9H9I9K9L9N9P9R9S9U9V9X9091929496989)9q9z9J$a$c$e$f$g$h$k$l$o$p$r$s$t$u$v$w$x$y$A$B$C$D$E$F$H$I$K$L$M$N$O$P-h-l-n-w-y-A-B-C-D-E-F-H-N-O-U-V-Y_c_d_e_f_g_h_i_l_m_n.w.x.y.A.B.C.F.H.I.K.5.6.7.8...!.j.Q.J.Z!a!b!c!d!e!f!g!h!i!k!l!m!n!o!p!r!s!t!u!F!G!0!1!2!*!(!)!,!q!j!z!Z*b*d*f*g*h*m*n*o*p*r*t*w*B*K*L*$*-*(*,*q*J(k(l(m(n(o(p(r(s(t(u(v(w(x(y(A(B(C(F(G(H(I(K(z(Q(J(Z)a)c)d)e)i)m)o)r)s)t)y)A)B)C)G)H)O)R)T)V)W)X)Y)0)4)7)9)()j)J,a,c,e,f,g,h,i,l,m,r,s,u,w,x,y,A,B,C,D,E,G,H,I,K,L,M,T,U&amp;callback=ymapsymaps2_1_11_loader2!)h3z0g),22)f)l)8)326)I)E-13J)*)_)x2)2(2W)Q.D,o)w,n)-)2)p2*_o5C5h)k5d6L5e5A5p5l)1(j272_7a8G)!)Z)))P!!-M-S2N!M!K!H.,!N!L!I!E)D.G)S8Z9b80).3F3K9x)u)g,k8W,F*j04*)(M8S8L)b0i40)$7-0t5X.E)50a0b0c0d0e0f0h0k0l0m0n0o0p0r0s0u0v0y0A0B0C0D0E0F090z0Q0J0Z1a1c1d1e1f1g1h1i1k1l1m1r1t1q2w2F2K2L2M2O2P2R2S2T2U2V2X2Y202123242528292$2,2q2j2z2Q2J2Z3a3b3c3d3e3f3g3h3i3k3l3m3n3o3r3s3t3u3v3w3x3y3A3B3E3G3L3M3N3O3S3T3U3V3X3Y303132353738393$3_3!3*3(3Q3Z4a4b4c4e4f4g4h4k4l4m4n4o4p4s4t4u4v4w4x4y4B4C4D4E4F4G4H4I4K4L4M4N4O4P4R4S4T4U4V4W4X4Y4243494$4-4*4(4)4,4q4j4z4Q4J4Z5a5b5c5f5g5i5k5m5n5o5r5s5t5u5v5w5x5y5B5D5E5F5G5H5I5K5L5M5N5R5T5V5W6p6t6D6q6j6z6Q6J6Z7b7c7d7e7f7g7h7i7k7l7m7n7X7Y707172737475767778797$7_7.7!7*7(7)7,7j8c8d8f8g8h8i8D8O8X8Y8182838485868788898$8-8_8.8!8*8(8)8,8q8j8z8Q8J9c9d9e9f9g9h9i9k9l9m9n9o9p9r9s9t9u9v9w9y9A9B9C9D9E9F9H9I9K9L9N9P9R9S9U9V9X9091929496989)9q9z9J$a$c$e$f$g$h$k$l$o$p$r$s$t$u$v$w$x$y$A$B$C$D$E$F$H$I$K$L$M$N$O$P-h-l-n-w-y-A-B-C-D-E-F-H-N-O-U-V-Y_c_d_e_f_g_h_i_l_m_n.w.x.y.A.B.C.F.H.I.K.5.6.7.8...!.j.Q.J.Z!a!b!c!d!e!f!g!h!i!k!l!m!n!o!p!r!s!t!u!F!G!0!1!2!*!(!)!,!q!j!z!Z*b*d*f*g*h*m*n*o*p*r*t*w*B*K*L*$*-*(*,*q*J(k(l(m(n(o(p(r(s(t(u(v(w(x(y(A(B(C(F(G(H(I(K(z(Q(J(Z)a)c)d)e)i)m)o)r)s)t)y)A)B)C)G)H)O)R)T)V)W)X)Y)0)4)7)9)()j)J,a,c,e,f,g,h,i,l,m,r,s,u,w,x,y,A,B,C,D,E,G,H,I,K,L,M,T,U" />
         <option value="yandex.st/jquery/1.8.0/jquery.min.js" />
         <option value="$PROJECT_DIR$/js/multi-geocoder.js" />
-        <option value="$PROJECT_DIR$/js/directions-renderer.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/delivery-calculator.js" />
         <option value="$PROJECT_DIR$/js/kladr.js" />
+        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/map.js" />
+        <option value="$PROJECT_DIR$/js/directions-renderer.js" />
       </list>
     </option>
   </component>
@@ -406,16 +420,16 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3218646" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14007372" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2264151" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24306326" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3218646" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -437,7 +451,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="406" />
+      <option name="time" value="408" />
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
@@ -491,8 +505,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="54" selection-start="728" selection-end="728" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="748">
           <folding>
+            <element signature="n#style#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#3;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ul#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -523,8 +551,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="5" selection-start="636" selection-end="636" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="680">
           <folding>
+            <element signature="n#style#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#3;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ul#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -538,8 +580,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="64" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="680">
           <folding>
+            <element signature="n#style#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#3;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ul#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -553,8 +609,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="48" selection-start="777" selection-end="777" vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="680">
           <folding>
+            <element signature="n#style#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#3;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ul#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -568,8 +638,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="48" selection-start="777" selection-end="777" vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="680">
           <folding>
+            <element signature="n#style#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#3;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ul#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -607,13 +691,6 @@
     <entry file="file://$PROJECT_DIR$/paymentSuccess.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="8" selection-start="2872" selection-end="2872" vertical-scroll-proportion="-12.076923" vertical-offset="485" max-vertical-offset="1037" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/payment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="2618">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="http://yandex.st/jquery/1.6.4/jquery.min.js">
@@ -677,25 +754,11 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/directions-renderer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="4" selection-start="296" selection-end="296" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2601">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/directions-service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0" vertical-offset="38" max-vertical-offset="1462">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/es5-shim.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="22542">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -714,13 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/multi-geocoder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="10" selection-start="1546" selection-end="1546" vertical-scroll-proportion="0.0" vertical-offset="163" max-vertical-offset="1071">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/sovetnik.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1424" column="103" selection-start="88917" selection-end="88920" vertical-scroll-proportion="0.0" vertical-offset="21498" max-vertical-offset="36346">
@@ -728,30 +784,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/delivery-tarif.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1632">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/delivery-calculator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="32" selection-start="3674" selection-end="3674" vertical-scroll-proportion="0.0" vertical-offset="536" max-vertical-offset="1921">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1195" column="7" selection-start="18112" selection-end="18112" vertical-scroll-proportion="0.33279485" vertical-offset="20109" max-vertical-offset="64821">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/kladr.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="22" selection-start="1116" selection-end="1116" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="2499">
           <folding />
         </state>
       </provider>
@@ -765,17 +800,80 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="64" selection-start="9108" selection-end="9108" vertical-scroll-proportion="-18.923077" vertical-offset="2160" max-vertical-offset="2805">
+        <state line="76" column="19" selection-start="3757" selection-end="3757" vertical-scroll-proportion="-1.2692307" vertical-offset="1259" max-vertical-offset="2227">
           <folding>
+            <element signature="n#style#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#3;n#tr#0;n#table#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ul#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/kladr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="0" selection-start="3368" selection-end="3532" vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="2499">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/payment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="330" selection-end="330" vertical-scroll-proportion="-2.410061" vertical-offset="1683" max-vertical-offset="2618">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="198" selection-end="198" vertical-scroll-proportion="-10.85693" vertical-offset="7438" max-vertical-offset="8109">
+        <state line="214" column="63" selection-start="7860" selection-end="7860" vertical-scroll-proportion="-1.410061" vertical-offset="4563" max-vertical-offset="8126">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/delivery-calculator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="32" selection-start="3674" selection-end="3674" vertical-scroll-proportion="1.9039634" vertical-offset="536" max-vertical-offset="1921">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/directions-service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0" vertical-offset="38" max-vertical-offset="1462">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/multi-geocoder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="10" selection-start="1546" selection-end="1546" vertical-scroll-proportion="0.0" vertical-offset="163" max-vertical-offset="1071">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/delivery-tarif.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="0" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1632">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/directions-renderer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="136" column="28" selection-start="4106" selection-end="4106" vertical-scroll-proportion="0.86737806" vertical-offset="1743" max-vertical-offset="2618">
           <folding />
         </state>
       </provider>

@@ -212,7 +212,7 @@ function makeRoute() {
                                     balloonContentFooter: "Расстояние: " + dist,
                                     hintContent: mAllData.name
                                 }, {
-                                    preset: 'islands#dotIcon',
+                                    preset: 'twirl#nightDotIcon',
                                     iconColor: '#4d7198'
                                 });
                                 myCollection.add(metroPlacemark);
@@ -220,13 +220,11 @@ function makeRoute() {
                         }
 
                         // работаем с задержкой
-                        setTimeout(function ()
-                        {
-                            // открываем балун для метки (последней, если их несколько)
-                            /* пока не выводим балун на экран
-                            metroPlacemark.balloon.open();
-                            */
-                        }, 1000);
+//                        setTimeout(function ()
+//                        {
+//                            // открываем балун для метки (последней, если их несколько)
+//                            metroPlacemark.balloon.open();
+//                        }, 1000);
 
                         // Поиск 2 адреса, если есть
                         if (document.getElementById('toStreet2Text').value != '' && document.getElementById('toNumber2Text').value != ''){
@@ -417,7 +415,10 @@ function loadAddresses() {
 
     // строим маршрут
     if (to != "" && to != "undefined"){
-        makeRoute();
+        setTimeout(function ()
+        {
+            makeRoute();
+        }, 100);
     }
     else{
         // фокус на улице

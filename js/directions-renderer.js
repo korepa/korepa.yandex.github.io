@@ -134,7 +134,8 @@ DirectionsRenderer.prototype = {
         this._clear();
 
         route.legs.forEach(function (leg, i) {
-            this._createMarkers(leg, i);
+            // отрисовка точек на карте
+            //this._createMarkers(leg, i);
 
             leg.steps.forEach(function (step) {
                 coordinates = coordinates.concat(step.path);
