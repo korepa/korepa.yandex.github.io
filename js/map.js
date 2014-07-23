@@ -9,6 +9,8 @@ var airport = "Москва, аэропорт Внуково";
 var dir = 'to';
 var tarifs;
 var calculator;
+var metroName;
+var metroDistance;
 
 function init () {
     myMap = new ymaps.Map('map', {
@@ -205,6 +207,8 @@ function makeRoute() {
                                 var m_coords = m.geometry.getCoordinates();
                                 var dist0 = ymaps.coordSystem.geo.getDistance(coords, m_coords);
                                 var dist = ymaps.formatter.distance(dist0);
+                                metroName = mAllData.name;
+                                metroDistance = dist;
 
                                 // выведем иконку с расстоянием до метро
                                 metroPlacemark = new ymaps.Placemark(m_coords, {
@@ -471,17 +475,38 @@ function order() {
 }
 
 function calculatePrice (results, total){
-    // выводим на экран данные о расстоянии и цене
-    var message = 'Расстояние:\nпо МО - ' + results[1].distance/1000 + ' км' + '\nпо Москве - ' + results[0].distance/1000 + ' км';
-    message += '\nОбщее растояние:\n' + total.distance/1000 + ' км';
-    var message2 = 'Цена:\nпо МО - ' + (results[1].value) + ' p' + '\nпо Москве - ' + (results[0].value) + ' p';
-    message2 += '\nОбщая цена:\n' + total.value + ' p';
+    // выводим на экран данные
+
+    // внутри ли МКАД адрес
+
+    // город
+    var messageCity = 'Город:\n ' + document.getElementById('toCityText').value;
+
+    // имя метро
+    var messageMetroName = 'Ближайшее метро:\n ' + metroName;
+
+    // расстояние до метро
+    var messageMetroDistance = 'Расстояние до метро:\n ' + metroDistance;
+
+    // общее расстояние
+    var messageTotalDistance = 'Расстояние: по МО - ' + results[1].distance/1000 + ' км, ' + 'по Москве - ' + results[0].distance/1000 + ' км, ';
+    messageTotalDistance += 'общее растояние - ' + total.distance/1000 + ' км';
+
+    // цена
+    var messageTotalPrice = 'Цена: по МО - ' + (results[1].value) + ' p, ' + 'по Москве - ' + (results[0].value) + ' p, ';
+    messageTotalPrice += ' общая цена - ' + total.value + ' p';
 
     // текстовые сообщения (временно)
-    document.getElementById('routeInfoLabel').innerHTML = message;
-    document.getElementById('routeInfoLabel').style.display = "block";
-    document.getElementById('routeInfo2Label').innerHTML = message2;
-    document.getElementById('routeInfo2Label').style.display = "block";
+    document.getElementById('routeInfoCityLabel').innerHTML = messageCity;
+    document.getElementById('routeInfoCityLabel').style.display = "block";
+    document.getElementById('routeInfoMetroNameLabel').innerHTML = messageMetroName;
+    document.getElementById('routeInfoMetroNameLabel').style.display = "block";
+    document.getElementById('routeInfoMetroDistanceLabel').innerHTML = messageMetroDistance;
+    document.getElementById('routeInfoMetroDistanceLabel').style.display = "block";
+    document.getElementById('routeInfoTotalDistanceLabel').innerHTML = messageTotalDistance;
+    document.getElementById('routeInfoTotalDistanceLabel').style.display = "block";
+    document.getElementById('routeInfoTotalPriceLabel').innerHTML = messageTotalPrice;
+    document.getElementById('routeInfoTotalPriceLabel').style.display = "block";
 
     // выводим цену
     priceCount(total.value);
