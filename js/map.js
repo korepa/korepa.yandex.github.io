@@ -470,3 +470,20 @@ function order() {
     window.location = newLocation;
 }
 
+function calculatePrice (results, total){
+    // выводим на экран данные о расстоянии и цене
+    var message = 'Расстояние:\nпо МО - ' + results[1].distance/1000 + ' км' + '\nпо Москве - ' + results[0].distance/1000 + ' км';
+    message += '\nОбщее растояние:\n' + total.distance/1000 + ' км';
+    var message2 = 'Цена:\nпо МО - ' + (results[1].value) + ' p' + '\nпо Москве - ' + (results[0].value) + ' p';
+    message2 += '\nОбщая цена:\n' + total.value + ' p';
+
+    // текстовые сообщения (временно)
+    document.getElementById('routeInfoLabel').innerHTML = message;
+    document.getElementById('routeInfoLabel').style.display = "block";
+    document.getElementById('routeInfo2Label').innerHTML = message2;
+    document.getElementById('routeInfo2Label').style.display = "block";
+
+    // выводим цену
+    priceCount(total.value);
+}
+
