@@ -80,15 +80,15 @@
     <tr id="address2Tr" style="display: none;">
         <td></td>
         <td><input type="text" id="toCity2Text" name="location2" class="form-control" value="Москва" autocomplete="off" placeholder="Город" style="margin:0 auto; width: 99%; font-size:120%;"/></td>
-        <td><input type="text" id="toStreet2Text" name="street2" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%; visibility: hidden;"/></td>
-        <td style="display: table-cell;" id="toNumber2Td"><input type="text" id="toNumber2Text" name="building2" class="form-control" value="" autocomplete="off" placeholder="Дом" style="font-size:120%; vertical-align: bottom; visibility: hidden;"/></td>
+        <td><input type="text" id="toStreet2Text" name="street2" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%;"/></td>
+        <td style="display: table-cell;" id="toNumber2Td"><input type="text" id="toNumber2Text" name="building2" class="form-control" value="" autocomplete="off" placeholder="Дом" style="font-size:120%; vertical-align: bottom;"/></td>
         <td style="display: block;" id="right2Td"><button id="add2Button" type="button" class="btn btn-primary btn-xs" style="margin-left:20%; margin-top: 10%; margin-bottom: 10%; width: 80%; font-size: 130%;" onclick="remove2Address()">-</button></td>
     </tr>
     <tr id="address3Tr" style="display: none;">
         <td></td>
         <td><input type="text" id="toCity3Text" name="location3" class="form-control" value="Москва" autocomplete="off" placeholder="Город" style="margin:0 auto; width: 99%; font-size:120%;"/></td>
-        <td><input type="text" id="toStreet3Text" name="street3" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%; visibility: hidden;"/></td>
-        <td style="display: table-cell;" id="toNumber3Td"><input type="text" id="toNumber3Text" name="building3" class="form-control" value="" autocomplete="off" placeholder="Дом" style="font-size:120%; vertical-align: bottom; visibility: hidden;"/></td>
+        <td><input type="text" id="toStreet3Text" name="street3" class="form-control" value="" autocomplete="off" placeholder="Улица" style="margin:0 auto; width: 99%; font-size:120%;"/></td>
+        <td style="display: table-cell;" id="toNumber3Td"><input type="text" id="toNumber3Text" name="building3" class="form-control" value="" autocomplete="off" placeholder="Дом" style="font-size:120%; vertical-align: bottom;"/></td>
         <td style="display: block;" id="right3Td"><button id="add3Button" type="button" class="btn btn-primary btn-xs" style="margin-left:20%; margin-top: 10%; margin-bottom: 10%; width: 80%; font-size: 130%;" onclick="remove3Address()">-</button></td>
     </tr>
 </table>
@@ -113,11 +113,17 @@
 </table>
 <div id="map" style="height:600px;"></div>
 <div>
-    <label id="routeInfoCityLabel" style="display: block"></label>
-    <label id="routeInfoMetroNameLabel" style="display: block"></label>
-    <label id="routeInfoMetroDistanceLabel" style="display: block"></label>
-    <label id="routeInfoTotalDistanceLabel" style="display: block"></label>
-    <label id="routeInfoTotalPriceLabel" style="display: block"></label>
+
+    <label id="routeInfoCity1Label" style="display: none"></label>
+    <label id="routeInfoInsideMKAD1Label" style="display: none"></label>
+    <label id="routeInfoCity2Label" style="display: none"></label>
+    <label id="routeInfoInsideMKAD2Label" style="display: none"></label>
+    <label id="routeInfoCity3Label" style="display: none"></label>
+    <label id="routeInfoInsideMKAD3Label" style="display: none"></label>
+    <label id="routeInfoMetroName1Label" style="display: none"></label>
+    <label id="routeInfoMetroDistance1Label" style="display: none"></label>
+    <label id="routeInfoTotalDistanceLabel" style="display: none"></label>
+    <label id="routeInfoTotalPriceLabel" style="display: none"></label>
 </div>
 <div id="kladr_autocomplete">
     <ul class="kladr_autocomplete_location" style="display: none; top: 58px; left: 882px; width: 300px;"></ul>

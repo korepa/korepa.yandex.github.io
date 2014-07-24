@@ -292,28 +292,32 @@ function addRightAddress() {
     {
         $('#address2Tr')[0].style.display = "table-row";
         clearAddress(2);
-        hideAddress(2, 'left');
         return;
     }
     if ( $('#address3Tr')[0].style.display === 'none')
     {
         $('#address3Tr')[0].style.display = "table-row";
         clearAddress(3);
-        hideAddress(3, 'left');
         return;
     }
 }
 
-// функция добавления доп. адреса 2
+// функция удаления доп. адреса 2
 function remove2Address() {
     $('#address2Tr')[0].style.display = "none";
     clearAddress(2);
+    if ($('#toStreetText')[0].value != ''){
+        makeRoute();
+    }
 }
 
-// функция добавления доп. адреса 3
+// функция удаления доп. адреса 3
 function remove3Address() {
     $('#address3Tr')[0].style.display = "none";
     clearAddress(3);
+    if ($('#toStreetText')[0].value != ''){
+        makeRoute();
+    }
 }
 
 // Функция очистки доп. адресов
@@ -329,33 +333,6 @@ function clearAddress(number){
     else if (number == 3){
         $('#toStreet3Text')[0].value = '';
         $('#toNumber3Text')[0].value = '';
-    }
-}
-
-// Функция очистки доп. адресов
-function hideAddress(number, side){
-    if (number == 1){
-        // не используем
-    }
-    else if (number == 2){
-        if (side == 'right'){
-            $('#toStreet2Text')[0].style.visibility = "hidden";
-            $('#toNumber2Text')[0].style.visibility = "hidden";
-        }
-        else {
-            $('#toStreet2Text')[0].style.visibility = "visible";
-            $('#toNumber2Text')[0].style.visibility = "visible";
-        }
-    }
-    else if (number == 3){
-        if (side == 'right'){
-            $('#toStreet3Text')[0].style.visibility = "hidden";
-            $('#toNumber3Text')[0].style.visibility = "hidden";
-        }
-        else {
-            $('#toStreet3Text')[0].style.visibility = "visible";
-            $('#toNumber3Text')[0].style.visibility = "visible";
-        }
     }
 }
 
@@ -477,16 +454,83 @@ function order() {
 function calculatePrice (results, total){
     // выводим на экран данные
 
-    // внутри ли МКАД адрес
+    // точка 1
+    if (document.getElementById('toCityText').value != ''){
+        // город
+        var messageCity = 'Город 1:\n ' + document.getElementById('toCityText').value;
 
-    // город
-    var messageCity = 'Город:\n ' + document.getElementById('toCityText').value;
+        // внутри ли МКАД адрес
+        var messageInsideMKAD = 'Нет';
+        if (document.getElementById('toCityText').value == "Москва"){
+            messageInsideMKAD = "Да";
+        }
+        messageInsideMKAD = "Внутри МКАД: " + messageInsideMKAD;
 
-    // имя метро
-    var messageMetroName = 'Ближайшее метро:\n ' + metroName;
+        // имя метро
+        var messageMetroName = 'Ближайшее метро:\n ' + metroName;
 
-    // расстояние до метро
-    var messageMetroDistance = 'Расстояние до метро:\n ' + metroDistance;
+        // расстояние до метро
+        var messageMetroDistance = 'Расстояние до метро:\n ' + metroDistance;
+
+        document.getElementById('routeInfoCity1Label').innerHTML = messageCity;
+        document.getElementById('routeInfoCity1Label').style.display = "block";
+        document.getElementById('routeInfoInsideMKAD1Label').innerHTML = messageInsideMKAD;
+        document.getElementById('routeInfoInsideMKAD1Label').style.display = "block";
+        document.getElementById('routeInfoMetroName1Label').innerHTML = messageMetroName;
+        document.getElementById('routeInfoMetroName1Label').style.display = "block";
+        document.getElementById('routeInfoMetroDistance1Label').innerHTML = messageMetroDistance;
+        document.getElementById('routeInfoMetroDistance1Label').style.display = "block";
+    }
+    else{
+        document.getElementById('routeInfoCity1Label').style.display = "none";
+        document.getElementById('routeInfoInsideMKAD1Label').style.display = "none";
+        document.getElementById('routeInfoMetroName1Label').style.display = "none";
+        document.getElementById('routeInfoMetroDistance1Label').style.display = "none";
+    }
+
+    // точка 2
+    if (document.getElementById('toStreet2Text').value != ''){
+        // город
+        var messageCity = 'Город 2:\n ' + document.getElementById('toCity2Text').value;
+
+        // внутри ли МКАД адрес
+        var messageInsideMKAD = 'Нет';
+        if (document.getElementById('toCity2Text').value == "Москва"){
+            messageInsideMKAD = "Да";
+        }
+        messageInsideMKAD = "Внутри МКАД: " + messageInsideMKAD;
+
+        document.getElementById('routeInfoCity2Label').innerHTML = messageCity;
+        document.getElementById('routeInfoCity2Label').style.display = "block";
+        document.getElementById('routeInfoInsideMKAD2Label').innerHTML = messageInsideMKAD;
+        document.getElementById('routeInfoInsideMKAD2Label').style.display = "block";
+    }
+    else{
+        document.getElementById('routeInfoCity2Label').style.display = "none";
+        document.getElementById('routeInfoInsideMKAD2Label').style.display = "none";
+    }
+
+    // точка 3
+    if (document.getElementById('toStreet3Text').value != ''){
+        // город
+        var messageCity = 'Город 3:\n ' + document.getElementById('toCity3Text').value;
+
+        // внутри ли МКАД адрес
+        var messageInsideMKAD = 'Нет';
+        if (document.getElementById('toCity3Text').value == "Москва"){
+            messageInsideMKAD = "Да";
+        }
+        messageInsideMKAD = "Внутри МКАД: " + messageInsideMKAD;
+
+        document.getElementById('routeInfoCity3Label').innerHTML = messageCity;
+        document.getElementById('routeInfoCity3Label').style.display = "block";
+        document.getElementById('routeInfoInsideMKAD3Label').innerHTML = messageInsideMKAD;
+        document.getElementById('routeInfoInsideMKAD3Label').style.display = "block";
+    }
+    else{
+        document.getElementById('routeInfoCity3Label').style.display = "none";
+        document.getElementById('routeInfoInsideMKAD3Label').style.display = "none";
+    }
 
     // общее расстояние
     var messageTotalDistance = 'Расстояние: по МО - ' + results[1].distance/1000 + ' км, ' + 'по Москве - ' + results[0].distance/1000 + ' км, ';
@@ -496,13 +540,6 @@ function calculatePrice (results, total){
     var messageTotalPrice = 'Цена: по МО - ' + (results[1].value) + ' p, ' + 'по Москве - ' + (results[0].value) + ' p, ';
     messageTotalPrice += ' общая цена - ' + total.value + ' p';
 
-    // текстовые сообщения (временно)
-    document.getElementById('routeInfoCityLabel').innerHTML = messageCity;
-    document.getElementById('routeInfoCityLabel').style.display = "block";
-    document.getElementById('routeInfoMetroNameLabel').innerHTML = messageMetroName;
-    document.getElementById('routeInfoMetroNameLabel').style.display = "block";
-    document.getElementById('routeInfoMetroDistanceLabel').innerHTML = messageMetroDistance;
-    document.getElementById('routeInfoMetroDistanceLabel').style.display = "block";
     document.getElementById('routeInfoTotalDistanceLabel').innerHTML = messageTotalDistance;
     document.getElementById('routeInfoTotalDistanceLabel').style.display = "block";
     document.getElementById('routeInfoTotalPriceLabel').innerHTML = messageTotalPrice;
