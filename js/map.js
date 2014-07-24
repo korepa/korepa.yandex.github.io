@@ -547,5 +547,22 @@ function calculatePrice (results, total){
 
     // выводим цену
     priceCount(total.value);
+
+    // послать запрос
+//    var obj = new Object();
+//    obj.name = "Raj";
+//    obj.age  = 32;
+//    obj.married = false;
+//    var jsonString= JSON.stringify(obj);
+
+//    var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+//    xmlhttp.open("POST", "/json-handler");
+//    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+//    xmlhttp.send(jsonString);
+
+//    $.post("index.html", { name: "John", time: "2pm" } );
+//    $.post("index.html", { json_string:jsonString });
+//
+//    $.post("test.php", { func: jsonString });
 }
 
