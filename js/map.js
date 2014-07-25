@@ -548,21 +548,30 @@ function calculatePrice (results, total){
     // выводим цену
     priceCount(total.value);
 
-    // послать запрос
-//    var obj = new Object();
-//    obj.name = "Raj";
-//    obj.age  = 32;
-//    obj.married = false;
-//    var jsonString= JSON.stringify(obj);
+    // посылаем запрос JSON
+    //postJSON();
+}
 
-//    var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
-//    xmlhttp.open("POST", "/json-handler");
-//    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-//    xmlhttp.send(jsonString);
+function send(){
+    var metroDistanceArr = metroDistance.split(/[&#;]+/);
+    var metroDistance2 = metroDistanceArr[0] + ' ' + metroDistanceArr[metroDistanceArr.length - 1];
+    var url = 'http://echo.jsontest.com';
+    url += '/metroname/' + metroName + '/metrodistance/' + metroDistance2 + '/';
 
-//    $.post("index.html", { name: "John", time: "2pm" } );
-//    $.post("index.html", { json_string:jsonString });
-//
-//    $.post("test.php", { func: jsonString });
+    $.ajax({
+        url: url,
+        dataType: 'jsonp',
+        //data: JSON.stringify(data1),
+        data: {},
+        success: function (data, textStatus) {
+            var message = 'Адрес сервера: ' + 'http://echo.jsontest.com';
+            message += '\nметро: ' + decodeURIComponent(data.metroname);
+            message += '\nрасстояние: ' + decodeURIComponent(data.metrodistance);
+            alert(message);
+        }
+        //,
+        //jsonpCallback: 'showMyIP'
+    });
+
 }
 
