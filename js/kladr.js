@@ -17,6 +17,9 @@
         var building2 = container.find( '[name="building2"]' );
         var building3 = container.find( '[name="building3"]' );
 
+        // элементы управления
+        var routeButton = container.find( '[name="routeButton"]' );
+
         // Автодополнение населённых пунктов
         location.kladr({
             token: '51dfe5d42fb2b43e3300006e',
@@ -68,6 +71,7 @@
                 {
                     building[0].value = '';
                     building.focus();
+                    routeButton[0].disabled = false;
                 }, 50);
             }
         });
