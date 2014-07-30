@@ -549,7 +549,7 @@ function calculatePrice (results, total){
     priceCount(total.value);
 
     // посылаем запрос JSON
-    //postJSON();
+    send2();
 }
 
 function send(){
@@ -572,6 +572,34 @@ function send(){
         //,
         //jsonpCallback: 'showMyIP'
     });
+
+}
+
+function send2(){
+    var url = 'php/action.php';
+
+    $.ajax({
+        url:url,
+        data:{
+            routeInfoCity1: document.getElementById('routeInfoCity1Label').innerHTML,
+            routeInfoInsideMKAD1: document.getElementById('routeInfoInsideMKAD1Label').innerHTML,
+            routeInfoCity2: document.getElementById('routeInfoCity2Label').innerHTML,
+            routeInfoInsideMKAD2: document.getElementById('routeInfoInsideMKAD2Label').innerHTML,
+            routeInfoCity3: document.getElementById('routeInfoCity3Label').innerHTML,
+            routeInfoInsideMKAD3: document.getElementById('routeInfoInsideMKAD3Label').innerHTML,
+            routeInfoMetroName1: document.getElementById('routeInfoMetroName1Label').innerHTML,
+            routeInfoMetroDistance1: document.getElementById('routeInfoMetroDistance1Label').innerHTML,
+            routeInfoTotalDistance: document.getElementById('routeInfoTotalDistanceLabel').innerHTML,
+            routeInfoTotalPrice: document.getElementById('routeInfoTotalPriceLabel').innerHTML,
+        },
+        complete: function (response) {
+            alert(response.responseText);
+        },
+        error: function () {
+            alert('Bummer: there was an error!');
+        }
+    });
+    return false;
 
 }
 

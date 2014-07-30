@@ -1,20 +1,30 @@
-<?php echo '<p>Данные о поездке:</p>'; ?>
-
-<?php echo htmlspecialchars($_POST['routeInfoCity1']); ?>.
-<?php echo htmlspecialchars($_POST['routeInfoInsideMKAD1']); ?>.
-<?php echo htmlspecialchars($_POST['routeInfoCity2']); ?>.
-<?php echo htmlspecialchars($_POST['routeInfoInsideMKAD2']); ?>.
-<?php echo htmlspecialchars($_POST['routeInfoCity3']); ?>.
-<?php echo htmlspecialchars($_POST['routeInfoInsideMKAD3']); ?>.
-<?php echo htmlspecialchars($_POST['routeInfoMetroName1']); ?>.
-<?php echo htmlspecialchars($_POST['routeInfoMetroDistance1']); ?>.
-<?php echo htmlspecialchars($_POST['routeInfoTotalDistance']); ?>.
-<?php echo htmlspecialchars($_POST['routeInfoTotalPrice']); ?>.
-
 <?php
-function square($num)
+
+echo 'Данные о поездке:'."\n";
+
+echo $_GET['routeInfoCity1']."\n";
+echo $_GET['routeInfoInsideMKAD1']."\n";
+if (!empty($_GET['routeInfoCity2']))
 {
-    return $num * $num;
+    echo $_GET['routeInfoCity2']."\n";
 }
-echo square(4);   // выводит '16'.
+if (!empty($_GET['routeInfoInsideMKAD2']))
+{
+    echo $_GET['routeInfoInsideMKAD2']."\n";
+}
+if (!empty($_GET['routeInfoCity3']))
+{
+    echo $_GET['routeInfoCity3']."\n";
+}
+if (!empty($_GET['routeInfoInsideMKAD3']))
+{
+    echo $_GET['routeInfoInsideMKAD3']."\n";
+}
+echo $_GET['routeInfoMetroName1']."\n";
+echo $_GET['routeInfoMetroDistance1']."\n";
+echo $_GET['routeInfoTotalDistance']."\n";
+echo $_GET['routeInfoTotalPrice']."\n";
+
+echo 'Результат: 1000 р';
+
 ?>
