@@ -545,61 +545,30 @@ function calculatePrice (results, total){
     document.getElementById('routeInfoTotalPriceLabel').innerHTML = messageTotalPrice;
     document.getElementById('routeInfoTotalPriceLabel').style.display = "block";
 
-    // выводим цену
-    priceCount(total.value);
 
-    // посылаем запрос JSON
-    send2();
-}
+    // внутри ли МКАД адрес
+    var city = document.getElementById('toCityText').value;
+    var messageInsideMKAD = 'Нет';
+    if (document.getElementById('toCityText').value == "Москва"){
+        messageInsideMKAD = "Да";
+    }
 
-function send(){
-    var metroDistanceArr = metroDistance.split(/[&#;]+/);
-    var metroDistance2 = metroDistanceArr[0] + ' ' + metroDistanceArr[metroDistanceArr.length - 1];
-    var url = 'http://echo.jsontest.com';
-    url += '/metroname/' + metroName + '/metrodistance/' + metroDistance2 + '/';
-
+    // посылаем запрос на рассчет суммы
     $.ajax({
-        url: url,
-        dataType: 'jsonp',
-        //data: JSON.stringify(data1),
-        data: {},
-        success: function (data, textStatus) {
-            var message = 'Адрес сервера: ' + 'http://echo.jsontest.com';
-            message += '\nметро: ' + decodeURIComponent(data.metroname);
-            message += '\nрасстояние: ' + decodeURIComponent(data.metrodistance);
-            alert(message);
-        }
-        //,
-        //jsonpCallback: 'showMyIP'
-    });
-
-}
-
-function send2(){
-    var url = 'php/action.php';
-
-    $.ajax({
-        url:url,
+        url:'php/action.php',
         data:{
-            routeInfoCity1: document.getElementById('routeInfoCity1Label').innerHTML,
-            routeInfoInsideMKAD1: document.getElementById('routeInfoInsideMKAD1Label').innerHTML,
-            routeInfoCity2: document.getElementById('routeInfoCity2Label').innerHTML,
-            routeInfoInsideMKAD2: document.getElementById('routeInfoInsideMKAD2Label').innerHTML,
-            routeInfoCity3: document.getElementById('routeInfoCity3Label').innerHTML,
-            routeInfoInsideMKAD3: document.getElementById('routeInfoInsideMKAD3Label').innerHTML,
-            routeInfoMetroName1: document.getElementById('routeInfoMetroName1Label').innerHTML,
-            routeInfoMetroDistance1: document.getElementById('routeInfoMetroDistance1Label').innerHTML,
-            routeInfoTotalDistance: document.getElementById('routeInfoTotalDistanceLabel').innerHTML,
-            routeInfoTotalPrice: document.getElementById('routeInfoTotalPriceLabel').innerHTML,
+            city: city,
+            insideMKAD: messageInsideMKAD,
+            metroName: metroName,
+            metroDistance: metroDistance,
+            inDistance: results[0].distance/1000,
+            outDistance: results[1].distance/1000
         },
         complete: function (response) {
-            alert(response.responseText);
+            priceCount(response.responseText);
         },
         error: function () {
-            alert('Bummer: there was an error!');
+            alert('Произошла ошибка рассчета цены поездки!');
         }
     });
-    return false;
-
 }
-
