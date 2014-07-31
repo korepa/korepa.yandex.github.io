@@ -545,7 +545,6 @@ function calculatePrice (results, total){
     document.getElementById('routeInfoTotalPriceLabel').innerHTML = messageTotalPrice;
     document.getElementById('routeInfoTotalPriceLabel').style.display = "block";
 
-
     // внутри ли МКАД адрес
     var city = document.getElementById('toCityText').value;
     var messageInsideMKAD = 'Нет';
