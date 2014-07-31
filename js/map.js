@@ -546,21 +546,72 @@ function calculatePrice (results, total){
     document.getElementById('routeInfoTotalPriceLabel').style.display = "block";
 
     // посылаем запрос на рассчет суммы
-    var city = document.getElementById('toCityText').value;
-    var insideMKAD = 0;
-    if (city == "Москва"){
-        insideMKAD = 1;
-    }
+    if (metroName != undefined && metroDistance!= undefined){
+        // город
+        var city = document.getElementById('toCityText').value;
+        var insideMKAD = 0;
+        if (city == "Москва"){
+            insideMKAD = 1;
+        }
 
+        // заполним структуру
+        var req = new Object();
+        req.city = city;
+        req.insideMKAD = insideMKAD;
+        req.metroName = metroName;
+        req.metroId = 0;
+        req.metroDistance = metroDistance;
+        req.distance1 = results[0].distance;
+        req.distance2 = results[1].distance;
+
+        // достанем метро id
+        getMetroId(req, sendPriceRequest);
+    }
+}
+
+function getMetroId(req, callback){
+    // уберем слово "метро" из имени
+    var realName = "";
+    var arr =  req.metroName.split(" ");
+    for (var i = 1; i < arr.length; i++) {
+        realName += arr[i] + " ";
+    }
+    realName = realName.trim();
+
+    $.ajax({
+        type: "GET",
+        url: "http://api.hh.ru/1/json/metro",
+        async: false,
+        contentType: "json",
+        dataType: 'jsonp',
+        success: function(data){
+            $(data).each(function(i, line) {
+                $(line.stations).each(function(j, station) {
+                    if ((station.name) == realName){
+                        // забираем id у станции
+                        req.metroId = station.id;
+                        callback(req);
+                    }
+                });
+            });
+        },
+        error: function(error, data){
+            console.log(error)
+        }
+    });
+}
+
+function sendPriceRequest(data){
     $.ajax({
         url:'php/action.php',
         data:{
-            city: city,
-            insideMKAD: insideMKAD,
-            metroName: metroName,
-            metroDistance: metroDistance,
-            inDistance: results[0].distance/1000,
-            outDistance: results[1].distance/1000
+            city: data.city,
+            insideMKAD: data.insideMKAD,
+            metroName: data.metroName,
+            metroId: data.metroId,
+            metroDistance: data.metroDistance,
+            inDistance: data.distance1,
+            outDistance: data.distance2
         },
         complete: function (response) {
             priceCount(response.responseText);
@@ -569,4 +620,9 @@ function calculatePrice (results, total){
             alert('Произошла ошибка рассчета цены поездки!');
         }
     });
+
+    // зануляем показатели метро на всякий случай
+    metroName = undefined;
+    metroDistance = undefined;
 }
+

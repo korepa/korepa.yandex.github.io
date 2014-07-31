@@ -71,7 +71,8 @@
                 {
                     building[0].value = '';
                     building.focus();
-                    routeButton[0].disabled = false;
+                    if (routeButton[0] != undefined)
+                        routeButton[0].disabled = false;
                 }, 50);
             }
         });
