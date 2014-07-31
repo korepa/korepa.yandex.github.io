@@ -452,7 +452,6 @@ function order() {
 }
 
 function calculatePrice (results, total){
-    // выводим на экран данные
 
     // точка 1
     if (document.getElementById('toCityText').value != ''){
@@ -536,28 +535,28 @@ function calculatePrice (results, total){
     var messageTotalDistance = 'Расстояние: по МО - ' + results[1].distance/1000 + ' км, ' + 'по Москве - ' + results[0].distance/1000 + ' км, ';
     messageTotalDistance += 'общее растояние - ' + total.distance/1000 + ' км';
 
+    document.getElementById('routeInfoTotalDistanceLabel').innerHTML = messageTotalDistance;
+    document.getElementById('routeInfoTotalDistanceLabel').style.display = "block";
+
     // цена
     var messageTotalPrice = 'Цена: по МО - ' + (results[1].value) + ' p, ' + 'по Москве - ' + (results[0].value) + ' p, ';
     messageTotalPrice += ' общая цена - ' + total.value + ' p';
 
-    document.getElementById('routeInfoTotalDistanceLabel').innerHTML = messageTotalDistance;
-    document.getElementById('routeInfoTotalDistanceLabel').style.display = "block";
     document.getElementById('routeInfoTotalPriceLabel').innerHTML = messageTotalPrice;
     document.getElementById('routeInfoTotalPriceLabel').style.display = "block";
 
-    // внутри ли МКАД адрес
+    // посылаем запрос на рассчет суммы
     var city = document.getElementById('toCityText').value;
-    var messageInsideMKAD = 'Нет';
-    if (document.getElementById('toCityText').value == "Москва"){
-        messageInsideMKAD = "Да";
+    var insideMKAD = 0;
+    if (city == "Москва"){
+        insideMKAD = 1;
     }
 
-    // посылаем запрос на рассчет суммы
     $.ajax({
         url:'php/action.php',
         data:{
             city: city,
-            insideMKAD: messageInsideMKAD,
+            insideMKAD: insideMKAD,
             metroName: metroName,
             metroDistance: metroDistance,
             inDistance: results[0].distance/1000,
