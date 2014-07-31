@@ -208,7 +208,7 @@ function makeRoute() {
                                 var dist0 = ymaps.coordSystem.geo.getDistance(coords, m_coords);
                                 var dist = ymaps.formatter.distance(dist0);
                                 metroName = mAllData.name;
-                                metroDistance = dist;
+                                metroDistance = Math.round(dist0);
 
                                 // выведем иконку с расстоянием до метро
                                 metroPlacemark = new ymaps.Placemark(m_coords, {
@@ -470,7 +470,7 @@ function calculatePrice (results, total){
         var messageMetroName = 'Ближайшее метро:\n ' + metroName;
 
         // расстояние до метро
-        var messageMetroDistance = 'Расстояние до метро:\n ' + metroDistance;
+        var messageMetroDistance = 'Расстояние до метро:\n ' + metroDistance + ' м';
 
         document.getElementById('routeInfoCity1Label').innerHTML = messageCity;
         document.getElementById('routeInfoCity1Label').style.display = "block";
