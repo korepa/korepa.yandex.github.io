@@ -338,7 +338,7 @@ function clearAddress(number){
 
 // подсчет стоимости поездки
 function priceCount(amount){
-    $('#priceText')[0].innerHTML = amount + ' р';
+    $('#priceText')[0].innerHTML = amount;
 }
 
 function loadAddresses() {
@@ -607,7 +607,7 @@ function sendPriceRequest(data){
         data:{
             city: data.city,
             insideMKAD: data.insideMKAD,
-            metroName: data.metroName,
+            townId: 0,
             metroId: data.metroId,
             metroDistance: data.metroDistance,
             inDistance: data.distance1,
