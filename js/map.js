@@ -138,6 +138,9 @@ function makeRoute() {
     var to3Address = document.getElementById('toCity3Text').value + ' ' + document.getElementById('toStreet3Text').value + ' ' + document.getElementById('toNumber3Text').value;
     var point1 = "От:";
     var point2 = "До:";
+    // зануляем показатели метро на всякий случай
+    metroName = undefined;
+    metroDistance = undefined;
 
     var route1 = [
         fromAddress,
@@ -223,7 +226,7 @@ function makeRoute() {
                             }
                         }
 
-                        // работаем с задержкой
+                        // работаем с задержкой показа балуна
 //                        setTimeout(function ()
 //                        {
 //                            // открываем балун для метки (последней, если их несколько)
@@ -452,7 +455,6 @@ function order() {
 }
 
 function calculatePrice (results, total){
-
     // точка 1
     if (document.getElementById('toCityText').value != ''){
         // город
@@ -559,10 +561,14 @@ function calculatePrice (results, total){
         req.city = city;
         req.insideMKAD = insideMKAD;
         req.metroName = metroName;
+        req.townId = 0;
         req.metroId = 0;
         req.metroDistance = metroDistance;
         req.distance1 = results[0].distance;
         req.distance2 = results[1].distance;
+
+        // достанем город id
+        getTownId(req);
 
         // достанем метро id
         getMetroId(req, sendPriceRequest);
@@ -601,13 +607,35 @@ function getMetroId(req, callback){
     });
 }
 
+function getTownId(req){
+
+    $.ajax({
+        type: "GET",
+        url: "towns.json",
+        async: false,
+        contentType: "json",
+        dataType: 'json',
+        success: function(data){
+            $(data).each(function(i, city) {
+                if (city.Name.indexOf(req.city.toUpperCase()) > -1){
+                    // обновим townId
+                    req.townId = city.Id;
+                }
+            });
+        },
+        error: function(error, data){
+            console.log(error)
+        }
+    });
+}
+
 function sendPriceRequest(data){
     $.ajax({
         url:'php/action.php',
         data:{
             city: data.city,
             insideMKAD: data.insideMKAD,
-            townId: 0,
+            townId: data.townId,
             metroId: data.metroId,
             metroDistance: data.metroDistance,
             inDistance: data.distance1,
@@ -620,9 +648,5 @@ function sendPriceRequest(data){
             alert('Произошла ошибка рассчета цены поездки!');
         }
     });
-
-    // зануляем показатели метро на всякий случай
-    metroName = undefined;
-    metroDistance = undefined;
 }
 
