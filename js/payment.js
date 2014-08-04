@@ -39,31 +39,6 @@ function loadPayment() {
     }
 }
 
-function loadPaymentSuccess() {
-    // получим параметры из запроса (то, что ввели на предыдущей странице)
-    var flightNumber = decodeURIComponent(parseUrlQuery()['flightnumber']);
-    var date = decodeURIComponent(parseUrlQuery()['date']);
-    var time = decodeURIComponent(parseUrlQuery()['time']);
-    var name = decodeURIComponent(parseUrlQuery()['name']);
-    var phone = decodeURIComponent(parseUrlQuery()['phone']);
-    var email = decodeURIComponent(parseUrlQuery()['email']);
-    var passCount = decodeURIComponent(parseUrlQuery()['passcount']);
-    var childrenCount = decodeURIComponent(parseUrlQuery()['childrenCount']);
-    var sign = decodeURIComponent(parseUrlQuery()['sign']);
-
-    document.getElementById("passCountLabel").innerHTML = passCount;
-    document.getElementById("flightNumberLabel").innerHTML = flightNumber;
-    document.getElementById("dateLabel").innerHTML = date + ' ' + time;
-    document.getElementById("nameLabel").innerHTML = name;
-    document.getElementById("phoneLabel").innerHTML = phone;
-    document.getElementById("emailLabel").innerHTML = email;
-    document.getElementById("childrenCountLabel").innerHTML = childrenCount;
-    if (sign != "undefined"){
-        document.getElementById("signTr").style.display = "table-row";
-        document.getElementById("signLabel").innerHTML = sign;
-    }
-}
-
 function payment() {
     // параметры рейса
     var flightNumber = document.getElementById('flightNumberText').value;
@@ -78,7 +53,7 @@ function payment() {
     var childrenCount = document.getElementById('childrenCountText').value;
 
     // используем для формирования адреса с параметрами
-    var newLocation = 'paymentSuccess.html';
+    var newLocation = 'payment2.html';
     newLocation += '?flightnumber=' + encodeURIComponent(flightNumber);
     newLocation += '&date=' + encodeURIComponent(date);
     newLocation += '&time=' + encodeURIComponent(time);
@@ -143,6 +118,57 @@ function passCountChange(){
 function childrenCountChange(){
     // тут ничего не делаем
 }
+
+function loadPaymentSuccess() {
+    // получим параметры из запроса (то, что ввели на предыдущей странице)
+    var flightNumber = decodeURIComponent(parseUrlQuery()['flightnumber']);
+    var date = decodeURIComponent(parseUrlQuery()['date']);
+    var time = decodeURIComponent(parseUrlQuery()['time']);
+    var name = decodeURIComponent(parseUrlQuery()['name']);
+    var phone = decodeURIComponent(parseUrlQuery()['phone']);
+    var email = decodeURIComponent(parseUrlQuery()['email']);
+    var passCount = decodeURIComponent(parseUrlQuery()['passcount']);
+    var childrenCount = decodeURIComponent(parseUrlQuery()['childrenCount']);
+    var sign = decodeURIComponent(parseUrlQuery()['sign']);
+
+    document.getElementById("passCountLabel").innerHTML = passCount;
+    document.getElementById("flightNumberLabel").innerHTML = flightNumber;
+    document.getElementById("dateLabel").innerHTML = date + ' ' + time;
+    document.getElementById("nameLabel").innerHTML = name;
+    document.getElementById("phoneLabel").innerHTML = phone;
+    document.getElementById("emailLabel").innerHTML = email;
+    document.getElementById("childrenCountLabel").innerHTML = childrenCount;
+    if (sign != "undefined"){
+        document.getElementById("signTr").style.display = "table-row";
+        document.getElementById("signLabel").innerHTML = sign;
+    }
+}
+
+// Загрузка формы с типом оплаты
+function loadPayment2Success(){
+    // тут пока ничего не грузим (а надо параметры передавать)
+
+}
+
+// вернемся
+function backToOrder(){
+    // назад по истории
+    window.history.back();
+}
+
+// вернемся
+function paymentProcessing(){
+    // используем для формирования адреса с параметрами
+    var newLocation = 'paymentSuccess.html';
+
+    // передаем параметры
+
+    // переход к оплате (пока фиктивно оплатили)
+    window.location = newLocation;
+}
+
+
+
 
 
 
