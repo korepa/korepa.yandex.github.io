@@ -437,6 +437,8 @@ function order() {
         to3Address = document.getElementById('toCity3Text').value + ', ' + document.getElementById('toStreet3Text').value;
     if (document.getElementById('toNumber3Text').value!= '')
         to3Address += ', ' + document.getElementById('toNumber3Text').value;
+    // сумма к оплате
+    var price = document.getElementById('priceText').innerText;
 
     // используем для заказа доставки
     var newLocation = '?dir=' + encodeURIComponent(dir);
@@ -445,6 +447,7 @@ function order() {
         newLocation += '&to2=' + encodeURIComponent(to2Address);
     if (to3Address != '')
         newLocation += '&to3=' + encodeURIComponent(to3Address);
+    newLocation += '&price=' + encodeURIComponent(price);
 
     // для истории
     history.pushState(null, null, newLocation);
@@ -608,7 +611,6 @@ function getMetroId(req, callback){
 }
 
 function getTownId(req){
-
     $.ajax({
         type: "GET",
         url: "towns.json",
