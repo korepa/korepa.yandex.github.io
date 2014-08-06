@@ -244,7 +244,7 @@ function sendOrderRequest(data){
             alert(response.responseText)
         },
         error: function () {
-            alert('Произошла ошибка бронирования заказа!');
+            //alert('Произошла ошибка бронирования заказа!');
         }
     });
 }
