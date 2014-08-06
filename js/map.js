@@ -633,7 +633,7 @@ function getTownId(req){
 
 function sendPriceRequest(data){
     $.ajax({
-        url:'php/action.php',
+        url:'php/price.php',
         data:{
             city: data.city,
             insideMKAD: data.insideMKAD,

@@ -223,22 +223,20 @@ function loadPaymentSuccess() {
 
 function sendOrderRequest(data){
     $.ajax({
-        url:'php/action2.php',
+        url:'php/order.php',
         data:{
-            dir:            data.dir,
             to:             data.to,
             to2:            data.to2,
             to3:            data.to3,
             from:           data.from,
             flightNumber:   data.flightNumber,
-            date:           data.date,
-            time:           data.time,
+            flightDateTime: data.date + " " + data.time,
             name:           data.name,
             phone:          data.phone,
             email:          data.email,
             passCount:      data.passCount,
             childrenCount:  data.childrenCount,
-            sign:           data.sign,
+            plateNote:      data.sign,
             payType:        data.payType,
             price:          data.price
         },
