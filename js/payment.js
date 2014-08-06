@@ -251,10 +251,12 @@ function sendOrderRequest(data){
             price:          data.price
         },
         complete: function (response) {
+            // ничего не выводим
             //document.getElementById("orderText").innerHTML = response.responseText;
         },
-        error: function () {
-            alert('Произошла ошибка бронирования заказа!');
+        error: function (request,error) {
+            var message = JSON.parse(request.responseText).message;
+            alert('Произошла ошибка бронирования заказа:\n' + message + '!');
         }
     });
 }

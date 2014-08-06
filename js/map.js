@@ -646,8 +646,9 @@ function sendPriceRequest(data){
         complete: function (response) {
             priceCount(response.responseText);
         },
-        error: function () {
-            alert('Произошла ошибка рассчета цены поездки!');
+        error: function (request,error) {
+            var message = JSON.parse(request.responseText).message;
+            alert('Произошла ошибка рассчета цены поездки:\n' + message + '!');
         }
     });
 }
