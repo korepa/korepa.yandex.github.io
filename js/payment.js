@@ -146,6 +146,16 @@ function loadPayment2(){
     data.childrenCount = decodeURIComponent(parseUrlQuery()['childrenCount']);
     data.sign = decodeURIComponent(parseUrlQuery()['sign']);
     data.price = decodeURIComponent(parseUrlQuery()['price']);
+
+    if (data.to2 == "undefined"){
+        data.to2 = "";
+    }
+    if (data.to3 == "undefined"){
+        data.to3 = "";
+    }
+    if (data.sign == "undefined"){
+        data.sign = "";
+    }
 }
 
 // вернемся
@@ -157,9 +167,9 @@ function backToOrder(){
 // вернемся
 function paymentProcessing(){
     // параметры оплаты
-    data.payType = "card";
+    data.payType = "1";
     if ((document.getElementById('cashButton').checked)){
-        data.payType = "cash";
+        data.payType = "0";
     }
 
     // запрос на бронирование заказа
@@ -185,7 +195,7 @@ function paymentProcessing(){
     newLocation += '&price=' + encodeURIComponent(data.price);
 
     // переход к оплате (пока фиктивно оплатили)
-    window.location = newLocation;
+    //window.location = newLocation;
 }
 
 function loadPaymentSuccess() {
@@ -215,7 +225,7 @@ function loadPaymentSuccess() {
     document.getElementById("phoneLabel").innerHTML = data.phone;
     document.getElementById("emailLabel").innerHTML = data.email;
     document.getElementById("childrenCountLabel").innerHTML = data.childrenCount;
-    if (data.sign != "undefined"){
+    if (data.sign != "undefined" && data.sign != ""){
         document.getElementById("signTr").style.display = "table-row";
         document.getElementById("signLabel").innerHTML = data.sign;
     }
@@ -241,10 +251,10 @@ function sendOrderRequest(data){
             price:          data.price
         },
         complete: function (response) {
-            alert(response.responseText)
+            //document.getElementById("orderText").innerHTML = response.responseText;
         },
         error: function () {
-            //alert('Произошла ошибка бронирования заказа!');
+            alert('Произошла ошибка бронирования заказа!');
         }
     });
 }
