@@ -20,6 +20,7 @@
     <script src="js/payment.js" type="text/javascript"></script>
     <script src="js/helper.js" type="text/javascript"></script>
     <script src="js/kladr.js" type="text/javascript"></script>
+    <script src="js/alert.js" type="text/javascript"></script>
     <!-- ресурсы -->
     <link href="css/jquery.kladr.min.css" rel="stylesheet">
     <link href="//yandex.st/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +29,10 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/titleicon.ico">
 </head>
 <body id="main" style="padding: 10px; border: 3px solid lightblue; border-radius: 10px;">
+<div class="alert alert-warning" style="display: none;">
+    <a href="#" class="close" data-dismiss="alert" aria-hidden="true">&times;</a>
+    <label id="alertLabel"><strong>Внимание!</strong> Произошла ошибка рассчета!</label>
+</div>
 <form id="foo" action="" method="post">
 <table style="height:auto;">
     <tr>

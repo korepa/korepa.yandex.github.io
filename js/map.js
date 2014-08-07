@@ -644,11 +644,16 @@ function sendPriceRequest(data){
             outDistance: data.distance2
         },
         complete: function (response) {
-            priceCount(response.responseText);
+            if (response.responseText.length < 6){
+                priceCount(response.responseText);
+            }
         },
         error: function (request,error) {
             var message = JSON.parse(request.responseText).message;
-            alert('Произошла ошибка рассчета цены поездки:\n' + message + '!');
+            var message2 = 'Произошла ошибка рассчета цены поездки:\n' + message + '!';
+            $(".alert")[0].style.display = "block";
+            document.getElementById('alertLabel').innerHTML = message2;
+            $(".alert").alert();
         }
     });
 }

@@ -166,36 +166,40 @@ function backToOrder(){
 
 // вернемся
 function paymentProcessing(){
-    // параметры оплаты
-    data.payType = "1";
-    if ((document.getElementById('cashButton').checked)){
-        data.payType = "0";
-    }
-
     // запрос на бронирование заказа
-    sendOrderRequest(data);
+    if (data.send != 1){
+        sendOrderRequest(data);
+        data.send = 1;
+    }
+    else{
+        // параметры оплаты
+        data.payType = "1";
+        if ((document.getElementById('cashButton').checked)){
+            data.payType = "0";
+        }
 
-    // используем для формирования адреса с параметрами
-    var newLocation = 'paymentSuccess.html';
-    newLocation += '?flightnumber=' + encodeURIComponent(data.flightNumber);
-    newLocation += '&date=' + encodeURIComponent(data.date);
-    newLocation += '&time=' + encodeURIComponent(data.time);
-    newLocation += '&name=' + encodeURIComponent(data.name);
-    newLocation += '&phone=' + encodeURIComponent(data.phone);
-    newLocation += '&email=' + encodeURIComponent(data.email);
-    newLocation += '&passcount=' + encodeURIComponent(data.passCount);
-    newLocation += '&childrenCount=' + encodeURIComponent(data.childrenCount);
-    newLocation += '&dir=' + encodeURIComponent(data.dir);
-    newLocation += '&to=' + encodeURIComponent(data.to);
-    newLocation += '&to2=' + encodeURIComponent(data.to2);
-    newLocation += '&to3=' + encodeURIComponent(data.to3);
-    newLocation += '&from=' + encodeURIComponent(data.from);
-    newLocation += '&sign=' + encodeURIComponent(data.sign);
-    newLocation += '&payType=' + encodeURIComponent(data.payType);
-    newLocation += '&price=' + encodeURIComponent(data.price);
+        // используем для формирования адреса с параметрами
+        var newLocation = 'paymentSuccess.html';
+        newLocation += '?flightnumber=' + encodeURIComponent(data.flightNumber);
+        newLocation += '&date=' + encodeURIComponent(data.date);
+        newLocation += '&time=' + encodeURIComponent(data.time);
+        newLocation += '&name=' + encodeURIComponent(data.name);
+        newLocation += '&phone=' + encodeURIComponent(data.phone);
+        newLocation += '&email=' + encodeURIComponent(data.email);
+        newLocation += '&passcount=' + encodeURIComponent(data.passCount);
+        newLocation += '&childrenCount=' + encodeURIComponent(data.childrenCount);
+        newLocation += '&dir=' + encodeURIComponent(data.dir);
+        newLocation += '&to=' + encodeURIComponent(data.to);
+        newLocation += '&to2=' + encodeURIComponent(data.to2);
+        newLocation += '&to3=' + encodeURIComponent(data.to3);
+        newLocation += '&from=' + encodeURIComponent(data.from);
+        newLocation += '&sign=' + encodeURIComponent(data.sign);
+        newLocation += '&payType=' + encodeURIComponent(data.payType);
+        newLocation += '&price=' + encodeURIComponent(data.price);
 
-    // переход к оплате (пока фиктивно оплатили)
-    //window.location = newLocation;
+        // переход к оплате (пока фиктивно оплатили)
+        window.location = newLocation;
+    }
 }
 
 function loadPaymentSuccess() {
@@ -251,12 +255,15 @@ function sendOrderRequest(data){
             price:          data.price
         },
         complete: function (response) {
-            // ничего не выводим
-            //document.getElementById("orderText").innerHTML = response.responseText;
+            // идем дальше по странице
+            paymentProcessing();
         },
         error: function (request,error) {
             var message = JSON.parse(request.responseText).message;
-            alert('Произошла ошибка бронирования заказа:\n' + message + '!');
+            var message2 = 'Произошла ошибка бронирования заказа:\n' + message + '!';
+            $(".alert")[0].style.display = "block";
+            document.getElementById('alertLabel').innerHTML = message2;
+            $(".alert").alert();
         }
     });
 }
