@@ -142,17 +142,60 @@ function makeRoute() {
     metroName = undefined;
     metroDistance = undefined;
 
-    var route1 = [
-        fromAddress,
-        toAddress
-    ];
+    // формируем массив адресов
+    var arrCombinations = new Array();
+    arrCombinations[0] = [fromAddress, toAddress, to2Address, to3Address];
+    arrCombinations[1] = [fromAddress, toAddress, to3Address, to2Address];
+    arrCombinations[2] = [fromAddress, to2Address, toAddress, to3Address];
+    arrCombinations[3] = [fromAddress, to2Address, to3Address, toAddress];
+    arrCombinations[4] = [fromAddress, to3Address, toAddress, to2Address];
+    arrCombinations[5] = [fromAddress, to3Address, to2Address, toAddress];
 
-    ymaps.route(route1,
+    // задаем возможные маршруты
+    var item;
+    var arrayRoute = new Array();
+    for (var i = 0; i < 6; i++) {
+        item = new Array();
+        item.route = arrCombinations[i];
+        item.distance = 0;
+        arrayRoute[i] = item;
+    }
+
+    // рассчитаем длины маршрутов
+    ymaps.route(arrayRoute[0].route)
+        .then(function (route1) {
+            ymaps.route(arrayRoute[1].route)
+                .then(function (route2) {
+                    ymaps.route(arrayRoute[2].route)
+                        .then(function (route3) {
+                            ymaps.route(arrayRoute[3].route)
+                                .then(function (route4) {
+                                    ymaps.route(arrayRoute[4].route)
+                                        .then(function (route5) {
+                                            ymaps.route(arrayRoute[5].route)
+                                                .then(function (route6) {
+                                                    arrayRoute[0].distance = Math.round(route1.getLength());
+                                                    arrayRoute[1].distance = Math.round(route2.getLength());
+                                                    arrayRoute[2].distance = Math.round(route3.getLength());
+                                                    arrayRoute[3].distance = Math.round(route4.getLength());
+                                                    arrayRoute[4].distance = Math.round(route5.getLength());
+                                                    arrayRoute[5].distance = Math.round(route6.getLength());
+                                                });
+                                        });
+                                });
+                        });
+                });
+        });
+
+    var routeBest = arrCombinations[0];
+    ymaps.route(routeBest,
         {
             // Автоматически позиционировать карту.
             mapStateAutoApply: true
         })
         .then(function (route) {
+
+            var distance = Math.round(route.getLength());
 
             // удалим предыдущий маршрут и метки метро, если есть
             if (myCollection != null)
