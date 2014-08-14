@@ -143,6 +143,9 @@ function makeRoute() {
     metroDistance = undefined;
 
     // формируем массив адресов
+    //var arrCombine = cartesian([0], [1,2,3], [1,2,3], [1,2,3]);
+    //arrCombine.unique();
+
     var arrCombinations = new Array();
     arrCombinations[0] = [fromAddress, toAddress, to2Address, to3Address];
     arrCombinations[1] = [fromAddress, toAddress, to3Address, to2Address];
