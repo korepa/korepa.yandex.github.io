@@ -155,42 +155,42 @@ function makeRoute() {
     arrCombinations[5] = [fromAddress, to3Address, to2Address, toAddress];
 
     // задаем возможные маршруты
-    var item;
-    var arrayRoute = new Array();
-    for (var i = 0; i < 6; i++) {
-        item = new Array();
-        item.route = arrCombinations[i];
-        item.distance = 0;
-        arrayRoute[i] = item;
-    }
+//    var item;
+//    var arrayRoute = new Array();
+//    for (var i = 0; i < 6; i++) {
+//        item = new Array();
+//        item.route = arrCombinations[i];
+//        item.distance = 0;
+//        arrayRoute[i] = item;
+//    }
+//
+//    // рассчитаем длины маршрутов
+//    ymaps.route(arrayRoute[0].route)
+//        .then(function (route1) {
+//            ymaps.route(arrayRoute[1].route)
+//                .then(function (route2) {
+//                    ymaps.route(arrayRoute[2].route)
+//                        .then(function (route3) {
+//                            ymaps.route(arrayRoute[3].route)
+//                                .then(function (route4) {
+//                                    ymaps.route(arrayRoute[4].route)
+//                                        .then(function (route5) {
+//                                            ymaps.route(arrayRoute[5].route)
+//                                                .then(function (route6) {
+//                                                    arrayRoute[0].distance = Math.round(route1.getLength());
+//                                                    arrayRoute[1].distance = Math.round(route2.getLength());
+//                                                    arrayRoute[2].distance = Math.round(route3.getLength());
+//                                                    arrayRoute[3].distance = Math.round(route4.getLength());
+//                                                    arrayRoute[4].distance = Math.round(route5.getLength());
+//                                                    arrayRoute[5].distance = Math.round(route6.getLength());
+//                                                });
+//                                        });
+//                                });
+//                        });
+//                });
+//        });
 
-    // рассчитаем длины маршрутов
-    ymaps.route(arrayRoute[0].route)
-        .then(function (route1) {
-            ymaps.route(arrayRoute[1].route)
-                .then(function (route2) {
-                    ymaps.route(arrayRoute[2].route)
-                        .then(function (route3) {
-                            ymaps.route(arrayRoute[3].route)
-                                .then(function (route4) {
-                                    ymaps.route(arrayRoute[4].route)
-                                        .then(function (route5) {
-                                            ymaps.route(arrayRoute[5].route)
-                                                .then(function (route6) {
-                                                    arrayRoute[0].distance = Math.round(route1.getLength());
-                                                    arrayRoute[1].distance = Math.round(route2.getLength());
-                                                    arrayRoute[2].distance = Math.round(route3.getLength());
-                                                    arrayRoute[3].distance = Math.round(route4.getLength());
-                                                    arrayRoute[4].distance = Math.round(route5.getLength());
-                                                    arrayRoute[5].distance = Math.round(route6.getLength());
-                                                });
-                                        });
-                                });
-                        });
-                });
-        });
-
-    var routeBest = arrCombinations[0];
+    var routeBest = [fromAddress, toAddress];
     ymaps.route(routeBest,
         {
             // Автоматически позиционировать карту.
@@ -687,7 +687,8 @@ function sendPriceRequest(data){
             metroId: data.metroId,
             metroDistance: data.metroDistance,
             inDistance: data.distance1,
-            outDistance: data.distance2
+            outDistance: data.distance2,
+            totalDistance: data.distance1 + data.distance2
         },
         complete: function (response) {
             if (response.responseText.length < 6){
