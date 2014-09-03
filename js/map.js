@@ -11,6 +11,7 @@ var tarifs;
 var calculator;
 var metroName;
 var metroDistance;
+var stations = new Array();
 
 function init () {
     myMap = new ymaps.Map('map', {
@@ -45,6 +46,9 @@ function init () {
 
     // загрузим модули для метро
     ymaps.load(["metro"], loadModules);
+
+    // загрузим вокзалы и аэропорты с координатами
+    getStations();
 
     // обрабатываем нажатие на кнопку "Enter" (строим маршрут)
     document.getElementById('toStreetText').onkeyup = function (event) {
@@ -141,6 +145,10 @@ function makeRoute() {
     // зануляем показатели метро на всякий случай
     metroName = undefined;
     metroDistance = undefined;
+
+    // получим координаты для вокзала/аэропорта
+    var stationName = "Казанский";
+    var stationCoords = getStationByName(stationName);
 
     // формируем массив адресов
     //var arrCombine = cartesian([0], [1,2,3], [1,2,3], [1,2,3]);
@@ -703,5 +711,39 @@ function sendPriceRequest(data){
             $(".alert").alert();
         }
     });
+}
+
+function getStations(){
+    $.ajax({
+        type: "GET",
+        url: "stations.json",
+        async: false,
+        contentType: "json",
+        dataType: 'json',
+        success: function(stationsdata){
+            $(stationsdata).each(function(i, item) {
+                //stations.add(item);
+                stations[i] = item;
+        });
+        },
+        error: function(error, data){
+            console.log(error)
+        }
+    });
+}
+
+function getStationByName(stationName){
+    var coords = [55.76, 37.64];
+    // если заполнен список с вокзалами и аэропортами
+    if (stations.length > 0)
+    {
+        $(data).each(function(i, item) {
+            if (item.Name.indexOf(stationName.toUpperCase()) > -1){
+                // заполним координаты
+                coords = item.coords;
+            }
+        });
+    }
+    return coords;
 }
 
