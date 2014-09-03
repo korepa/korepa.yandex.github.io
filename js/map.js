@@ -147,20 +147,20 @@ function makeRoute() {
     metroDistance = undefined;
 
     // получим координаты для вокзала/аэропорта
-    var stationName = "Казанский";
-    var stationCoords = getStationByName(stationName);
+    var stationName = "Павелецкий вокзал";
+    var stationCoord = getStationByName(stationName);
 
     // формируем массив адресов
     //var arrCombine = cartesian([0], [1,2,3], [1,2,3], [1,2,3]);
     //arrCombine.unique();
 
-    var arrCombinations = new Array();
-    arrCombinations[0] = [fromAddress, toAddress, to2Address, to3Address];
-    arrCombinations[1] = [fromAddress, toAddress, to3Address, to2Address];
-    arrCombinations[2] = [fromAddress, to2Address, toAddress, to3Address];
-    arrCombinations[3] = [fromAddress, to2Address, to3Address, toAddress];
-    arrCombinations[4] = [fromAddress, to3Address, toAddress, to2Address];
-    arrCombinations[5] = [fromAddress, to3Address, to2Address, toAddress];
+//    var arrCombinations = new Array();
+//    arrCombinations[0] = [fromAddress, toAddress, to2Address, to3Address];
+//    arrCombinations[1] = [fromAddress, toAddress, to3Address, to2Address];
+//    arrCombinations[2] = [fromAddress, to2Address, toAddress, to3Address];
+//    arrCombinations[3] = [fromAddress, to2Address, to3Address, toAddress];
+//    arrCombinations[4] = [fromAddress, to3Address, toAddress, to2Address];
+//    arrCombinations[5] = [fromAddress, to3Address, to2Address, toAddress];
 
     // задаем возможные маршруты
 //    var item;
@@ -199,6 +199,7 @@ function makeRoute() {
 //        });
 
     var routeBest = [fromAddress, toAddress];
+    //var routeBest = [fromAddress, stationCoord];
     ymaps.route(routeBest,
         {
             // Автоматически позиционировать карту.
@@ -232,7 +233,10 @@ function makeRoute() {
             var firstPoint = points.get(0);
             var lastPoint = points.get(lastPoint);
             var fromStreetName = firstPoint.properties.get("GeocoderMetaData").AddressDetails.Country.AddressLine;
-            var toStreetName = lastPoint.properties.get("GeocoderMetaData").AddressDetails.Country.AddressLine;
+            var toStreetName = stationName;
+            if (lastPoint.properties.get("GeocoderMetaData") != undefined){
+                toStreetName = lastPoint.properties.get("GeocoderMetaData").AddressDetails.Country.AddressLine;
+            }
             firstPoint.properties.set('iconContent', '<b>' + point1 + '</b> ' + fromStreetName);
             lastPoint.properties.set('iconContent', '<b>' + point2 + '</b> ' + toStreetName);
             firstPoint.options.set('preset', 'twirl#blueStretchyIcon');
@@ -737,10 +741,10 @@ function getStationByName(stationName){
     // если заполнен список с вокзалами и аэропортами
     if (stations.length > 0)
     {
-        $(data).each(function(i, item) {
-            if (item.Name.indexOf(stationName.toUpperCase()) > -1){
+        $(stations).each(function(i, item) {
+            if (stationName.toUpperCase().indexOf(item.Name) > -1){
                 // заполним координаты
-                coords = item.coords;
+                coords = item.Coord;
             }
         });
     }
