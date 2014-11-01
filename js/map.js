@@ -199,7 +199,6 @@ function makeRoute() {
 //        });
 
     var routeBest = [fromAddress, toAddress];
-    //var routeBest = [fromAddress, stationCoord];
     ymaps.route(routeBest,
         {
             // Автоматически позиционировать карту.
@@ -355,12 +354,15 @@ function addRightAddress() {
         clearAddress(2);
         return;
     }
+    // TODO временно убрали отрисовку 3 адреса (пока оставим 2)
+    /*
     if ( $('#address3Tr')[0].style.display === 'none')
     {
         $('#address3Tr')[0].style.display = "table-row";
         clearAddress(3);
         return;
     }
+    */
 }
 
 // функция удаления доп. адреса 2
