@@ -71,7 +71,8 @@ DeliveryTarif.prototype = {
         var path = this._getPath(route),
             distance = this._getDistance(path);
 
-        this._createPolyline(path);
+        // TODO не рисуем цветную линию на карте
+        //this._createPolyline(path);
 
         return ymaps.util.extend({
             distance: Math.floor(distance),
