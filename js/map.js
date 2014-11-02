@@ -11,6 +11,8 @@ var tarifs;
 var calculator;
 var metroName;
 var metroDistance;
+var fromAtoBDistanse;
+var fromBtoCDistanse;
 var stations = new Array();
 
 function init () {
@@ -140,65 +142,23 @@ function makeRoute() {
     var toAddress = document.getElementById('toCityText').value + ' ' + document.getElementById('toStreetText').value + ' ' + document.getElementById('toNumberText').value;
     var to2Address = document.getElementById('toCity2Text').value + ' ' + document.getElementById('toStreet2Text').value + ' ' + document.getElementById('toNumber2Text').value;
     var to3Address = document.getElementById('toCity3Text').value + ' ' + document.getElementById('toStreet3Text').value + ' ' + document.getElementById('toNumber3Text').value;
+    var to2AddressStreet = document.getElementById('toStreet2Text').value;
     var point1 = "От:";
     var point2 = "До:";
     // зануляем показатели метро на всякий случай
     metroName = undefined;
     metroDistance = undefined;
+    fromAtoBDistanse = undefined;
+    fromBtoCDistanse = undefined;
 
     // получим координаты для вокзала/аэропорта
     var stationName = "Павелецкий вокзал";
     var stationCoord = getStationByName(stationName);
 
-    // формируем массив адресов
-    //var arrCombine = cartesian([0], [1,2,3], [1,2,3], [1,2,3]);
-    //arrCombine.unique();
-
-//    var arrCombinations = new Array();
-//    arrCombinations[0] = [fromAddress, toAddress, to2Address, to3Address];
-//    arrCombinations[1] = [fromAddress, toAddress, to3Address, to2Address];
-//    arrCombinations[2] = [fromAddress, to2Address, toAddress, to3Address];
-//    arrCombinations[3] = [fromAddress, to2Address, to3Address, toAddress];
-//    arrCombinations[4] = [fromAddress, to3Address, toAddress, to2Address];
-//    arrCombinations[5] = [fromAddress, to3Address, to2Address, toAddress];
-
-    // задаем возможные маршруты
-//    var item;
-//    var arrayRoute = new Array();
-//    for (var i = 0; i < 6; i++) {
-//        item = new Array();
-//        item.route = arrCombinations[i];
-//        item.distance = 0;
-//        arrayRoute[i] = item;
-//    }
-//
-//    // рассчитаем длины маршрутов
-//    ymaps.route(arrayRoute[0].route)
-//        .then(function (route1) {
-//            ymaps.route(arrayRoute[1].route)
-//                .then(function (route2) {
-//                    ymaps.route(arrayRoute[2].route)
-//                        .then(function (route3) {
-//                            ymaps.route(arrayRoute[3].route)
-//                                .then(function (route4) {
-//                                    ymaps.route(arrayRoute[4].route)
-//                                        .then(function (route5) {
-//                                            ymaps.route(arrayRoute[5].route)
-//                                                .then(function (route6) {
-//                                                    arrayRoute[0].distance = Math.round(route1.getLength());
-//                                                    arrayRoute[1].distance = Math.round(route2.getLength());
-//                                                    arrayRoute[2].distance = Math.round(route3.getLength());
-//                                                    arrayRoute[3].distance = Math.round(route4.getLength());
-//                                                    arrayRoute[4].distance = Math.round(route5.getLength());
-//                                                    arrayRoute[5].distance = Math.round(route6.getLength());
-//                                                });
-//                                        });
-//                                });
-//                        });
-//                });
-//        });
-
+    // если адрес только 1
     var routeBest = [fromAddress, toAddress];
+    var routeBest2 = [toAddress, to2Address];
+
     ymaps.route(routeBest,
         {
             // Автоматически позиционировать карту.
@@ -206,7 +166,10 @@ function makeRoute() {
         })
         .then(function (route) {
 
+            // расстояние маршрута
             var distance = Math.round(route.getLength());
+            //alert("От А до В " + distance);
+            fromAtoBDistanse = distance;
 
             // удалим предыдущий маршрут и метки метро, если есть
             if (myCollection != null)
@@ -248,6 +211,25 @@ function makeRoute() {
             // добавляем точки на карту
             myCollection.add(firstPoint);
             myCollection.add(lastPoint);
+
+            // если есть, добавим 2 адрес
+            if (to2AddressStreet != ""){
+               ymaps.route(routeBest2,
+                    {
+                        // Автоматически позиционировать карту.
+                        mapStateAutoApply: true
+                    })
+                    .then(function (route1) {
+
+                       // расстояние маршрута
+                       var distance1 = Math.round(route1.getLength());
+                       //alert("От А до В " + distance + "\nОт В до В1 " + distance1);
+                       fromBtoCDistanse = distance1;
+
+                    }, function (error) {
+                        alert('Возникла ошибка: ' + error.message);
+                    });
+            }
 
             // ищем ближайшее растояние до метро
             ymaps.geocode(addressToMetro).then(function (res) {
@@ -610,6 +592,15 @@ function calculatePrice (results, total){
     document.getElementById('routeInfoTotalPriceLabel').innerHTML = messageTotalPrice;
     document.getElementById('routeInfoTotalPriceLabel').style.display = "block";
 
+    // расстояние от А до B и от B до С
+    var messageAtoBDistance = 'Расстояние от А до B: ' + fromAtoBDistanse/1000 + ' км';
+    var messageBtoCDistance = 'Расстояние от B до C: ' + fromBtoCDistanse/1000 + ' км';
+
+    document.getElementById('routeInfoFromAtoBDistanceLabel').innerHTML = messageAtoBDistance;
+    document.getElementById('routeInfoFromAtoBDistanceLabel').style.display = "block";
+    document.getElementById('routeInfoFromBtoCDistanceLabel').innerHTML = messageBtoCDistance;
+    document.getElementById('routeInfoFromBtoCDistanceLabel').style.display = "block";
+
     // посылаем запрос на рассчет суммы
     if (metroName != undefined && metroDistance!= undefined){
         // город
@@ -629,6 +620,8 @@ function calculatePrice (results, total){
         req.metroDistance = metroDistance;
         req.distance1 = results[0].distance;
         req.distance2 = results[1].distance;
+        req.distanceAtoB = fromAtoBDistanse;
+        req.distanceBtoC = fromBtoCDistanse;
 
         // достанем город id
         getTownId(req);
@@ -702,7 +695,9 @@ function sendPriceRequest(data){
             metroDistance: data.metroDistance,
             inDistance: data.distance1,
             outDistance: data.distance2,
-            totalDistance: data.distance1 + data.distance2
+            totalDistance: data.distance1 + data.distance2,
+            fromAtoBDistance: data.distanceAtoB,
+            fromBtoCDistance: data.distanceBtoC
         },
         complete: function (response) {
             if (response.responseText.length < 6){
