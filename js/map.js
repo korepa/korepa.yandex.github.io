@@ -614,10 +614,8 @@ function calculatePrice (results, total){
         // достанем город id
         getTownId(req);
 
-        // TODO пока почему то не работает функция поиска метро (ссылка битая)
         // достанем метро id
-        //getMetroId(req, sendPriceRequest);
-        sendPriceRequest(req);
+        getMetroId(req, sendPriceRequest);
     }
 }
 
@@ -632,19 +630,24 @@ function getMetroId(req, callback){
 
     $.ajax({
         type: "GET",
-        url: "http://api.hh.ru/1/json/metro",
+        url: "https://api.hh.ru/metro",
         async: false,
         contentType: "json",
         dataType: 'jsonp',
         success: function(data){
-            $(data).each(function(i, line) {
-                $(line.stations).each(function(j, station) {
-                    if ((station.name) == realName){
-                        // забираем id у станции
-                        req.metroId = station.id;
-                        callback(req);
-                    }
-                });
+            $(data).each(function(i, city) {
+                if (city.id == "1") {
+                    $(city.lines).each(function(j, line) {
+                        $(line.stations).each(function(j, station) {
+                            if ((station.name) == realName){
+                                // запомним номер станции метро
+                                req.metroId = station.id;
+                                //alert('success ' + station.id + ' ' + station.name);
+                                callback(req);
+                            }
+                        });
+                    });
+                }
             });
         },
         error: function(error, data){
