@@ -148,8 +148,8 @@ function makeRoute() {
     // зануляем показатели метро на всякий случай
     metroName = undefined;
     metroDistance = undefined;
-    fromAtoBDistanse = undefined;
-    fromBtoCDistanse = undefined;
+    fromAtoBDistanse = 0;
+    fromBtoCDistanse = 0;
 
     // получим координаты для вокзала/аэропорта
     var stationName = "Павелецкий вокзал";
@@ -614,8 +614,10 @@ function calculatePrice (results, total){
         // достанем город id
         getTownId(req);
 
+        // TODO пока почему то не работает функция поиска метро (ссылка битая)
         // достанем метро id
-        getMetroId(req, sendPriceRequest);
+        //getMetroId(req, sendPriceRequest);
+        sendPriceRequest(req);
     }
 }
 
