@@ -641,8 +641,10 @@ function getMetroId(req, callback){
                         $(line.stations).each(function(j, station) {
                             if ((station.name) == realName){
                                 // запомним номер станции метро
-                                req.metroId = station.id;
-                                //alert('success ' + station.id + ' ' + station.name);
+                                var numArr = station.id.split('.');
+                                var num = numArr[1];
+                                req.metroId = num;
+                                //alert('success ' + num + ' ' + station.name);
                                 callback(req);
                             }
                         });
