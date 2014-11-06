@@ -261,7 +261,7 @@ function makeRoute() {
                                     preset: 'twirl#nightDotIcon',
                                     iconColor: '#4d7198'
                                 });
-                                myCollection.add(metroPlacemark);
+                                //myCollection.add(metroPlacemark);
                             }
                         }
 
