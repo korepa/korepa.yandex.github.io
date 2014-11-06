@@ -9,6 +9,8 @@ function loadPayment() {
     data.to3 = decodeURIComponent(parseUrlQuery()['to3']);
     data.price = decodeURIComponent(parseUrlQuery()['price']);
 
+    data.send = 0;
+
     // адреса
     data.from = "Москва, аэропорт Внуково";
     if (data.dir == 'from'){
@@ -255,10 +257,12 @@ function sendOrderRequest(data){
             price:          data.price
         },
         complete: function (response) {
+            alert(response.responseText);
             // идем дальше по странице
             paymentProcessing();
         },
         error: function (request,error) {
+            alert("2");
             var message = JSON.parse(request.responseText).message;
             var message2 = 'Произошла ошибка бронирования заказа:\n' + message + '!';
             $(".alert")[0].style.display = "block";
