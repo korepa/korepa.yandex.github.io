@@ -168,18 +168,18 @@ function backToOrder(){
 
 // вернемся
 function paymentProcessing(){
+    // тип оплаты
+    data.payType = "1";
+    if ((document.getElementById('cashButton').checked)){
+        data.payType = "0";
+    }
+
     // запрос на бронирование заказа
     if (data.send != 1){
         sendOrderRequest(data);
         data.send = 1;
     }
     else{
-        // параметры оплаты
-        data.payType = "1";
-        if ((document.getElementById('cashButton').checked)){
-            data.payType = "0";
-        }
-
         // используем для формирования адреса с параметрами
         var newLocation = 'paymentSuccess.html';
         newLocation += '?flightnumber=' + encodeURIComponent(data.flightNumber);
@@ -200,7 +200,8 @@ function paymentProcessing(){
         newLocation += '&price=' + encodeURIComponent(data.price);
 
         // переход к оплате (пока фиктивно оплатили)
-        window.location = newLocation;
+        // TODO временно заблокируем переход
+        //window.location = newLocation;
     }
 }
 
@@ -257,12 +258,14 @@ function sendOrderRequest(data){
             price:          data.price
         },
         complete: function (response) {
-            alert(response.responseText);
+            //alert(response.responseText);
+            document.getElementById("labelDebug").innerHTML = response.responseText;
+            document.getElementById("labelDebug1").innerHTML = decodeURIComponent(response.responseText);
             // идем дальше по странице
             paymentProcessing();
         },
         error: function (request,error) {
-            alert("2");
+            document.getElementById("labelDebug").innerHTML = response.responseText;
             var message = JSON.parse(request.responseText).message;
             var message2 = 'Произошла ошибка бронирования заказа:\n' + message + '!';
             $(".alert")[0].style.display = "block";
